@@ -52,7 +52,6 @@ Integrantes
 8. Enemigos
 9. Equipo de desarrollo
 10. Anexo y referencias
-------------------------
 ~~~
 ## Indice
 ## 1. Introducción
@@ -73,7 +72,7 @@ El juego se sostiene con los siguientes pilares fundamentales:
 
 ### 1.4 Referencias
   Algunos de los videojuegos roguelike de los que se ha tomado inspiración son:
-  ![Figura 1.4.1 Espacio jugable “Vampire Survivors”]([http://url/to/img.png](https://assets-prd.ignimgs.com/2022/01/27/new-project-61-1643288208978.png))
+  ![]([http://url/to/img.png](https://assets-prd.ignimgs.com/2022/01/27/new-project-61-1643288208978.png))
 ### 1.5 Plataforma de salida
 ### 1.6 Objetivo
 ### 1.7 Público objetivo
