@@ -82,7 +82,7 @@ El juego se sostiene con los siguientes pilares fundamentales:
 
   **Brotato**
   
-![images](https://github.com/PoceroJunior/51-Assault/assets/92980019/2a82ad13-ba48-4e43-a607-90ddbf7e8d77)
+<p align=center>![images](https://github.com/PoceroJunior/51-Assault/assets/92980019/2a82ad13-ba48-4e43-a607-90ddbf7e8d77)</p>
 <p align=center>Figura 1.4.3 Espacio jugable “Brotato”</p>
   
 ![2x1_NSwitchDS_Brotato_image1600w](https://github.com/PoceroJunior/51-Assault/assets/92980019/bb9dd02f-60d7-40b0-9d85-1d9fa21bf4eb)
@@ -99,16 +99,45 @@ El juego se sostiene con los siguientes pilares fundamentales:
   ![The-Binding-Of-Isaac-Rebirth-1024x680](https://github.com/PoceroJunior/51-Assault/assets/92980019/30b738e9-cec7-471c-8a68-5c39b5bd7f69)
 <p align=center>Figura 1.4.7 Espacio jugable “The Binding of Isaac”</p>
 
-![The_Binding_of_Issac_Rebirth_cover](https://github.com/PoceroJunior/51-Assault/assets/92980019/9ad21605-682f-4879-9c67-5bc7c1ac2544)
+<p align=center>![The_Binding_of_Issac_Rebirth_cover](https://github.com/PoceroJunior/51-Assault/assets/92980019/9ad21605-682f-4879-9c67-5bc7c1ac2544)</p>
 <p align=center>Figura 1.4.8 Carátula del juego “The Binding of Isaac”</p>
 
 ### 1.5 Plataforma de salida
+El juego estará disponible exclusivamente en PC, lo que permite concentrar esfuerzos en la optimización y la experiencia de juego en esta plataforma.
 ### 1.6 Objetivo
+El objetivo principal de *51 Assault* es sobrevivir durante 5 minutos proporcionar una experiencia de juego intensa en la que los jugadores enfrentan la invasión alienígena en conjunto y desbloqueen mejoras para conseguirlo. 
 ### 1.7 Público objetivo
+El público objetivo se sitúa alrededor de los mayores del PEGI 12.
+Entre los jugadores, encontramos los siguientes arquetipos:
+
+- Jugadores de acción cooperativa: Aquellos que disfrutan colaborar con amigos o compañeros en juegos que requieren estrategia y comunicación en tiempo real.
+
+- Amantes de los juegos retro y pixel art: Los aficionados a la estética pixel art encontrarán en 51 Assault una experiencia visual algo nostálgica que evoca los clásicos de la era de los 16 bits.
+
+- Fanáticos del género hack and slash: Quienes buscan combates intensos y emocionantes se sentirán atraídos por la acción frenética y las habilidades implementadas en *51 Assault*.
+
+- Entusiastas de la ciencia ficción: Los amantes de la ciencia ficción apreciarán la estética alien envolvente y los elementos misteriosos que rodean a la invasión alienígena.
+
 ### 1.8 Estilo visual
+- Estética Pixel Art: Cada personaje, enemigo y entorno se ha diseñado con píxeles, lo que proporciona un aspecto único y una sensación retro al juego.
+
+- Atmósfera Oscuro-Futurista: El mundo de *"51 Assault"* está inmerso en un ambiente oscuro y futurista, donde las ruinas y la tecnología avanzada se mezclan en una lucha desesperada por la supervivencia.
+
+- Detalles Cautivadores: A pesar de la simplicidad del pixel art, se presta atención a los detalles para crear una experiencia visual rica y cautivadora que sumerge a los jugadores en el universo del juego.
 
 ## 2. Mapa de juego
+Nos imaginamos que nuestros personajes se han infiltrado en las instalaciones militares en Nevada “Area 51”. Han notado la intrusión y han cerrado las puertas, estás atrapado.
+
+El mapa será un espacio plano (sin alturas) basado en una idea de como podría ser el interior de la base (como si fuesen hangares subterráneos). En un principio, no habrá colisiones ni objetos por este mapa, excepto los límites definidos. En caso de necesitar complicar el escenario, se crearán paredes y elementos como cajas que entorpezcan el camino de los jugadores. De esta manera, la dinámica cambia de forma radical e incluso se puede focalizar la zona de aparición de enemigos para complicar el escenario. 
+
+
+El mapa tendrá delimitadas dos zonas cuadradas. 
+- La primera de estas, ocupando por completo el espacio generable, se usará para spawnear enemigos en las zonas externas de la pantalla para que no haya popup de los mismos. 
+
+- La segunda será de, aproximadamente, 3 ⁄ 4 del total generable. Estando dentro de la primera, evita que se generen enemigos en su espacio visible. Será lo que el jugador vea en todo momento. El espacio es, en un principio, estático, y es la zona jugable en la que spawnean power ups y armas para que usen los jugadores.
+
 ### 2.1 Escenario
+Para el escenario se ha decidido implementar una paleta de colores grisáceos-industriales que hagan recordar a lo ya descrito, “un hangar subterráneo”. Además, se han elegido a conciencia para que más adelante, los colores de los personajes y de los enemigos se puedan diferenciar bien del mapa, para mejor visibilidad y menor confusión.
 
 ## 3. Mecánicas de juego
 
