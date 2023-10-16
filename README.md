@@ -72,10 +72,35 @@ El juego se sostiene con los siguientes pilares fundamentales:
 
 ### 1.4 Referencias
   Algunos de los videojuegos roguelike de los que se ha tomado inspiración son:
+
+  **Vampire Survivors**
 ![FJ4Tw-nWQAcljSH](https://github.com/PoceroJunior/51-Assault/assets/92980019/6559df3e-78e5-43dc-9255-2687336e59ce)
+<p style="text-align: center;">Figura 1.4.1 Espacio jugable “Vampire Survivors”</p>
 
+![2x1_NSwitchDS_VampireSurvivors](https://github.com/PoceroJunior/51-Assault/assets/92980019/1256e844-7bb9-4a87-8682-50847b1d5de1)
+<p style="text-align: center;">Figura 1.4.2 Carátula del juego “Vampire Survivors”</p>
 
-)
+  **Brotato**
+![images](https://github.com/PoceroJunior/51-Assault/assets/92980019/2a82ad13-ba48-4e43-a607-90ddbf7e8d77)
+<p style="text-align: center;">Figura 1.4.3 Espacio jugable “Brotato”</p>
+  
+![2x1_NSwitchDS_Brotato_image1600w](https://github.com/PoceroJunior/51-Assault/assets/92980019/bb9dd02f-60d7-40b0-9d85-1d9fa21bf4eb)
+<p style="text-align: center;">Figura 1.4.4 Carátula del juego “Brotato”</p>
+
+  **Enter the Gungeon**
+  ![EnterTheGungeon_S2_1200x1600_1200x1600-4d79aae1e860c191c706e4e8bfdef244](https://github.com/PoceroJunior/51-Assault/assets/92980019/cdbdb680-08d8-4269-97fb-9995b2ab409a)
+<p style="text-align: center;">Figura 1.4.6 Carátula del juego “Enter the Gungeon”</p>
+
+![enter-the-gungeon-104807](https://github.com/PoceroJunior/51-Assault/assets/92980019/1a27afa5-2db3-4af6-bd6f-2e6ebd06550f)
+<p style="text-align: center;">Figura 1.4.5 Espacio jugable “Enter the Gungeon”</p>
+
+  **The Binding of Isaac**
+  ![The-Binding-Of-Isaac-Rebirth-1024x680](https://github.com/PoceroJunior/51-Assault/assets/92980019/30b738e9-cec7-471c-8a68-5c39b5bd7f69)
+<p style="text-align: center;">Figura 1.4.7 Espacio jugable “The Binding of Isaac”</p>
+
+![The_Binding_of_Issac_Rebirth_cover](https://github.com/PoceroJunior/51-Assault/assets/92980019/9ad21605-682f-4879-9c67-5bc7c1ac2544)
+<p style="text-align: center;">Figura 1.4.8 Carátula del juego “The Binding of Isaac”</p>
+
 ### 1.5 Plataforma de salida
 ### 1.6 Objetivo
 ### 1.7 Público objetivo
