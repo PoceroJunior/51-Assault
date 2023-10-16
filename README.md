@@ -72,7 +72,9 @@ El juego se sostiene con los siguientes pilares fundamentales:
 
 ### 1.4 Referencias
   Algunos de los videojuegos roguelike de los que se ha tomado inspiración son:
-![Figura 1.4.1 Espacio jugable “Vampire Survivors”](![image](https://github.com/PoceroJunior/51-Assault/assets/92980019/20e57e17-87a1-4926-89e5-4bd0e2ccdac4)
+![FJ4Tw-nWQAcljSH](https://github.com/PoceroJunior/51-Assault/assets/92980019/6559df3e-78e5-43dc-9255-2687336e59ce)
+
+
 )
 ### 1.5 Plataforma de salida
 ### 1.6 Objetivo
