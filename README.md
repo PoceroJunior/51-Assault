@@ -2,12 +2,12 @@
 *51 Assault es un juego de acción cooperativa en pixel art inspirado en los más recientes éxitos de los juegos roguelike y los hack and slash. Este documento presenta una visión general del proyecto, destacando sus aspectos clave. Combina la acción intensa y la estrategia cooperativa en un entorno pixel art que captura la esencia de la lucha desesperada de la humanidad contra una amenaza alienígena apocalíptica.*
 
 ~~~
-Integrantes
-- Sergio López Llorente: 
-- Iván Jiménez Blas: 
-- Alejandro Serrejón Beltrán: a.serrejon.2021@alumnos.urjc.es
-- Sonia Montero Nogales:
-- Elena Milara Mencía: e.milara.2021@alumnos.urjc.es
+Integrantes:
+- Sergio López Llorente: s.lopezl.2021@alumnos.urjc.es | Usuario Github: ZepolTtv
+- Iván Jiménez Blas: i.jimenezb.2021@alumnos.urjc.es | Usuario Github: StrubleI
+- Alejandro Serrejón Beltrán: a.serrejon.2021@alumnos.urjc.es | Usuario Github: SerreGod
+- Elena Milara Mencía: e.milara.2021@alumnos.urjc.es | Usuario Github: PoceroJunior
+- Sonia Montero Nogales: s.montero.2019@alumnos.urjc.es | Usuario Github: Sonia6u
 ~~~
 
 # 51 Assault: Documento de diseño de videojuego
@@ -69,7 +69,7 @@ Entre los jugadores, encontramos los siguientes arquetipos:
 
 - Jugadores de acción cooperativa: Aquellos que disfrutan colaborar con amigos o compañeros en juegos que requieren estrategia y comunicación en tiempo real.
 
-- Amantes de los juegos retro y pixel art: Los aficionados a la estética pixel art encontrarán en 51 Assault una experiencia visual algo nostálgica que evoca los clásicos de la era de los 16 bits.
+- Amantes de los juegos retro y pixel art: Los aficionados a la estética pixel art encontrarán en *51 Assault* una experiencia visual algo nostálgica que evoca los clásicos de la era de los 16 bits.
 
 - Fanáticos del género hack and slash: Quienes buscan combates intensos y emocionantes se sentirán atraídos por la acción frenética y las habilidades implementadas en *51 Assault*.
 
@@ -280,7 +280,6 @@ El ataque y vida de los enemigos están ligados a su tipo, así como su forma de
   Tipo de ataque: Rayo.
   Referencias:
 
-
 - Planetario (PV: 4  PD: 1)
   Descripción: Planetas enanos que giran en torno a un pequeño sol. Es como una galaxia funcional en miniatura. Cuando ataca, lanza pequeños planetas a altas       velocidades.
   Trasfondo: En sus pequeños orbes habitaba todo un ecosistema de seres vivos, el cuál fue destruido cuando los Planetarios entraron en la atmósfera terrestre      por accidente. Ahora buscan consuelo en la destrucción de todo lo ajeno.
@@ -288,7 +287,6 @@ El ataque y vida de los enemigos están ligados a su tipo, así como su forma de
   Velocidad de ataque: Alta
   Tipo de ataque: Proyectil
   Referencias:
-
 
 - Peces de Lava (PV: 6  PD: 2)
   Descripción: Criaturas de lava que están cubiertas por una esfera de vidrio. Por unos orificios que rodean su cápsula, disparan bolas de magma.
@@ -306,8 +304,6 @@ El ataque y vida de los enemigos están ligados a su tipo, así como su forma de
   Tipo de ataque: Rayos y proyectiles
   Referencias:
 
-
-
 - Carroñero (PV: 10  PD: 5)
   Descripción: Alienígena alto y alargado con mandíbulas enormes. Una resistente coraza lo protege de ataques mientras muerde a diestro y siniestro.
   Trasfondo: Los Carroñeros son hambrientas criaturas que habitan en agujeros negros y solo han conocido la materia muerta. Cuando fueron traídos a la Tierra, su   voracidad aumentó y sus gustos cambiaron. Ahora solo se conforman con lo que está vivo.
@@ -321,9 +317,9 @@ En cuanto a sus paletas de colores, nos remitimos a los usados en el anterior ap
 <p align=center>Figura 8.1 Referencia de las paletas de color enemigos</p>
 
 ## 9. Equipo de desarrollo
-El estudio Zepol Game Studios está conformado por:
 ![zepol](https://github.com/PoceroJunior/51-Assault/assets/92980019/7b877746-218d-4715-8c01-6705d83c5e59)
 
+El estudio Zepol Game Studios está conformado por:
 - Sergio López Llorente
 - Iván Jiménez Blas
 - Alejandro Serrejón Beltrán
