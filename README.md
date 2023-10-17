@@ -319,6 +319,7 @@ El ataque y vida de los enemigos están ligados a su tipo, así como su forma de
   Velocidad de ataque: Alta
   Tipo de ataque: Rayos y proyectiles
   Referencias:
+  
 ![Captura de pantalla 2023-10-17 164853](https://github.com/PoceroJunior/51-Assault/assets/92980019/7e0d3fe6-bfcd-481c-b447-0e79964c5e9f)
 
 - Carroñero (PV: 10  PD: 5)
