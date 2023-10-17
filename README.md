@@ -130,21 +130,35 @@ Algunos de los tipos de recursos obtenibles son:
 - Onigiri: Regenera 3 PV (puntos de vida). Tasa de spawneo: Alta
 
 - Dango: Regenera 5 PV. Tasa de spawneo: Media
+  Referencia:
+![Captura de pantalla 2023-10-17 165852](https://github.com/PoceroJunior/51-Assault/assets/92980019/45c9363c-7420-4a80-a438-c763c8109111)
 
 - Bento box: Aumenta en 1 PV la vida máxima del jugador. Tasa de spawneo: Muy Baja
 
 - Neko cascos: Por 15 segundos, aumenta la velocidad del movimiento del jugador en un 50% y su velocidad de ataque en un 30%. Durante ese periodo de tiempo se escuchará una canción de una serie anime. Tasa de spawneo: Media
+Referencia:
+![Captura de pantalla 2023-10-17 164753](https://github.com/PoceroJunior/51-Assault/assets/92980019/ea288c4b-a0f7-4e93-8c2b-7bc79178f2ad)
 
-- Plumas de fénix: Si entre los dos jugadores han recogido siete bolas de dragón y uno de los dos muere, las esferas de dragón se consumen y el jugador regresa a la vida con 5 PV. Tasa de spawneo: Limitada a 7 en toda la partida.
+- La Colección: Si entre los dos jugadores han recogido siete mangas y uno de los dos muere, la Colección se consume y el jugador regresa a la vida con 5 PV.
+Tasa de spawneo: Limitada a 7 mangas en toda la partida.
 
-- Escudo eléctrico: Un aura dorada protege al jugador de un golpe que pueda recibir. Desaparece cuando recibe un golpe o cuando transcurren 10 segundos. Tasa de spawneo: Baja
+- Torreta: El jugador se queda inmóvil durante 8 segundos en el sitio en el que ha sido recogida la torreta, pero su velocidad de ataque aumenta en un 100%.
+Tasa de spawneo: Baja
 
-- Onda láser: Una onda expansiva elimina a los enemigos que se encuentren en un radio determinado de distancia. Tras efectuar el ataque láser, ésta desaparece. Tasa de Spawneo: Baja
+- Escudo eléctrico: Un aura dorada protege al jugador de un golpe que pueda recibir. Desaparece cuando recibe un golpe o cuando transcurren 10 segundos.
+Tasa de spawneo: Baja
 
-- Acelerador de partículas: El arma del jugador hace 1 PD (punto de daño) adicional. Tasa de spawneo: Muy baja
+
+- Onda láser: Una onda expansiva elimina a los enemigos que se encuentren en un radio determinado de distancia. Tras efectuar el ataque láser, ésta desaparece.
+Tasa de Spawneo: Baja
+
+
+- Acelerador de partículas: El arma del jugador hace 1 PD (punto de daño) adicional.
+Tasa de spawneo: Muy baja
+
 
 #### 3.1.6. Derrota	
-Los jugadores pierden la partida cuando uno de los dos muere; es decir, su vida se reduce a cero puntos de vida. (Hay dos excepciones: con una de las habilidades “Resurgir del fénix” o usando “Las Bolas de Dragón”).
+Los jugadores pierden la partida cuando uno de los dos muere; es decir, su vida se reduce a cero puntos de vida. (Hay dos excepciones: con una de las habilidades “Resurgir del fénix” o usando “La Colección”).
 
 #### 3.1.7. Victoria
 Para conseguir superar el nivel, los jugadores precisarán de eliminar a cierta cantidad de enemigos antes de poder finalizar.
@@ -266,51 +280,55 @@ Existen diferentes tipos de enemigos que atacarán al jugador. Conforme avance e
 El ataque y vida de los enemigos están ligados a su tipo, así como su forma de enfrentarse al jugador y de moverse. Además, cada tipo de enemigo tiene un sprite asociado, es decir, una apariencia que lo distingue de otras clases. Tipos:
 
 - Cuatro dedos (PV (Puntos de vida): 2   PD (Puntos de daño): 2)
-  Descripción: Una abominación que se arrastra por el suelo e intenta tocar desesperadamente a los jugadores con uno de sus cuatro dedos, el cuál está iluminado    de rojo.
-  Trasfondo: Es una criatura inocente capaz de otorgar a otras razas la inmortalidad con su mero tacto. Sin embargo, desconoce que para los humanos su contacto     no es una bendición sino una maldición y tan solo les sustrae la vida.
+  Descripción: Una abominación que se arrastra por el suelo e intenta tocar desesperadamente a los jugadores con uno de sus cuatro dedos, el cuál está iluminado de rojo.
+  Trasfondo: Es una criatura inocente capaz de otorgar a otras razas la inmortalidad con su mero tacto. Sin embargo, desconoce que para los humanos su contacto no es una bendición sino una maldición y tan solo les sustrae la vida.
   Velocidad de movimiento: Media
-  Tipo de ataque: Cuerpo a cuerpo. 
-  Referencias:
-
+  Tipo de ataque: Cuerpo a cuerpo.
+  
 - Serpiente láser (PV: 2  PD: 3)
-  Descripción: Ágil reptil negro con forma de pistola. Su boca se abre para disparar rayos de plasma. Cada vez que lo hace, se queda quieta y una extremidad que    sobresale de su cuello se contrae, a modo de gatillo.
-  Trasfondo: Se dice que hace tan solo doce lunas, era usada en su planeta natal como arma de fuego. Pero esto llegó a su fin cuando descubrieron que sus           portadores no tenían otras armas para defenderse de ellas.
+  Descripción: Ágil reptil negro con forma de pistola. Su boca se abre para disparar rayos de plasma. Cada vez que lo hace, se queda quieta y una extremidad que sobresale de su cuello se contrae, a modo de gatillo.
+  Trasfondo: Se dice que hace tan solo doce lunas, era usada en su planeta natal como arma de fuego. Pero esto llegó a su fin cuando descubrieron que sus portadores no tenían otras armas para defenderse de ellas.
   Velocidad de movimiento: Alta
   Velocidad de ataque: Baja
   Tipo de ataque: Rayo.
-  Referencias:
 
 - Planetario (PV: 4  PD: 1)
-  Descripción: Planetas enanos que giran en torno a un pequeño sol. Es como una galaxia funcional en miniatura. Cuando ataca, lanza pequeños planetas a altas       velocidades.
-  Trasfondo: En sus pequeños orbes habitaba todo un ecosistema de seres vivos, el cuál fue destruido cuando los Planetarios entraron en la atmósfera terrestre      por accidente. Ahora buscan consuelo en la destrucción de todo lo ajeno.
+  Descripción: Planetas enanos que giran en torno a un pequeño sol. Es como una galaxia funcional en miniatura. Cuando ataca, lanza pequeños planetas a altas velocidades.
+  Trasfondo: En sus pequeños orbes habitaba todo un ecosistema de seres vivos, el cuál fue destruido cuando los Planetarios entraron en la atmósfera terrestre por accidente. Ahora buscan consuelo en la destrucción de todo lo ajeno.
   Velocidad de movimiento: Baja
   Velocidad de ataque: Alta
   Tipo de ataque: Proyectil
   Referencias:
+  ![que-es-una-galaxia-y-como-se-forman-estas-colonias-espaciales-1024x573](https://github.com/PoceroJunior/51-Assault/assets/92980019/7cd992bf-c11a-477e-a77f-5f588f473b19)
 
+  
 - Peces de Lava (PV: 6  PD: 2)
   Descripción: Criaturas de lava que están cubiertas por una esfera de vidrio. Por unos orificios que rodean su cápsula, disparan bolas de magma.
-  Trasfondo: Los peces de lava habitan dentro de prácticamente todos los planetas y forman parte de su núcleo. Cuando salen al exterior, se convierten en magma y   pierden tanto su conciencia como su forma. Estos monstruos han sido cubiertos en vidrio para que no pierdan su esencia.
+  Trasfondo: Los peces de lava habitan dentro de prácticamente todos los planetas y forman parte de su núcleo. Cuando salen al exterior, se convierten en magma y pierden tanto su conciencia como su forma. Estos monstruos han sido cubiertos en vidrio para que no pierdan su esencia.
   Velocidad de movimiento: Ninguna. Permanecen estáticos.
   Velocidad de ataque: Media
   Tipo de ataque: Proyectil
-  Referencias:
+  Referencia:
+  ![Captura de pantalla 2023-10-17 165941](https://github.com/PoceroJunior/51-Assault/assets/92980019/3bc2a68b-a364-42a6-b420-8dfb1ede73ff)
+
 
 - Estrellado (PV: 7  PD: 1)
   Descripción: Dispara rayos dorados en cinco direcciones distintas equidistantes. A la vez, lanza proyectiles en forma de estrella hacia el jugador. 
-  Trasfondo: Cobran vida de los restos de estrellas fugaces a las que se les ha pedido un deseo. Cada vez que un Estrellado muere, se cumple el deseo con el que    fueron creados. 
+  Trasfondo: Cobran vida de los restos de estrellas fugaces a las que se les ha pedido un deseo. Cada vez que un Estrellado muere, se cumple el deseo con el que fueron creados. 
   Velocidad y patrón de movimiento: Alta
   Velocidad de ataque: Alta
   Tipo de ataque: Rayos y proyectiles
   Referencias:
+![Captura de pantalla 2023-10-17 164853](https://github.com/PoceroJunior/51-Assault/assets/92980019/7e0d3fe6-bfcd-481c-b447-0e79964c5e9f)
 
 - Carroñero (PV: 10  PD: 5)
   Descripción: Alienígena alto y alargado con mandíbulas enormes. Una resistente coraza lo protege de ataques mientras muerde a diestro y siniestro.
-  Trasfondo: Los Carroñeros son hambrientas criaturas que habitan en agujeros negros y solo han conocido la materia muerta. Cuando fueron traídos a la Tierra, su   voracidad aumentó y sus gustos cambiaron. Ahora solo se conforman con lo que está vivo.
+  Trasfondo: Los Carroñeros son hambrientas criaturas que habitan en agujeros negros y solo han conocido la materia muerta. Cuando fueron traídos a la Tierra, su voracidad aumentó y sus gustos cambiaron. Ahora solo se conforman con lo que está vivo.
   Velocidad y patrón de movimiento: Media
   Velocidad de ataque: Media
   Tipo de ataque: Cuerpo a cuerpo
   Referencias:
+![insect-7014450_1280](https://github.com/PoceroJunior/51-Assault/assets/92980019/742f1636-46a7-40ea-8407-f137e43502f2)
 
 En cuanto a sus paletas de colores, nos remitimos a los usados en el anterior apartado para demostrar el contraste con el de los jugadores:
 ![Color_Personajes_Enemigos](https://github.com/PoceroJunior/51-Assault/assets/92980019/6b951402-e7f7-4ae1-bc1b-ac2f4a5eb0eb)
@@ -343,10 +361,19 @@ https://www.instagram.com/p/CIx8WFBH2kR/?igshid=1dzog3rit911a
 
 - penusbmic | pixel artist on Instagram: "Working on some new doods" (sci-fi pack 11). (s.f.). Instagram. https://www.instagram.com/p/CLRjdUJnnJb/?igshid=mxvk1apchjtb&amp;epik=dj0yJnU9VjFnLTlPU2JkNU9yb01oUm9nOUtaWm9qMHViaU11UTQmcD0wJm49S1BNQngyUG9rVi1EUU9mbTdGRGxFdyZ0PUFBQUFBR1Vyd3Rr
 
+- Weiterleitungshinweis. (s.f.). Google. https://www.google.com/url?sa=i&amp;url=https://www.freepik.es/vector-premium/lindo-gato-oreja-auriculares-auriculares-bluetooth-diseno-ilustracion-vectorial_17451473.htm&amp;psig=AOvVaw32QCDTUl0NCQvdBbWpc43a&amp;ust=1697639123808000&amp;source=images&amp;cd=vfe&amp;opi=89978449&amp;ved=0CBEQjRxqFwoTCPj3tNek_YEDFQAAAAAdAAAAABAE
+- Ilustración de la dulzura japonesa dango street food | Vector Premium. (2022, 20 de junio). Freepik. https://www.freepik.es/vector-premium/ilustracion-dulzura-japonesa-dango-street-food_28498398.htm
+- vecteezy. (s.f.). https://es.vecteezy.com/png-gratis/estrella-fugaz.
+- Google-Ergebnis für https://cdn.pixabay.com/photo/2022/02/15/07/46/insect-7014450_1280.png. (s.f.). Google. https://www.google.com/imgres?imgurl=https://cdn.pixabay.com/photo/2022/02/15/07/46/insect-7014450_1280.png&amp;tbnid=qA8X5qg8vKaqcM&amp;vet=12ahUKEwjBxp6Gqf2BAxXTnycCHSCgDIwQMygWegUIARCqAQ..i&amp;imgrefurl=https://pixabay.com/es/vectors/insecto-escarabajo-dibujo-7014450/&amp;docid=D93FZEjTkHwTFM&amp;w=1280&amp;h=711&amp;q=insecto%20dibujo&amp;ved=2ahUKEwjBxp6Gqf2BAxXTnycCHSCgDIwQMygWegUIARCqAQ
+- Equipo Editorial de ExpertoAnimal. (2016, 25 de febrero). Pez dorado - Características, cuidados y salud (con fotos). expertoanimal.com. https://www.expertoanimal.com/carpas/pez-dorado.html
+- Qué es una galaxia y cómo se forman estas “colonias espaciales” - National Geographic en Español. (s.f.). National Geographic en Español. https://www.ngenespanol.com/el-espacio/que-es-una-galaxia-y-como-se-forman-estas-colonias-espaciales/
+
 - Pokemon Rojo Fuego Gameboy Advance Laboratorio Pokémon
 https://pokemon.fandom.com/es/wiki/Laboratorio_del_profesor_Oak
+
 
 - Looper - The Last Mission by Coding4rtist. (s.f.). itch.io. https://coding4rtist.itch.io/looper-the-last-mission
 Sci-fi User Interface by buch415.deviantart.com on @DeviantArt | Pixel art design, Pixel art tutorial, Pixel art games. (s.f.). Pinterest. https://ar.pinterest.com/pin/560276009878561744/
 Released my own Vampire Survivors-like game! - Godot Forums. (s.f.). Godot Forums. https://godotforums.org/d/31391-released-my-own-vampire-survivors-like-game
+
 
