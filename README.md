@@ -130,6 +130,7 @@ Algunos de los tipos de recursos obtenibles son:
 - Onigiri: Regenera 3 PV (puntos de vida). Tasa de spawneo: Alta
 
 - Dango: Regenera 5 PV. Tasa de spawneo: Media
+
   Referencia:
 ![Captura de pantalla 2023-10-17 165852](https://github.com/PoceroJunior/51-Assault/assets/92980019/45c9363c-7420-4a80-a438-c763c8109111)
 
