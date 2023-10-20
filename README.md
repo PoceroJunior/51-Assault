@@ -137,6 +137,7 @@ Algunos de los tipos de recursos obtenibles son:
 - Bento box: Aumenta en 1 PV la vida máxima del jugador. Tasa de spawneo: Muy Baja
 
 - Neko cascos: Por 15 segundos, aumenta la velocidad del movimiento del jugador en un 50% y su velocidad de ataque en un 30%. Durante ese periodo de tiempo se escuchará una canción de una serie anime. Tasa de spawneo: Media
+  
 Referencia:
 ![Captura de pantalla 2023-10-17 164753](https://github.com/PoceroJunior/51-Assault/assets/92980019/ea288c4b-a0f7-4e93-8c2b-7bc79178f2ad)
 
