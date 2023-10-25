@@ -30,33 +30,48 @@ El juego se sostiene con los siguientes pilares fundamentales:
 ### 1.4 Referencias
   Algunos de los videojuegos roguelike de los que se ha tomado inspiración son:
 
-  **Vampire Survivors**
-![FJ4Tw-nWQAcljSH](https://github.com/PoceroJunior/51-Assault/assets/92980019/6559df3e-78e5-43dc-9255-2687336e59ce)
+<p align= "center"><strong> Vampire Survivors </strong> </p>
+<p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/6559df3e-78e5-43dc-9255-2687336e59ce)" width= '300' height='300'/>
+</p>
 <p align=center>Figura 1.4.1 Espacio jugable “Vampire Survivors”</p>
 
-![2x1_NSwitchDS_VampireSurvivors](https://github.com/PoceroJunior/51-Assault/assets/92980019/1256e844-7bb9-4a87-8682-50847b1d5de1)
+<p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/1256e844-7bb9-4a87-8682-50847b1d5de1" width= '300' height='300'/>
+</p>
 <p align=center>Figura 1.4.2 Carátula del juego “Vampire Survivors”</p>
 
-  **Brotato**
-  
-![images](https://github.com/PoceroJunior/51-Assault/assets/92980019/2a82ad13-ba48-4e43-a607-90ddbf7e8d77)
+<p align= "center"><strong> Brotato </strong> </p>
+<p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/2a82ad13-ba48-4e43-a607-90ddbf7e8d77" width= '300' height='300'/>
+</p>
 <p align=center>Figura 1.4.3 Espacio jugable “Brotato”</p>
-  
-![2x1_NSwitchDS_Brotato_image1600w](https://github.com/PoceroJunior/51-Assault/assets/92980019/bb9dd02f-60d7-40b0-9d85-1d9fa21bf4eb)
+
+<p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/bb9dd02f-60d7-40b0-9d85-1d9fa21bf4eb" width= '300' height='300'/>
+</p>
 <p align=center>Figura 1.4.4 Carátula del juego “Brotato”</p>
 
-  **Enter the Gungeon**
-![EnterTheGungeon_S2_1200x1600_1200x1600-4d79aae1e860c191c706e4e8bfdef244](https://github.com/PoceroJunior/51-Assault/assets/92980019/cdbdb680-08d8-4269-97fb-9995b2ab409a)
+<p align= "center"> <strong>Enter the Gungeon</strong> </p>
+<p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/cdbdb680-08d8-4269-97fb-9995b2ab409a" width= '300' height='300'/>
+</p>
 <p align=center>Figura 1.4.6 Carátula del juego “Enter the Gungeon”</p>
 
-![enter-the-gungeon-104807](https://github.com/PoceroJunior/51-Assault/assets/92980019/1a27afa5-2db3-4af6-bd6f-2e6ebd06550f)
+<p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/1a27afa5-2db3-4af6-bd6f-2e6ebd06550f" width= '300' height='300'/>
+</p>
 <p align=center>Figura 1.4.5 Espacio jugable “Enter the Gungeon”</p>
 
-  **The Binding of Isaac**
-![The-Binding-Of-Isaac-Rebirth-1024x680](https://github.com/PoceroJunior/51-Assault/assets/92980019/30b738e9-cec7-471c-8a68-5c39b5bd7f69)
+<p align= "center"> <strong>The Binding of Isaac</strong> </p>
+<p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/30b738e9-cec7-471c-8a68-5c39b5bd7f69" width= '300' height='300'/>
+</p>
 <p align=center>Figura 1.4.7 Espacio jugable “The Binding of Isaac”</p>
 
-![The_Binding_of_Issac_Rebirth_cover](https://github.com/PoceroJunior/51-Assault/assets/92980019/9ad21605-682f-4879-9c67-5bc7c1ac2544)
+<p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/9ad21605-682f-4879-9c67-5bc7c1ac2544" width= '300' height='300'/>
+</p>
 <p align=center>Figura 1.4.8 Carátula del juego “The Binding of Isaac”</p>
 
 ### 1.5 Plataforma de salida
@@ -95,13 +110,20 @@ El mapa tendrá delimitadas dos zonas cuadradas.
 
 ### 2.1 Escenario
 Para el escenario se ha decidido implementar una paleta de colores grisáceos-industriales que hagan recordar a lo ya descrito, “un hangar subterráneo”. Además, se han elegido a conciencia para que más adelante, los colores de los personajes y de los enemigos se puedan diferenciar bien del mapa, para mejor visibilidad y menor confusión.
-![Color_Pallette_fondo](https://github.com/PoceroJunior/51-Assault/assets/92980019/b33f5e55-aa43-4075-8da6-b0510546c938)
+
+<p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/b33f5e55-aa43-4075-8da6-b0510546c938" width= '300' height='300'/>
+</p>
 <p align=center>Figura 2.1 Paleta de colores del escenario</p>
 
-![ff04d752424091 591097a3015f4](https://github.com/PoceroJunior/51-Assault/assets/92980019/20aa1a44-d57d-475f-a7f7-22e8d456f89c)
+<p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/20aa1a44-d57d-475f-a7f7-22e8d456f89c" width= '300' height='300'/>
+</p>
 <p align=center>Figuras 2.2 Referencia de escenario de Pokémon</p>
 
-![in9bd8qcxie81](https://github.com/PoceroJunior/51-Assault/assets/92980019/1ab06611-854c-4da1-87ef-c45f635c62b6)
+<p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/1ab06611-854c-4da1-87ef-c45f635c62b6" width= '300' height='300'/>
+</p>
 <p align=center>Figuras 2.3 Referencia de escenario de Looper</p>
 
 ## 3. Mecánicas de juego
@@ -132,15 +154,17 @@ Algunos de los tipos de recursos obtenibles son:
 - Dango: Regenera 5 PV. Tasa de spawneo: Media
 
   Referencia:
-![Captura de pantalla 2023-10-17 165852](https://github.com/PoceroJunior/51-Assault/assets/92980019/45c9363c-7420-4a80-a438-c763c8109111)
-
+<p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/45c9363c-7420-4a80-a438-c763c8109111" width= '300' height='300'/>
+</p>
 - Bento box: Aumenta en 1 PV la vida máxima del jugador. Tasa de spawneo: Muy Baja
 
 - Neko cascos: Por 15 segundos, aumenta la velocidad del movimiento del jugador en un 50% y su velocidad de ataque en un 30%. Durante ese periodo de tiempo se escuchará una canción de una serie anime. Tasa de spawneo: Media
   
 Referencia:
-![Captura de pantalla 2023-10-17 164753](https://github.com/PoceroJunior/51-Assault/assets/92980019/ea288c4b-a0f7-4e93-8c2b-7bc79178f2ad)
-
+<p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/ea288c4b-a0f7-4e93-8c2b-7bc79178f2ad" width= '300' height='300'/>
+</p>
 - La Colección: Si entre los dos jugadores han recogido siete mangas y uno de los dos muere, la Colección se consume y el jugador regresa a la vida con 5 PV.
 Tasa de spawneo: Limitada a 7 mangas en toda la partida.
 
@@ -171,12 +195,16 @@ Las interfaces del juego están diseñadas para reflejar el apartado artístico 
 
 Los botones se presentarán con un tamaño generoso y una claridad visual notable, asegurando que sean fácilmente distinguibles y accesibles para el jugador. La tipografía utilizada será legible, proporcionando una experiencia de usuario fluida y agradable.
 
-![interface](https://github.com/PoceroJunior/51-Assault/assets/92980019/21fa6c47-b098-44ff-b717-27b4739bc06b)
+<p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/21fa6c47-b098-44ff-b717-27b4739bc06b" width= '300' height='300'/>
+</p>
 <p align=center>Figuras 4.1 Referencias de UI</p>
 
 En contraste, la interfaz durante el juego adoptará un enfoque minimalista. Se eliminarán las distracciones visuales innecesarias, permitiendo así que el jugador se sumerja completamente en la experiencia del juego. La información esencial, como el tiempo restante o cualquier otro indicador relevante para la partida en curso, se presentará de forma clara y concisa, garantizando que la atención del jugador esté plenamente centrada en la acción del juego.
 
-![1664834074-985662-screenshot-5](https://github.com/PoceroJunior/51-Assault/assets/92980019/ea3d9200-6947-400f-b144-939f17469e0b)
+<p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/ea3d9200-6947-400f-b144-939f17469e0b" width= '300' height='300'/>
+</p>
 <p align=center>Figuras 4.2 Referencias de la UI en partida</p>
 
 ### 4.2 Flujo de pantalla
@@ -193,7 +221,9 @@ En lo que respecta a la pantalla del juego, se mostrará el tiempo restante para
 Es importante mencionar que las pantallas de victoria y derrota constituirán dos pantallas diferentes a las cuales el jugador será redirigido según el resultado alcanzado durante el juego. Estas escenas proporcionarán una distinción entre la victoria y la derrota, ofreciendo una experiencia inmersiva para el jugador.
 
 Estos estados de las pantallas están reflejados en la siguiente imagen:
-![Captura de pantalla 2023-10-17 020925](https://github.com/PoceroJunior/51-Assault/assets/92980019/da687003-0ec9-4843-a838-911310385ac2)
+<p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/da687003-0ec9-4843-a838-911310385ac2" width= '300' height='300'/>
+</p>
 <p align=center>Figura 4.1 Estados del videojuego</p>
 
 
@@ -220,15 +250,19 @@ Por ejemplo, uno podría mantener habilidades de alta resistencia y curación, m
 Como se ha mencionado anteriormente el estilo artístico será sencillo y realizado en pixelart, con una temática moderna, ya que en la pantalla se mostrarán distintos tipos de enemigos y personajes deben distinguirse y verse con claridad.
 
 La paleta de colores de los 2 personajes jugables serán complementarios, como ejemplo de otros juegos (por ejemplo, jugador 1 tonos azulados, jugador 2 tonos rojizos). Ayudará a distinguirlos de los enemigos, que usarían paletas verdes / grisáceas.
-![Captura de pantalla 2023-10-17 021429](https://github.com/PoceroJunior/51-Assault/assets/92980019/865bc48c-e62b-4fed-b2d7-a8f600fe06e6)
+<p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/865bc48c-e62b-4fed-b2d7-a8f600fe06e6" width= '300' height='300'/>
+</p>
 <p align=center>Figura 7.1 Referencias visuales oscuras</p>
 
-
-![Captura de pantalla 2023-10-17 021200](https://github.com/PoceroJunior/51-Assault/assets/92980019/c55a0acf-35f3-4be2-bf76-b5a0de3d125e)
+<p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/c55a0acf-35f3-4be2-bf76-b5a0de3d125e" width= '300' height='300'/>
+</p>
 <p align=center>Figura 7.2 Referencias visuales grisáceas/verdes</p>
 
-
-![Color_Personajes_Enemigos](https://github.com/PoceroJunior/51-Assault/assets/92980019/abf320a2-9f28-4268-883e-da2d03527b37)
+<p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/abf320a2-9f28-4268-883e-da2d03527b37" width= '300' height='300'/>
+</p>
 <p align=center>Figura 7.3 Referencia de las paletas de color (personajes vs enemigos)</p>
 
 ### 7.2 Armas y habilidades
@@ -301,8 +335,9 @@ El ataque y vida de los enemigos están ligados a su tipo, así como su forma de
   Velocidad de ataque: Alta
   Tipo de ataque: Proyectil
   Referencias:
-  ![que-es-una-galaxia-y-como-se-forman-estas-colonias-espaciales-1024x573](https://github.com/PoceroJunior/51-Assault/assets/92980019/7cd992bf-c11a-477e-a77f-5f588f473b19)
-
+  <p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/7cd992bf-c11a-477e-a77f-5f588f473b19" width= '300' height='300'/>
+</p>
   
 - Peces de Lava (PV: 6  PD: 2)
   Descripción: Criaturas de lava que están cubiertas por una esfera de vidrio. Por unos orificios que rodean su cápsula, disparan bolas de magma.
@@ -311,8 +346,9 @@ El ataque y vida de los enemigos están ligados a su tipo, así como su forma de
   Velocidad de ataque: Media
   Tipo de ataque: Proyectil
   Referencia:
-  ![Captura de pantalla 2023-10-17 165941](https://github.com/PoceroJunior/51-Assault/assets/92980019/3bc2a68b-a364-42a6-b420-8dfb1ede73ff)
-
+<p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/3bc2a68b-a364-42a6-b420-8dfb1ede73ff" width= '300' height='300'/>
+</p>
 
 - Estrellado (PV: 7  PD: 1)
   Descripción: Dispara rayos dorados en cinco direcciones distintas equidistantes. A la vez, lanza proyectiles en forma de estrella hacia el jugador. 
@@ -321,8 +357,9 @@ El ataque y vida de los enemigos están ligados a su tipo, así como su forma de
   Velocidad de ataque: Alta
   Tipo de ataque: Rayos y proyectiles
   Referencias:
-  
-![Captura de pantalla 2023-10-17 164853](https://github.com/PoceroJunior/51-Assault/assets/92980019/7e0d3fe6-bfcd-481c-b447-0e79964c5e9f)
+<p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/7e0d3fe6-bfcd-481c-b447-0e79964c5e9f" width= '300' height='300'/>
+</p>
 
 - Carroñero (PV: 10  PD: 5)
   Descripción: Alienígena alto y alargado con mandíbulas enormes. Una resistente coraza lo protege de ataques mientras muerde a diestro y siniestro.
@@ -331,14 +368,19 @@ El ataque y vida de los enemigos están ligados a su tipo, así como su forma de
   Velocidad de ataque: Media
   Tipo de ataque: Cuerpo a cuerpo
   Referencias:
-![insect-7014450_1280](https://github.com/PoceroJunior/51-Assault/assets/92980019/742f1636-46a7-40ea-8407-f137e43502f2)
-
+<p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/742f1636-46a7-40ea-8407-f137e43502f2" width= '300' height='300'/>
+</p>
 En cuanto a sus paletas de colores, nos remitimos a los usados en el anterior apartado para demostrar el contraste con el de los jugadores:
-![Color_Personajes_Enemigos](https://github.com/PoceroJunior/51-Assault/assets/92980019/6b951402-e7f7-4ae1-bc1b-ac2f4a5eb0eb)
+<p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/6b951402-e7f7-4ae1-bc1b-ac2f4a5eb0eb" width= '300' height='300'/>
+</p>
 <p align=center>Figura 8.1 Referencia de las paletas de color enemigos</p>
 
 ## 9. Equipo de desarrollo
-![zepol](https://github.com/PoceroJunior/51-Assault/assets/92980019/7b877746-218d-4715-8c01-6705d83c5e59)
+<p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/7b877746-218d-4715-8c01-6705d83c5e59" width= '300' height='300'/>
+</p>
 
 El estudio Zepol Game Studios está conformado por:
 - Sergio López Llorente
