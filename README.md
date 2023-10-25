@@ -251,17 +251,17 @@ Como se ha mencionado anteriormente el estilo artístico será sencillo y realiz
 
 La paleta de colores de los 2 personajes jugables serán complementarios, como ejemplo de otros juegos (por ejemplo, jugador 1 tonos azulados, jugador 2 tonos rojizos). Ayudará a distinguirlos de los enemigos, que usarían paletas verdes / grisáceas.
 <p align="center">
-  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/865bc48c-e62b-4fed-b2d7-a8f600fe06e6" width= '550' height='300'/>
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/865bc48c-e62b-4fed-b2d7-a8f600fe06e6" width= '650' height='200'/>
 </p>
 <p align=center>Figura 7.1 Referencias visuales rojizas</p>
 
 <p align="center">
-  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/c55a0acf-35f3-4be2-bf76-b5a0de3d125e" width= '550' height='200'/>
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/c55a0acf-35f3-4be2-bf76-b5a0de3d125e" width= '650' height='200'/>
 </p>
 <p align=center>Figura 7.2 Referencias visuales grisáceas/verdes</p>
 
 <p align="center">
-  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/abf320a2-9f28-4268-883e-da2d03527b37" width= '300' height='200'/>
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/abf320a2-9f28-4268-883e-da2d03527b37" width= '300' height='300'/>
 </p>
 <p align=center>Figura 7.3 Referencia de las paletas de color (personajes vs enemigos)</p>
 
