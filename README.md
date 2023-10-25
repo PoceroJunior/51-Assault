@@ -32,45 +32,45 @@ El juego se sostiene con los siguientes pilares fundamentales:
 
 <p align= "center"><strong> Vampire Survivors </strong> </p>
 <p align="center">
-  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/6559df3e-78e5-43dc-9255-2687336e59ce)" width= '300' height='300'/>
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/6559df3e-78e5-43dc-9255-2687336e59ce)" width= '400' height='300'/>
 </p>
 <p align=center>Figura 1.4.1 Espacio jugable “Vampire Survivors”</p>
 
 <p align="center">
-  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/1256e844-7bb9-4a87-8682-50847b1d5de1" width= '300' height='300'/>
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/1256e844-7bb9-4a87-8682-50847b1d5de1" width= '400' height='300'/>
 </p>
 <p align=center>Figura 1.4.2 Carátula del juego “Vampire Survivors”</p>
 
 <p align= "center"><strong> Brotato </strong> </p>
 <p align="center">
-  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/2a82ad13-ba48-4e43-a607-90ddbf7e8d77" width= '300' height='300'/>
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/2a82ad13-ba48-4e43-a607-90ddbf7e8d77" width= '400' height='300'/>
 </p>
 <p align=center>Figura 1.4.3 Espacio jugable “Brotato”</p>
 
 <p align="center">
-  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/bb9dd02f-60d7-40b0-9d85-1d9fa21bf4eb" width= '300' height='300'/>
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/bb9dd02f-60d7-40b0-9d85-1d9fa21bf4eb" width= '400' height='300'/>
 </p>
 <p align=center>Figura 1.4.4 Carátula del juego “Brotato”</p>
 
 <p align= "center"> <strong>Enter the Gungeon</strong> </p>
 <p align="center">
-  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/cdbdb680-08d8-4269-97fb-9995b2ab409a" width= '300' height='300'/>
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/cdbdb680-08d8-4269-97fb-9995b2ab409a" width= '300' height='400'/>
 </p>
 <p align=center>Figura 1.4.6 Carátula del juego “Enter the Gungeon”</p>
 
 <p align="center">
-  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/1a27afa5-2db3-4af6-bd6f-2e6ebd06550f" width= '300' height='300'/>
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/1a27afa5-2db3-4af6-bd6f-2e6ebd06550f" width= '400' height='300'/>
 </p>
 <p align=center>Figura 1.4.5 Espacio jugable “Enter the Gungeon”</p>
 
 <p align= "center"> <strong>The Binding of Isaac</strong> </p>
 <p align="center">
-  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/30b738e9-cec7-471c-8a68-5c39b5bd7f69" width= '300' height='300'/>
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/30b738e9-cec7-471c-8a68-5c39b5bd7f69" width= '400' height='300'/>
 </p>
 <p align=center>Figura 1.4.7 Espacio jugable “The Binding of Isaac”</p>
 
 <p align="center">
-  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/9ad21605-682f-4879-9c67-5bc7c1ac2544" width= '300' height='300'/>
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/9ad21605-682f-4879-9c67-5bc7c1ac2544" width= '300' height='400'/>
 </p>
 <p align=center>Figura 1.4.8 Carátula del juego “The Binding of Isaac”</p>
 
@@ -117,12 +117,12 @@ Para el escenario se ha decidido implementar una paleta de colores grisáceos-in
 <p align=center>Figura 2.1 Paleta de colores del escenario</p>
 
 <p align="center">
-  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/20aa1a44-d57d-475f-a7f7-22e8d456f89c" width= '300' height='300'/>
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/20aa1a44-d57d-475f-a7f7-22e8d456f89c" width= '400' height='300'/>
 </p>
 <p align=center>Figuras 2.2 Referencia de escenario de Pokémon</p>
 
 <p align="center">
-  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/1ab06611-854c-4da1-87ef-c45f635c62b6" width= '300' height='300'/>
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/1ab06611-854c-4da1-87ef-c45f635c62b6" width= '400' height='300'/>
 </p>
 <p align=center>Figuras 2.3 Referencia de escenario de Looper</p>
 
@@ -203,7 +203,7 @@ Los botones se presentarán con un tamaño generoso y una claridad visual notabl
 En contraste, la interfaz durante el juego adoptará un enfoque minimalista. Se eliminarán las distracciones visuales innecesarias, permitiendo así que el jugador se sumerja completamente en la experiencia del juego. La información esencial, como el tiempo restante o cualquier otro indicador relevante para la partida en curso, se presentará de forma clara y concisa, garantizando que la atención del jugador esté plenamente centrada en la acción del juego.
 
 <p align="center">
-  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/ea3d9200-6947-400f-b144-939f17469e0b" width= '300' height='300'/>
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/ea3d9200-6947-400f-b144-939f17469e0b" width= '400' height='300'/>
 </p>
 <p align=center>Figuras 4.2 Referencias de la UI en partida</p>
 
@@ -222,7 +222,7 @@ Es importante mencionar que las pantallas de victoria y derrota constituirán do
 
 Estos estados de las pantallas están reflejados en la siguiente imagen:
 <p align="center">
-  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/da687003-0ec9-4843-a838-911310385ac2" width= '300' height='300'/>
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/da687003-0ec9-4843-a838-911310385ac2" width= '400' height='300'/>
 </p>
 <p align=center>Figura 4.1 Estados del videojuego</p>
 
@@ -251,12 +251,12 @@ Como se ha mencionado anteriormente el estilo artístico será sencillo y realiz
 
 La paleta de colores de los 2 personajes jugables serán complementarios, como ejemplo de otros juegos (por ejemplo, jugador 1 tonos azulados, jugador 2 tonos rojizos). Ayudará a distinguirlos de los enemigos, que usarían paletas verdes / grisáceas.
 <p align="center">
-  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/865bc48c-e62b-4fed-b2d7-a8f600fe06e6" width= '300' height='300'/>
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/865bc48c-e62b-4fed-b2d7-a8f600fe06e6" width= '400' height='300'/>
 </p>
 <p align=center>Figura 7.1 Referencias visuales oscuras</p>
 
 <p align="center">
-  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/c55a0acf-35f3-4be2-bf76-b5a0de3d125e" width= '300' height='300'/>
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/c55a0acf-35f3-4be2-bf76-b5a0de3d125e" width= '400' height='300'/>
 </p>
 <p align=center>Figura 7.2 Referencias visuales grisáceas/verdes</p>
 
