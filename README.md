@@ -281,10 +281,6 @@ La paleta de colores de los 2 personajes jugables serán complementarios, como e
 <p align=center>Figura 7.4 Personajes principales</p>
 
 
-
-Figura 7.4 Personajes Principales
-
-
 ### 8.2 Armas y habilidades
 #### 8.2.1 Armas
 Dependiendo de con qué tipo de arma juegue el personaje, optará por 3 tipos distintos de habilidad (por tipo de arma) además de otras 6 habilidades generales cada vez que suba de nivel.
