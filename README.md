@@ -298,7 +298,12 @@ A nivel 5 nuestra arma predeterminada evolucionará a su versión mejorada.
 <p align=center>Figura 7.5 Hacha</p>
 
 
-- Katana: Arma mejorada. Tiene un daño parecido al hacha pero lo compensa con más rango y más velocidad.
+- Espada: Arma mejorada. Tiene un daño parecido al hacha pero lo compensa con más rango y más velocidad.
+
+<p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/100692877/f012b5f6-c351-419a-81ff-148468594364" width= '300' height='300'/>
+</p>
+<p align=center>Figura 7.5 Espada</p>
 
 ##### A distancia
 - Machine Gun: Arma base con la que empiezas la partida. Tiene mucha cadencia de tiro pero bajo daño.
