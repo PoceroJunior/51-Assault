@@ -252,8 +252,8 @@ Los efectos de audio estarán creados a mano. Se usarán elementos comunes para 
 La música estará sonando constantemente de fondo. Será de estilo 16bit, pero sonará alejada. De forma general, se cambiará mediante triggers de objetos y enemigos concretos para adaptar el modelo.
 
 
-## 7. Personajes, armas y habilidades
-### 7.1 Personajes
+## 8. Personajes, armas y habilidades
+### 8.1 Personajes
 Como se ha mencionado anteriormente el estilo artístico será sencillo y realizado en pixelart, con una temática moderna, ya que en la pantalla se mostrarán distintos tipos de enemigos y personajes deben distinguirse y verse con claridad.
 
 La paleta de colores de los 2 personajes jugables serán complementarios, como ejemplo de otros juegos (por ejemplo, jugador 1 tonos azulados, jugador 2 tonos rojizos). Ayudará a distinguirlos de los enemigos, que usarían paletas verdes / grisáceas.
@@ -272,8 +272,8 @@ La paleta de colores de los 2 personajes jugables serán complementarios, como e
 </p>
 <p align=center>Figura 7.3 Referencia de las paletas de color (personajes vs enemigos)</p>
 
-### 7.2 Armas y habilidades
-#### 7.2.1 Armas
+### 8.2 Armas y habilidades
+#### 8.2.1 Armas
 Dependiendo de con qué tipo de arma juegue el personaje, optará por 3 tipos distintos de habilidad (por tipo de arma) además de otras 6 habilidades generales cada vez que suba de nivel.
 
 Entre estas habilidades, se podrán seleccionar 1 entre 3 por cada nivel que se suba. Las habilidades ya escogidas no volverán a aparecer en próximas elecciones.
@@ -290,7 +290,7 @@ A nivel 5 nuestra arma predeterminada evolucionará a su versión mejorada.
 
 - Ray Gun:  Arma mejorada, dispara rayos láser. Puede no tener tanta cadencia como la Machine Gun, pero sus proyectiles son muchísimo más letales.
 
-#### 7.2.2 Habilidades generales
+#### 8.2.2 Habilidades generales
 - Habilidad 1 (Vampirismo): Matar enemigos tiene una probabilidad del 10% de regenerar la vida.
 
 - Habilidad 2 (Atleta): Corres un 5% más rápido.
@@ -303,21 +303,21 @@ A nivel 5 nuestra arma predeterminada evolucionará a su versión mejorada.
 
 - Habilidad 6 (Letal): Aumenta el daño que realizas un 10%
 
-#### 7.2.3 Habilidades jugando con armas cuerpo a cuerpo
+#### 8.2.3 Habilidades jugando con armas cuerpo a cuerpo
 - Habilidad 1 (Limpieza): Tus armas cuerpo a cuerpo tienen mayor zona de barrido (ataques más grandes)
 
 - Habilidad 2 (Thumbaround): Tu habilidad y manejo con las armas cuerpo a cuerpo aumenta y atacas un 10% más rápido
 
 - Habilidad 3 (Remolino): Cada 5 segundos, haces un barrido alrededor de tu personaje que provoca bastante daño.
 
-#### 7.2.4 Habilidades jugando con armas a distancia
+#### 8.2.4 Habilidades jugando con armas a distancia
 - Habilidad 1 (Sobreenfriamiento):  la velocidad de las balas aumenta un 5%
 
 - Habilidad 2 (Rayo láser): crea una rayo láser cada 10s que se dispara hacia el enemigo más cercano al personaje y daña a los enemigos detrás del mismo.
 
 - Habilidad 3 (Onda sónica): Lanza una onda expansiva cada 5 segundos, que realiza muy poco daño pero impacta a todos los enemigos en pantalla.
 
-## 8. Enemigos
+## 9. Enemigos
 Existen diferentes tipos de enemigos que atacarán al jugador. Conforme avance el tiempo de juego, aparecerán adversarios de clases más fuertes. 
 
 El ataque y vida de los enemigos están ligados a su tipo, así como su forma de enfrentarse al jugador y de moverse. Además, cada tipo de enemigo tiene un sprite asociado, es decir, una apariencia que lo distingue de otras clases. Tipos:
@@ -384,7 +384,7 @@ En cuanto a sus paletas de colores, nos remitimos a los usados en el anterior ap
 </p>
 <p align=center>Figura 8.1 Referencia de las paletas de color enemigos</p>
 
-## 9. Equipo de desarrollo
+## 10. Equipo de desarrollo
 <p align="center">
   <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/7b877746-218d-4715-8c01-6705d83c5e59" width= '300' height='300'/>
 </p>
@@ -396,7 +396,7 @@ El estudio Zepol Game Studios está conformado por:
 - Sonia Montero Nogales
 - Elena Milara Mencía
 
-## 10. Anexo y referencias
+## 11. Anexo y referencias
 - (s.f.). GitHub: Let’s build from here · GitHub. https://github.com/dsaltares/sion-tower/blob/master/doc/gdd/gdd.pdf
 
 - poncle. (2022). Vampire Survivors [Videojuego]. https://store.steampowered.com/app/1794680/Vampire_Survivors/
