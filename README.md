@@ -315,6 +315,12 @@ A nivel 5 nuestra arma predeterminada evolucionará a su versión mejorada.
 
 
 - Ray Gun:  Arma mejorada, dispara rayos láser. Puede no tener tanta cadencia como la Machine Gun, pero sus proyectiles son muchísimo más letales.
+ 
+  <p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/100692877/d57f17d0-b231-428d-845f-2210094b1c91" width= '300' height='300'/>
+</p>
+<p align=center>Figura 8.4 RayGun</p>
+
 
 #### 8.2.2 Habilidades generales
 - Habilidad 1 (Vampirismo): Matar enemigos tiene una probabilidad del 10% de regenerar la vida.
