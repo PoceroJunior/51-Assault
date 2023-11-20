@@ -292,6 +292,12 @@ A nivel 5 nuestra arma predeterminada evolucionará a su versión mejorada.
 ##### Cuerpo a Cuerpo
 - Hacha: Arma base a elegir con la que empiezas la partida. Daño elevado pero baja velocidad.
 
+<p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/100692877/3ec45934-e790-4c04-9bcd-356748ccf8dd" width= '300' height='300'/>
+</p>
+<p align=center>Figura 7.5 Hacha</p>
+
+
 - Katana: Arma mejorada. Tiene un daño parecido al hacha pero lo compensa con más rango y más velocidad.
 
 ##### A distancia
