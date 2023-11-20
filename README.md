@@ -272,6 +272,19 @@ La paleta de colores de los 2 personajes jugables serán complementarios, como e
 </p>
 <p align=center>Figura 7.3 Referencia de las paletas de color (personajes vs enemigos)</p>
 
+<p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/100692877/5f3778aa-a374-45fd-b36a-99d86d38c57a" width= '300' height='300'/>
+</p>
+<p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/100692877/435c3b02-c5c4-4164-b9da-b1293a892643" width= '300' height='300'/>
+</p>
+<p align=center>Figura 7.4 Personajes principales</p>
+
+
+
+Figura 7.4 Personajes Principales
+
+
 ### 8.2 Armas y habilidades
 #### 8.2.1 Armas
 Dependiendo de con qué tipo de arma juegue el personaje, optará por 3 tipos distintos de habilidad (por tipo de arma) además de otras 6 habilidades generales cada vez que suba de nivel.
