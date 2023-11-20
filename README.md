@@ -245,6 +245,13 @@ A visión de futuro de la partida, los personajes deberían escoger habilidades 
 
 Por ejemplo, uno podría mantener habilidades de alta resistencia y curación, mientras que el otro podría haber optado por habilidades para hacer mucho daño y movilidad. Esto fomenta la estrategia y la elección de armas para enfrentar las hordas con el aumento de la dificultad, y permite a los usuarios adaptarse a su estilo de juego preferido.
 
+## 7. Música y Audio
+
+Los efectos de audio estarán creados a mano. Se usarán elementos comunes para crear los sonidos de los personajes y enemigos y los menús tendrán su propio apartado en el que se podrá 
+
+La música estará sonando constantemente de fondo. Será de estilo 16bit, pero sonará alejada. De forma general, se cambiará mediante triggers de objetos y enemigos concretos para adaptar el modelo.
+
+
 ## 7. Personajes, armas y habilidades
 ### 7.1 Personajes
 Como se ha mencionado anteriormente el estilo artístico será sencillo y realizado en pixelart, con una temática moderna, ya que en la pantalla se mostrarán distintos tipos de enemigos y personajes deben distinguirse y verse con claridad.
