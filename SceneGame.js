@@ -14,11 +14,11 @@ class SceneGame extends Phaser.Scene{
         this.background.setOrigin(0,0);
         //
         this.player1 =this.physics.add.sprite(this.game.config.width/2 -64, this.game.config.height/2, "player1");
-        this.player1.setScale(2); //hace el jugador un poco más grande
-        this.player1.setCollideWorldBounds(true);
+        this.player1.setScale(3); //hace el jugador un poco más grande
+        this.player1.setCollideWorldBounds(true); // colisiones con los bordes de la imagen seleccioanda; del jugador con el borde
 
         this.player2 =this.physics.add.sprite(this.game.config.width/2+64, this.game.config.height/2, "player2");
-        this.player2.setScale(2); //hace el jugador un poco más grande
+        this.player2.setScale(3); //hace el jugador un poco más grande
         this.player2.setCollideWorldBounds(true);
 
         this.cuatroDedos =this.physics.add.sprite(this.game.config.width/2, this.game.config.height/2+64, "cuatroDedos");
@@ -43,7 +43,7 @@ class SceneGame extends Phaser.Scene{
     }
 
     movePlayer1Manager(speed){
-        speed=200;
+        speed=140;
 
         if(this.keys.A.isDown){
             this.player1.flipX =true;
@@ -68,7 +68,7 @@ class SceneGame extends Phaser.Scene{
         }
     }
     movePlayer2Manager(speed){
-        speed=200;
+        speed=140;
         if(this.cursorKeys.left.isDown){
             this.player2.flipX =true;
             this.player2.play("walk2");

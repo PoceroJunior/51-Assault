@@ -2,8 +2,8 @@
 window.onload=function(){
     var config ={
         type: Phaser.AUTO,
-        width: 800,
-        height: 592,
+        width: 790,
+        height: 540,
         backgroundColor: 0x00000,
         pixelArt: true,
         scene: [SceneLoading, SceneGame],
