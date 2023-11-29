@@ -29,6 +29,21 @@ class SceneLoading extends Phaser.Scene{
             repeat: -1
     
         });
+
+        this.anims.create({
+            key: "idle2",
+            frames: this.anims.generateFrameNumbers('player2', {frames: [0]}),
+            frameRate: 20,
+            repeat: -1
+
+        });
+        this.anims.create({
+            key: "idle1",
+            frames: this.anims.generateFrameNumbers('player1', {frames: [0]}),
+            frameRate: 20,
+            repeat: -1
+
+        });
     }
     
     }
