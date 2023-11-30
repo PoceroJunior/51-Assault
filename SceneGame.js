@@ -199,6 +199,7 @@ class SceneGame extends Phaser.Scene{
             hudScene.updateScore(health1, exp1, health2, exp2);
         }
     }
+
     */
 }
     
