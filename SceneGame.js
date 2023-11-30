@@ -12,14 +12,31 @@ class SceneGame extends Phaser.Scene{
         //
         this.background =this.add.tileSprite(0,0,this.game.config.width,this.game.config.height,"background");
         this.background.setOrigin(0,0);
+        
+        this.interfaceh1 = this.add.tileSprite(1, 1, 106, 34, "health1");
+        this.interfaceh1.setOrigin(0,0);
+        this.interfaceh1.x = 10;
+        this.interfaceh1.y = 10;
+        this.interfaceh2 = this.add.tileSprite(1, 1, 106, 34, "health2");
+        this.interfaceh2.setOrigin(0,0);
+        this.interfaceh2.x = 10;
+        this.interfaceh2.y = 50;
         //
         this.player1 =this.physics.add.sprite(this.game.config.width/2 -64, this.game.config.height/2, "player1");
         this.player1.setScale(3); //hace el jugador un poco más grande
         this.player1.setCollideWorldBounds(true); // colisiones con los bordes de la imagen seleccioanda; del jugador con el borde
 
-        this.player2 =this.physics.add.sprite(this.game.config.width/2+64, this.game.config.height/2, "player2");
+        this.player2 =this.physics.add.sprite(this.game.config.width/2 +64, this.game.config.height/2, "player2");
         this.player2.setScale(3); //hace el jugador un poco más grande
         this.player2.setCollideWorldBounds(true);
+
+        this.weapon1 = this.physics.add.sprite(this.game.config.width/2 -32, this.game.config.height/2, "armacac1");
+        this.weapon1.setScale(2.5);
+        this.weapon1.setCollideWorldBounds(true);
+
+        this.weapon2 = this.physics.add.sprite(this.game.config.width/2 +96, this.game.config.height/2, "armacac2");
+        this.weapon2.setScale(2.5);
+        this.weapon2.setCollideWorldBounds(true);
 
         this.cuatroDedos =this.physics.add.sprite(this.game.config.width/2, this.game.config.height/2+64, "cuatroDedos");
         this.cuatroDedos.setScale(2);
@@ -39,7 +56,9 @@ class SceneGame extends Phaser.Scene{
 
     update(){
         this.movePlayer1Manager();
+        this.moveWeapon1Manager();
         this.movePlayer2Manager();
+        this.moveWeapon2Manager();
     }
 
     movePlayer1Manager(speed){
@@ -72,6 +91,34 @@ class SceneGame extends Phaser.Scene{
         this.player1.y = Phaser.Math.Clamp(this.player1.y, this.player1.height*1.6, this.game.config.height - this.player1.height*1.6);
     }
 
+    moveWeapon1Manager(speed, offset){
+        speed = 140;
+        offset = 32;
+        if (this.keys.A.isDown && this.weapon1.x > this.weapon1.width / 2) {
+            this.weapon1.flipX = true;
+            this.weapon1.x = (this.player1.x - offset);
+            this.weapon1.setVelocityX(-speed);
+        } else if (this.keys.D.isDown && this.weapon1.x < this.game.config.width - this.weapon1.width / 2) {
+            this.weapon1.flipX = false;
+            this.weapon1.x = (this.player1.x + offset);
+            this.weapon1.setVelocityX(speed);
+        } else {
+            this.weapon1.setVelocityX(0);
+        }
+    
+        if (this.keys.W.isDown && this.weapon1.y > this.weapon1.height / 1) {
+            this.weapon1.setVelocityY(-speed);
+        } else if (this.keys.S.isDown && this.weapon1.y < this.game.config.height - this.weapon1.height / 2) {
+            this.weapon1.setVelocityY(speed);
+        } else {
+            this.weapon1.setVelocityY(0);
+        }
+    
+        // Ajustar la posición del arma si el jugador está a punto de salir
+        this.weapon1.x = Phaser.Math.Clamp(this.weapon1.x, this.weapon1.width*1.2, this.game.config.width - this.weapon1.width*1.2);
+        this.weapon1.y = Phaser.Math.Clamp(this.weapon1.y, this.weapon1.height*1.6, this.game.config.height - this.weapon1.height*1.6);
+    }
+
     movePlayer2Manager(speed) {
         speed = 140;
     
@@ -100,6 +147,34 @@ class SceneGame extends Phaser.Scene{
         // Ajustar la posición si el jugador está a punto de salir
         this.player2.x = Phaser.Math.Clamp(this.player2.x, this.player2.width*1.2, this.game.config.width - this.player2.width*1.2);
         this.player2.y = Phaser.Math.Clamp(this.player2.y, this.player2.height*1.6, this.game.config.height - this.player2.height*1.6);
+    }
+
+    moveWeapon2Manager(speed, offset){
+        speed = 140;
+        offset = 32;
+        if (this.cursorKeys.left.isDown && this.weapon2.x > this.weapon2.width / 2) {
+            this.weapon2.flipX = true;
+            this.weapon2.x = (this.player2.x - offset);
+            this.weapon2.setVelocityX(-speed);
+        } else if (this.cursorKeys.right.isDown && this.weapon2.x < this.game.config.width - this.weapon2.width / 2) {
+            this.weapon2.flipX = false;
+            this.weapon2.x = (this.player2.x + offset);
+            this.weapon2.setVelocityX(speed);
+        } else {
+            this.weapon2.setVelocityX(0);
+        }
+    
+        if (this.cursorKeys.up.isDown && this.weapon2.y > this.weapon2.height / 2) {
+            this.weapon2.setVelocityY(-speed);
+        } else if (this.cursorKeys.down.isDown && this.weapon2.y < this.game.config.height - this.weapon2.height / 2) {
+            this.weapon2.setVelocityY(speed);
+        } else {
+            this.weapon2.setVelocityY(0);
+        }
+    
+        // Ajustar la posición del arma si el jugador está a punto de salir
+        this.weapon2.x = Phaser.Math.Clamp(this.weapon2.x, this.weapon2.width*1.2, this.game.config.width - this.weapon2.width*1.2);
+        this.weapon2.y = Phaser.Math.Clamp(this.weapon2.y, this.weapon2.height*1.6, this.game.config.height - this.weapon2.height*1.6);
     }
 
 }
