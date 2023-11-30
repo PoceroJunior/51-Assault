@@ -6,7 +6,7 @@ window.onload=function(){
         height: 540,
         backgroundColor: 0x00000,
         pixelArt: true,
-        scene: [SceneLoading, SceneGame],
+        scene: [SceneLoading, SceneGame], //añadir HUDScene
         autocenter: true,
         physics: {default: "arcade", arcade:{debug: false}}
     }

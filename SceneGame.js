@@ -3,25 +3,14 @@ class SceneGame extends Phaser.Scene{
         super("playGame");
     }
     create(){
-        this.add.text(20,20,"playing game", 
-        {font: "25px Arial", 
-        fill: "yellow"});
         //
         this.cursorKeys= this.input.keyboard.createCursorKeys();
         this.keys = this.input.keyboard.addKeys("W,A,S,D");
         //
         this.background =this.add.tileSprite(0,0,this.game.config.width,this.game.config.height,"background");
         this.background.setOrigin(0,0);
-        
-        this.interfaceh1 = this.add.tileSprite(1, 1, 106, 34, "health1");
-        this.interfaceh1.setOrigin(0,0);
-        this.interfaceh1.x = 10;
-        this.interfaceh1.y = 10;
-        this.interfaceh2 = this.add.tileSprite(1, 1, 106, 34, "health2");
-        this.interfaceh2.setOrigin(0,0);
-        this.interfaceh2.x = 10;
-        this.interfaceh2.y = 50;
         //
+
         this.player1 =this.physics.add.sprite(this.game.config.width/2 -64, this.game.config.height/2, "player1");
         this.player1.setScale(3); //hace el jugador un poco más grande
         this.player1.setCollideWorldBounds(true); // colisiones con los bordes de la imagen seleccioanda; del jugador con el borde
@@ -52,13 +41,16 @@ class SceneGame extends Phaser.Scene{
 
         //colisiones
         //this.physics.overlap (this.players, this.enemies, this.hurtPlayer, null, this);
+
     }
 
     update(){
+        //scene.hudScene.bringToTop();
         this.movePlayer1Manager();
         this.moveWeapon1Manager();
         this.movePlayer2Manager();
         this.moveWeapon2Manager();
+        //this.updateScoreInHUD();
     }
 
     movePlayer1Manager(speed){
@@ -176,6 +168,18 @@ class SceneGame extends Phaser.Scene{
         this.weapon2.x = Phaser.Math.Clamp(this.weapon2.x, this.weapon2.width*1.2, this.game.config.width - this.weapon2.width*1.2);
         this.weapon2.y = Phaser.Math.Clamp(this.weapon2.y, this.weapon2.height*1.6, this.game.config.height - this.weapon2.height*1.6);
     }
-
+    /*
+    updateScoreInHUD(health1, exp1, health2, exp2) {
+        // Obtén la escena del HUD y llama a su método para actualizar el puntaje
+        health1 = 10;
+        health2 = 10;
+        exp1 = 1;
+        exp2 = 1;
+        const hudScene = this.scene.get('HUDScene');
+        if (hudScene) {
+            hudScene.updateScore(health1, exp1, health2, exp2);
+        }
+    }
+    */
 }
     
