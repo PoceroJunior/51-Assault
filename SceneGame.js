@@ -27,7 +27,7 @@ class SceneGame extends Phaser.Scene{
         this.weapon2.setScale(2.5);
         this.weapon2.setCollideWorldBounds(true);
 
-        this.cuatroDedos =this.physics.add.sprite(this.game.config.width/2, this.game.config.height/2+64, "cuatroDedos");
+        this.cuatroDedos = new Enemy (this,this.game.config.width/2, this.game.config.height/2+64, "cuatroDedos");
         this.cuatroDedos.setScale(2);
         this.cuatroDedos.setInteractive();
 
@@ -51,6 +51,7 @@ class SceneGame extends Phaser.Scene{
         this.movePlayer2Manager();
         this.moveWeapon2Manager();
         //this.updateScoreInHUD();
+        this.cuatroDedos.trackClosestPlayer(this.player1,this.player2);
     }
 
     movePlayer1Manager(speed){
@@ -58,21 +59,21 @@ class SceneGame extends Phaser.Scene{
     
         if (this.keys.A.isDown && this.player1.x > this.player1.width / 2) {
             this.player1.flipX = true;
-            this.player1.play("walk1");
+            this.player1.play("walk1", true);
             this.player1.setVelocityX(-speed);
         } else if (this.keys.D.isDown && this.player1.x < this.game.config.width - this.player1.width / 2) {
             this.player1.flipX = false;
-            this.player1.play("walk1");
+            this.player1.play("walk1", true);
             this.player1.setVelocityX(speed);
         } else {
             this.player1.setVelocityX(0);
         }
     
         if (this.keys.W.isDown && this.player1.y > this.player1.height / 1) {
-            this.player1.play("walk1");
+            this.player1.play("walk1", true);
             this.player1.setVelocityY(-speed);
         } else if (this.keys.S.isDown && this.player1.y < this.game.config.height - this.player1.height / 2) {
-            this.player1.play("walk1");
+            this.player1.play("walk1", true);
             this.player1.setVelocityY(speed);
         } else {
             this.player1.setVelocityY(0);
@@ -116,21 +117,21 @@ class SceneGame extends Phaser.Scene{
     
         if (this.cursorKeys.left.isDown && this.player2.x > this.player2.width / 2) {
             this.player2.flipX = true;
-            this.player2.play("walk2");
+            this.player2.play("walk2", true);
             this.player2.setVelocityX(-speed);
         } else if (this.cursorKeys.right.isDown && this.player2.x < this.game.config.width - this.player2.width / 2) {
             this.player2.flipX = false;
-            this.player2.play("walk2");
+            this.player2.play("walk2", true);
             this.player2.setVelocityX(speed);
         } else {
             this.player2.setVelocityX(0);
         }
     
         if (this.cursorKeys.up.isDown && this.player2.y > this.player2.height / 2) {
-            this.player2.play("walk2");
+            this.player2.play("walk2", true);
             this.player2.setVelocityY(-speed);
         } else if (this.cursorKeys.down.isDown && this.player2.y < this.game.config.height - this.player2.height / 2) {
-            this.player2.play("walk2");
+            this.player2.play("walk2", true);
             this.player2.setVelocityY(speed);
         } else {
             this.player2.setVelocityY(0);

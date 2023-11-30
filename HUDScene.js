@@ -21,6 +21,7 @@ class HUDScene extends Phaser.Scene {
         this.health2Text = this.add.text(22, 75, 'HP', { fontSize: '15px', fill: '#fff' });
         this.exp2Text = this.add.text(80, 75, 'EXP', { fontSize: '15px', fill: '#fff' });
 */
+
     }
 
     updateScore(health1, exp1, health2, exp2){
@@ -46,6 +47,8 @@ class HUDScene extends Phaser.Scene {
     this.health2Text.setText(`HP|${health2}`);
     this.exp2Text.setText(`EXP|${exp2}`);
     */
+
+        
     }
     
 }
