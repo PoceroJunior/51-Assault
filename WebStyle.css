@@ -1,4 +1,8 @@
-.script {
+.textocentrado {
     text-align: center;
-    justify-content: center;
+}
+
+canvas {
+    margin: auto;
+    display: block;
 }
