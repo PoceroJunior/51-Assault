@@ -3,6 +3,8 @@ class SceneGame extends Phaser.Scene{
         super("playGame");
     }
     create(){
+        //VARIABLES GLOBALES
+        this.scene.launch("HUDScene");
         //
         this.cursorKeys= this.input.keyboard.createCursorKeys();
         this.keys = this.input.keyboard.addKeys("W,A,S,D");
@@ -10,7 +12,7 @@ class SceneGame extends Phaser.Scene{
         this.background =this.add.tileSprite(0,0,this.game.config.width,this.game.config.height,"background");
         this.background.setOrigin(0,0);
         //
-
+        //
         this.player1 =this.physics.add.sprite(this.game.config.width/2 -64, this.game.config.height/2, "player1");
         this.player1.setScale(3); //hace el jugador un poco más grande
         this.player1.setCollideWorldBounds(true); // colisiones con los bordes de la imagen seleccioanda; del jugador con el borde
@@ -44,6 +46,13 @@ class SceneGame extends Phaser.Scene{
 
     }
 
+    testingVariables(){
+        var score= 10;
+        var h1= 5;
+        var h2= 6;
+        var e1= 2;
+        var e2= 4;
+    }
     update(){
         //scene.hudScene.bringToTop();
         this.movePlayer1Manager();
@@ -52,6 +61,15 @@ class SceneGame extends Phaser.Scene{
         this.moveWeapon2Manager();
         //this.updateScoreInHUD();
         this.cuatroDedos.trackClosestPlayer(this.player1,this.player2);
+        const hud = this.scene.get("HUDScene");
+        if (hud && hud.updateScore) { 
+            console.log("score: "+ this.testingVariables.score);
+            console.log("h1: "+ this.testingVariables.h1);
+            console.log("h2: "+ this.testingVariables.e1);
+            console.log("e1: "+ this.testingVariables.h2);
+            console.log("e2: "+ this.testingVariables.e2);
+            hud.updateScore(this.testingVariables.score,this.testingVariables.h1,this.testingVariables.e1,this.testingVariables.e1,this.testingVariables.e2);
+        }
     }
 
     movePlayer1Manager(speed){
