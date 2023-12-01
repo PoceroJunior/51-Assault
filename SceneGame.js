@@ -2,7 +2,22 @@ class SceneGame extends Phaser.Scene{
     constructor(){
         super("playGame");
     }
+    preload(){
+
+       // Detección de la tecla F11
+       this.input.keyboard.on('keydown-F11', () => {
+        this.setFullScreen();
+    });
+       
+        
+        /* Detección de la tecla F11
+        this.input.keyboard.on('keydown-F11', () => {
+            this.setFullScreen();
+        }); */
+            }
+
     create(){
+       
         //VARIABLES GLOBALES
         this.scene.launch("HUDScene");
         //variables de prueba...
@@ -200,6 +215,22 @@ class SceneGame extends Phaser.Scene{
         this.weapon2.x = Phaser.Math.Clamp(this.weapon2.x, this.weapon2.width*1.2, this.game.config.width - this.weapon2.width*1.2);
         this.weapon2.y = Phaser.Math.Clamp(this.weapon2.y, this.weapon2.height*1.6, this.game.config.height - this.weapon2.height*1.6);
     }
+
+    
+    setFullScreen() {
+        const gameCanvas = this.sys.canvas;
+    
+        if (gameCanvas.requestFullscreen) {
+            try {
+                gameCanvas.requestFullscreen();
+            } catch (error) {
+                console.error('Error al solicitar pantalla completa:', error);
+            }
+        }
+    }
+    
+
+
     /*
     updateScoreInHUD(health1, exp1, health2, exp2) {
         // Obtén la escena del HUD y llama a su método para actualizar el puntaje
