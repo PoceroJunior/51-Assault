@@ -8,9 +8,6 @@ class SceneGame extends Phaser.Scene{
        this.input.keyboard.on('keydown-F11', () => {
         this.setFullScreen();
         });
-       
-        
-            
     }
 
 
