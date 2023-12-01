@@ -11,6 +11,7 @@ class SceneLoading extends Phaser.Scene{
     //HUD
     this.load.image("health1", "Assets/Interface/HUD/health-character1.png");
     this.load.image("health2", "Assets/Interface/HUD/health-character2.png");
+    this.load.image("time", "Assets/Interface/HUD/time-HUD.png")
     //Personajes y armas
     this.load.spritesheet("player1", "Assets/Gameplay/Characters/player1-spritesheet.png", {frameWidth: 16, frameHeight: 16});
     this.load.spritesheet("player2", "Assets/Gameplay/Characters/player2-spritesheet.png", {frameWidth: 16, frameHeight: 16});
