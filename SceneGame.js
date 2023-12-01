@@ -4,16 +4,12 @@ class SceneGame extends Phaser.Scene{
     }
     preload(){
 
-       // Detección de la tecla F11
+       // detecta tecla F11
        this.input.keyboard.on('keydown-F11', () => {
         this.setFullScreen();
     });
        
         
-        /* Detección de la tecla F11
-        this.input.keyboard.on('keydown-F11', () => {
-            this.setFullScreen();
-        }); */
             }
 
     create(){
@@ -216,7 +212,7 @@ class SceneGame extends Phaser.Scene{
         this.weapon2.y = Phaser.Math.Clamp(this.weapon2.y, this.weapon2.height*1.6, this.game.config.height - this.weapon2.height*1.6);
     }
 
-    
+    //Si detecta la tecla F11, pone/quita la pantalla completa
     setFullScreen() {
         const gameCanvas = this.sys.canvas;
     
