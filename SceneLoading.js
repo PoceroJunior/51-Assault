@@ -66,8 +66,17 @@ class SceneLoading extends Phaser.Scene{
             key: "Acac1",
             frames: this.anims.generateFrameNumbers("armacac1"),
             frameRate: 20,
-            repeat: -1
+            repeat: 0
         });
+
+        this.anims.create
+        ({
+            key: "Acac2",
+            frames: this.anims.generateFrameNumbers("armacac2"),
+            frameRate: 20,
+            repeat: 0
+        });
+
     }
     
     }

@@ -24,7 +24,7 @@ class SceneGame extends Phaser.Scene{
         var e2= 4;
         //
         this.cursorKeys= this.input.keyboard.createCursorKeys();
-        this.keys = this.input.keyboard.addKeys("W,A,S,D");
+        this.keys = this.input.keyboard.addKeys("W,A,S,D,E,SHIFT");
         //
         this.background =this.add.tileSprite(0,0,this.game.config.width,this.game.config.height,"background");
         this.background.setOrigin(0,0);
@@ -67,6 +67,9 @@ class SceneGame extends Phaser.Scene{
 
     //funciones de prueba
     hurtEnemy(player, enemy){
+
+        
+
         if(enemy.isAlive()){
         enemy.takenDamage(1);
         console.log("VIDA DEL ENEMIGO: "+ enemy.hp+ "VIDA DE 4DEDOS: "+ this.cuatroDedos.hp);}
@@ -96,6 +99,30 @@ class SceneGame extends Phaser.Scene{
         hud.updateScore(this.score,this.h1,this.e1,this.e1,this.e2);
     }
 
+    /*player1Attack() {
+        const attackArea = new Phaser.Geom.Circle(this.player1.x, this.player1.y, 50); // esto hace el area circular de las unidades que quieras, lo podemos usar para el area de ataque
+        
+        this.enemies.forEach(enemy => {  // igual poner .getChildren, no se como esta implementado eso
+            if (Phaser.Geom.Circle.ContainsPoint(attackArea, enemy)) {
+                this.enemy.destroy();
+            }
+        });
+    }*/
+
+    player1Attack() {
+        const attackArea = new Phaser.Geom.Circle(this.weapon1.x, this.weapon1.y, 55);
+     
+        this.enemies.getChildren().forEach(enemy => {
+          if (Phaser.Geom.Circle.ContainsPoint(attackArea, enemy)) {
+            enemy.takenDamage(1);
+    
+            if (!enemy.isAlive()) {
+              this.resetPos(enemy);
+            }
+          }
+        });
+    }
+
     movePlayer1Manager(speed){
         speed = 140;
     
@@ -119,6 +146,11 @@ class SceneGame extends Phaser.Scene{
             this.player1.setVelocityY(speed);
         } else {
             this.player1.setVelocityY(0);
+        }
+
+        if (this.keys.E.isDown){
+            this.weapon1.play("Acac1", true);
+            this.player1Attack();
         }
     
         // Ajustar la posición si el jugador está a punto de salir
@@ -148,10 +180,25 @@ class SceneGame extends Phaser.Scene{
         } else {
             this.weapon1.setVelocityY(0);
         }
+
     
         // Ajustar la posición del arma si el jugador está a punto de salir
         this.weapon1.x = Phaser.Math.Clamp(this.weapon1.x, this.weapon1.width*1.2, this.game.config.width - this.weapon1.width*1.2);
         this.weapon1.y = Phaser.Math.Clamp(this.weapon1.y, this.weapon1.height*1.6, this.game.config.height - this.weapon1.height*1.6);
+    }
+
+    player2Attack() {
+        const attackArea = new Phaser.Geom.Circle(this.weapon2.x, this.weapon2.y, 55);
+     
+        this.enemies.getChildren().forEach(enemy => {
+          if (Phaser.Geom.Circle.ContainsPoint(attackArea, enemy)) {
+            enemy.takenDamage(1);
+    
+            if (!enemy.isAlive()) {
+              this.resetPos(enemy);
+            }
+          }
+        });
     }
 
     movePlayer2Manager(speed) {
@@ -179,6 +226,11 @@ class SceneGame extends Phaser.Scene{
             this.player2.setVelocityY(0);
         }
     
+        if (this.keys.SHIFT.isDown){
+            this.weapon2.play("Acac2", true);
+            this.player2Attack();
+        }
+
         // Ajustar la posición si el jugador está a punto de salir
         this.player2.x = Phaser.Math.Clamp(this.player2.x, this.player2.width*1.2, this.game.config.width - this.player2.width*1.2);
         this.player2.y = Phaser.Math.Clamp(this.player2.y, this.player2.height*1.6, this.game.config.height - this.player2.height*1.6);
