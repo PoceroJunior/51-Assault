@@ -72,12 +72,12 @@ class HUDScene extends Phaser.Scene {
         var segundos = this.tiempo % 60;
 
         if (segundos < 10) {
-            segundos = "0" + segundos;
+            return minutos + ":" + "0" + Math.trunc(segundos);
         }
-        if (segundos==0){
+        else if (segundos==0){
             return minutos + ":" + segundos;
         }
-        else{
+        else {
             return minutos + ":" + Math.trunc(segundos);
         }
     }
