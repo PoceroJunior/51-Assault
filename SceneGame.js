@@ -5,15 +5,21 @@ class SceneGame extends Phaser.Scene{
     create(){
         //VARIABLES GLOBALES
         this.scene.launch("HUDScene");
+        //variables de prueba...
+        var score= 10;
+        var h1= 5;
+        var h2= 6;
+        var e1= 2;
+        var e2= 4;
         //
-        this.cursorKeys = this.input.keyboard.createCursorKeys();
+        this.cursorKeys= this.input.keyboard.createCursorKeys();
         this.keys = this.input.keyboard.addKeys("W,A,S,D");
         //
-        this.background = this.add.tileSprite(0,0,this.game.config.width,this.game.config.height,"background");
+        this.background =this.add.tileSprite(0,0,this.game.config.width,this.game.config.height,"background");
         this.background.setOrigin(0,0);
         //
         //
-        this.player1 = this.physics.add.sprite(this.game.config.width/2 -64, this.game.config.height/2, "player1");
+        this.player1 =this.physics.add.sprite(this.game.config.width/2 -64, this.game.config.height/2, "player1");
         this.player1.setScale(3); //hace el jugador un poco más grande
         this.player1.setCollideWorldBounds(true); // colisiones con los bordes de la imagen seleccioanda; del jugador con el borde
 
@@ -29,50 +35,54 @@ class SceneGame extends Phaser.Scene{
         this.weapon2.setScale(2.5);
         this.weapon2.setCollideWorldBounds(true);
 
-        this.cuatroDedos = new Enemy (this,this.game.config.width/2, this.game.config.height/2+64, "cuatroDedos");
-        this.cuatroDedos.setScale(2);
-        this.cuatroDedos.setInteractive();
-
         //grupo de jugadores
         this.players= this.physics.add.group();
         this.players.add(this.player1);
         this.players.add(this.player2);
+
+        //Inicializacion de los enemigos
+        this.cuatroDedos = new Enemy (this,this.game.config.width/2, this.game.config.height/2+64, "cuatroDedos");
+        this.cuatroDedos.setEnemyType("cuatroDedos");
+        this.cuatroDedos.setScale(2);
+        this.cuatroDedos.setInteractive();
         //Grupo de enemigos
         this.enemies= this.physics.add.group();
         this.enemies.add(this.cuatroDedos);
 
         //colisiones
-        //this.physics.overlap (this.players, this.enemies, this.hurtPlayer, null, this);
-        if (this.input.keyboard) {
-            this.F11key = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F11);
-        }
+        this.physics.add.overlap (this.players, this.enemies, this.hurtEnemy, null, this); //detecta que cuando se le hace daño a un personaje se le hace a todos? cuando se le hace daño a un enemigo se les hace a todos?
+
     }
 
-    testingVariables(){
-        var score= 10;
-        var h1= 5;
-        var h2= 6;
-        var e1= 2;
-        var e2= 4;
+    //funciones de prueba
+    hurtEnemy(player, enemy){
+        if(enemy.isAlive()){
+        enemy.takenDamage(1);
+        console.log("VIDA DEL ENEMIGO: "+ enemy.hp+ "VIDA DE 4DEDOS: "+ this.cuatroDedos.hp);}
+        else{
+            //enemy.disableBody(true, true); //da error no sé porque
+            //this.body.destroy(); //no se si tendría que ponerse 
+            this.resetPos(enemy);
+        }
+
+        //enemy.disableBody(true,true);
     }
+    resetPos(enem){
+        enem.y= this.game.config.height/2+64;
+        enem.x= this.game.config.width/2;
+        //ship.enableBody(true, ship.x, ship.y, true, true); //da error no sé porque
+    }
+    /////////////////////////////////////////////////////
     update(){
         //scene.hudScene.bringToTop();
-        this.setFullScreen();
-        this.movePlayer1Manager(140);
-        this.moveWeapon1Manager(140,32);
-        this.movePlayer2Manager(140);
-        this.moveWeapon2Manager(140,32);
+        this.movePlayer1Manager();
+        this.moveWeapon1Manager();
+        this.movePlayer2Manager();
+        this.moveWeapon2Manager();
         //this.updateScoreInHUD();
         this.cuatroDedos.trackClosestPlayer(this.player1,this.player2);
         const hud = this.scene.get("HUDScene");
-        if (hud && hud.updateScore) { 
-            console.log("score: "+ this.testingVariables.score);
-            console.log("h1: "+ this.testingVariables.h1);
-            console.log("h2: "+ this.testingVariables.e1);
-            console.log("e1: "+ this.testingVariables.h2);
-            console.log("e2: "+ this.testingVariables.e2);
-            hud.updateScore(this.testingVariables.score,this.testingVariables.h1,this.testingVariables.e1,this.testingVariables.e1,this.testingVariables.e2);
-        }
+        hud.updateScore(this.score,this.h1,this.e1,this.e1,this.e2);
     }
 
     movePlayer1Manager(speed){
@@ -189,34 +199,7 @@ class SceneGame extends Phaser.Scene{
         // Ajustar la posición del arma si el jugador está a punto de salir
         this.weapon2.x = Phaser.Math.Clamp(this.weapon2.x, this.weapon2.width*1.2, this.game.config.width - this.weapon2.width*1.2);
         this.weapon2.y = Phaser.Math.Clamp(this.weapon2.y, this.weapon2.height*1.6, this.game.config.height - this.weapon2.height*1.6);
-
-        
     }
-
-    setFullScreen() {
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'F11') {
-                const fullscreenElement = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
-                
-                if (!fullscreenElement) {
-                    const gameCanvas = this.sys.canvas;
-                    
-                        gameCanvas.requestFullscreen();
-                    
-                } else {
-                    setTimeout(() => {
-                        if (document.exitFullscreen) {
-                            document.exitFullscreen();
-                        } 
-                    }, 100); // Ajusta este valor según sea necesario
-                }
-            }
-        });
-    }
-    
-    
-    
-    
     /*
     updateScoreInHUD(health1, exp1, health2, exp2) {
         // Obtén la escena del HUD y llama a su método para actualizar el puntaje
@@ -232,4 +215,5 @@ class SceneGame extends Phaser.Scene{
 
     */
 }
+    
     
