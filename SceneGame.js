@@ -24,7 +24,7 @@ class SceneGame extends Phaser.Scene{
         var e2= 4;
         //
         this.cursorKeys= this.input.keyboard.createCursorKeys();
-        this.keys = this.input.keyboard.addKeys("W,A,S,D,E,SHIFT");
+        this.keys = this.input.keyboard.addKeys("W,A,S,D,E,Q,SHIFT,J,I,K,L,U,O");
         //
         this.background =this.add.tileSprite(0,0,this.game.config.width,this.game.config.height,"background");
         this.background.setOrigin(0,0);
@@ -148,7 +148,7 @@ class SceneGame extends Phaser.Scene{
             this.player1.setVelocityY(0);
         }
 
-        if (this.keys.E.isDown){
+        if (this.keys.E.isDown || this.keys.Q.isDown){
             this.weapon1.play("Acac1", true);
             this.player1Attack();
         }
@@ -204,11 +204,11 @@ class SceneGame extends Phaser.Scene{
     movePlayer2Manager(speed) {
         speed = 140;
     
-        if (this.cursorKeys.left.isDown && this.player2.x > this.player2.width / 2) {
+        if (this.keys.J.isDown && this.player2.x > this.player2.width / 2) {
             this.player2.flipX = true;
             this.player2.play("walk2", true);
             this.player2.setVelocityX(-speed);
-        } else if (this.cursorKeys.right.isDown && this.player2.x < this.game.config.width - this.player2.width / 2) {
+        } else if (this.keys.L.isDown && this.player2.x < this.game.config.width - this.player2.width / 2) {
             this.player2.flipX = false;
             this.player2.play("walk2", true);
             this.player2.setVelocityX(speed);
@@ -216,17 +216,17 @@ class SceneGame extends Phaser.Scene{
             this.player2.setVelocityX(0);
         }
     
-        if (this.cursorKeys.up.isDown && this.player2.y > this.player2.height / 2) {
+        if (this.keys.I.isDown && this.player2.y > this.player2.height / 2) {
             this.player2.play("walk2", true);
             this.player2.setVelocityY(-speed);
-        } else if (this.cursorKeys.down.isDown && this.player2.y < this.game.config.height - this.player2.height / 2) {
+        } else if (this.keys.K.isDown && this.player2.y < this.game.config.height - this.player2.height / 2) {
             this.player2.play("walk2", true);
             this.player2.setVelocityY(speed);
         } else {
             this.player2.setVelocityY(0);
         }
     
-        if (this.keys.SHIFT.isDown){
+        if (this.keys.U.isDown||this.keys.O.isDown){
             this.weapon2.play("Acac2", true);
             this.player2Attack();
         }
@@ -239,11 +239,11 @@ class SceneGame extends Phaser.Scene{
     moveWeapon2Manager(speed, offset){
         speed = 140;
         offset = 32;
-        if (this.cursorKeys.left.isDown && this.weapon2.x > this.weapon2.width / 2) {
+        if (this.keys.J.isDown && this.weapon2.x > this.weapon2.width / 2) {
             this.weapon2.flipX = true;
             this.weapon2.x = (this.player2.x - offset);
             this.weapon2.setVelocityX(-speed);
-        } else if (this.cursorKeys.right.isDown && this.weapon2.x < this.game.config.width - this.weapon2.width / 2) {
+        } else if (this.keys.L.isDown && this.weapon2.x < this.game.config.width - this.weapon2.width / 2) {
             this.weapon2.flipX = false;
             this.weapon2.x = (this.player2.x + offset);
             this.weapon2.setVelocityX(speed);
@@ -251,9 +251,9 @@ class SceneGame extends Phaser.Scene{
             this.weapon2.setVelocityX(0);
         }
     
-        if (this.cursorKeys.up.isDown && this.weapon2.y > this.weapon2.height / 2) {
+        if (this.keys.I.isDown && this.weapon2.y > this.weapon2.height / 2) {
             this.weapon2.setVelocityY(-speed);
-        } else if (this.cursorKeys.down.isDown && this.weapon2.y < this.game.config.height - this.weapon2.height / 2) {
+        } else if (this.keys.K.isDown && this.weapon2.y < this.game.config.height - this.weapon2.height / 2) {
             this.weapon2.setVelocityY(speed);
         } else {
             this.weapon2.setVelocityY(0);
@@ -263,6 +263,13 @@ class SceneGame extends Phaser.Scene{
         this.weapon2.x = Phaser.Math.Clamp(this.weapon2.x, this.weapon2.width*1.2, this.game.config.width - this.weapon2.width*1.2);
         this.weapon2.y = Phaser.Math.Clamp(this.weapon2.y, this.weapon2.height*1.6, this.game.config.height - this.weapon2.height*1.6);
     }
+
+    /* Shift para posible futuro ataque especial o mecánica
+        useEspecialAttack()
+        if (this.keys.SHIFT.isDown){
+            this.specialattack.play("Acac2", true);
+            this.player2Attack();
+        } */
 
     //Si detecta la tecla F11, pone/quita la pantalla completa
     setFullScreen() {
