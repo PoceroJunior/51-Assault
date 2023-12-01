@@ -112,9 +112,26 @@ class SceneGame extends Phaser.Scene{
     */
 
     resetPos(enem){
-        enem.y= this.game.config.height/2+64;
-        enem.x= this.game.config.width/2;
         //ship.enableBody(true, ship.x, ship.y, true, true); //da error no sé porque
+
+        const sectionWidth = this.game.config.width / 3; // Dividir en 3 secciones
+        const sectionHeight = this.game.config.height / 3;
+    
+        const centerX = this.game.config.width / 2;
+        const centerY = this.game.config.height / 2;
+    
+        let x, y;
+    
+        do {
+            x = Phaser.Math.RND.between(0, this.game.config.width);
+            y = Phaser.Math.RND.between(0, this.game.config.height);
+        } while (
+            (x >= centerX - sectionWidth && x <= centerX + sectionWidth) &&
+            (y >= centerY - sectionHeight && y <= centerY + sectionHeight)
+        );
+        enem.y= y;
+        enem.x= x;
+
     }
     /////////////////////////////////////////////////////
 
@@ -316,9 +333,7 @@ class SceneGame extends Phaser.Scene{
         }
     }
     
-
-
-    
+   
     updateScoreInHUD(health1, exp1, health2, exp2) {
         // Obtén la escena del HUD y llama a su método para actualizar el puntaje
         health1 = 10;
@@ -330,13 +345,6 @@ class SceneGame extends Phaser.Scene{
             hudScene.updateScore(health1, exp1, health2, exp2);
         }
     }
-    
-    
-
-
-
-
-
     
 }
     
