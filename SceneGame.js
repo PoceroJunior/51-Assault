@@ -66,16 +66,18 @@ class SceneGame extends Phaser.Scene{
 
     }
 
-
+    damagePlayers(player, enemy){ 
+        player.hp = player.hp-enemy.attack; 
+    }
     
     //funciones de prueba
     hurtPlayers(player, enemy){
 
         if(enemy.isAlive())
         {
-        this.enemy.takenDamage(1);
-        this.player.takenDamage(this.enemy.attack)
-        console.log("VIDA DEL ENEMIGO: "+ this.enemy.hp + "VIDA DEL JUGADOR: "+ this.player.hp);
+        enemy.takenDamage(1);
+        this.damagePlayers(player, enemy);
+        console.log("VIDA DEL ENEMIGO: "+ enemy.hp + "VIDA DEL JUGADOR: "+ player.hp);
         }
 
         else{

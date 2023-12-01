@@ -10,7 +10,7 @@ class Enemy extends Phaser.GameObjects.Sprite {
     this.hp= null; 
     this.xp= null; 
     ////////////////////////////////////////
-    this.dead = false; //por defecto no esta muerto (a lo mejor se puede sustituir por isAlive directamente (y nos ahorramos el this.dead....))
+    this.alive = true;
     this.speed = 75;
     this.target = null; // El objetivo es el jugador mas cercano
     this.setScale(2);
@@ -28,12 +28,11 @@ class Enemy extends Phaser.GameObjects.Sprite {
 
   isAlive (){
     if (this.hp > 0){ 
-      this.dead= false;
-      return false;
+      return this.alive= true;
     }
     else { 
-      this.dead= true;
-      return true;
+      return this.alive= false;
+
       //aqui se añadiría una probabilidad de que se creará la llave por la cual ganas...
     }
   }
