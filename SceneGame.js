@@ -13,16 +13,19 @@ class SceneGame extends Phaser.Scene{
             
     }
 
+
     create(){
        
         //VARIABLES GLOBALES
         this.scene.launch("HUDScene");
         //variables de prueba...
+    
         var score= 10;
         var h1= 10;
         var h2= 10;
         var e1= 2;
         var e2= 4;
+
         //
         this.cursorKeys= this.input.keyboard.createCursorKeys();
         this.keys = this.input.keyboard.addKeys("W,A,S,D,E,Q,SHIFT,J,I,K,L,U,O");
@@ -123,8 +126,9 @@ class SceneGame extends Phaser.Scene{
         this.moveWeapon2Manager();
         //this.updateScoreInHUD();
         this.cuatroDedos.trackClosestPlayer(this.player1,this.player2);
-        const hud = this.scene.get("HUDScene");
-        hud.updateScore(this.h1,this.e1,this.h2,this.e2);
+        //const hud = this.scene.get("HUDScene");
+        //hud.updateScore(this.h1,this.e1,this.h2,this.e2);
+        this.updateScoreInHUD(this.h1,this.e1,this.h2,this.e2);
     }
 
     /*player1Attack() {
@@ -314,7 +318,7 @@ class SceneGame extends Phaser.Scene{
     
 
 
-    /*
+    
     updateScoreInHUD(health1, exp1, health2, exp2) {
         // Obtén la escena del HUD y llama a su método para actualizar el puntaje
         health1 = 10;
@@ -326,7 +330,7 @@ class SceneGame extends Phaser.Scene{
             hudScene.updateScore(health1, exp1, health2, exp2);
         }
     }
-    */
+    
     
 
 

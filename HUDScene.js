@@ -26,10 +26,10 @@ class HUDScene extends Phaser.Scene {
     }
 
     updateScore(health1, exp1, health2, exp2){
-    this.health1Text.setText("HP: "+ health1);
-    this.exp1Text.setText("EXP: "+ exp1);
-    this.health2Text.setText("HP: "+ health2);
-    this.exp2Text.setText("EXP: "+exp2);
+        this.health1Text.setText("HP: "+ health1);
+        this.exp1Text.setText("EXP: "+ exp1);
+        this.health2Text.setText("HP: "+ health2);
+        this.exp2Text.setText("EXP: "+exp2);
     
     // por si se necesita mas tarde: this.exp2Text.setText("EXP|${exp2}");
     
