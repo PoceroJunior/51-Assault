@@ -7,10 +7,11 @@ class SceneGame extends Phaser.Scene{
        // detecta tecla F11
        this.input.keyboard.on('keydown-F11', () => {
         this.setFullScreen();
-    });
+        });
        
         
-            }
+            
+    }
 
     create(){
        
@@ -18,8 +19,8 @@ class SceneGame extends Phaser.Scene{
         this.scene.launch("HUDScene");
         //variables de prueba...
         var score= 10;
-        var h1= 5;
-        var h2= 6;
+        var h1= 10;
+        var h2= 10;
         var e1= 2;
         var e2= 4;
         //
@@ -61,18 +62,22 @@ class SceneGame extends Phaser.Scene{
         this.enemies.add(this.cuatroDedos);
 
         //colisiones
-        this.physics.add.overlap (this.players, this.enemies, this.hurtEnemy, null, this); //detecta que cuando se le hace daño a un personaje se le hace a todos? cuando se le hace daño a un enemigo se les hace a todos?
+        this.physics.add.overlap (this.players, this.enemies, this.hurtPlayers, null, this); //detecta que cuando se le hace daño a un personaje se le hace a todos? cuando se le hace daño a un enemigo se les hace a todos?
 
     }
 
+
+    
     //funciones de prueba
-    hurtEnemy(player, enemy){
+    hurtPlayers(player, enemy){
 
-        
+        if(enemy.isAlive())
+        {
+        this.enemy.takenDamage(1);
+        this.player.takenDamage(this.enemy.attack)
+        console.log("VIDA DEL ENEMIGO: "+ this.enemy.hp + "VIDA DEL JUGADOR: "+ this.player.hp);
+        }
 
-        if(enemy.isAlive()){
-        enemy.takenDamage(1);
-        console.log("VIDA DEL ENEMIGO: "+ enemy.hp+ "VIDA DE 4DEDOS: "+ this.cuatroDedos.hp);}
         else{
             //enemy.disableBody(true, true); //da error no sé porque
             //this.body.destroy(); //no se si tendría que ponerse 
@@ -81,12 +86,35 @@ class SceneGame extends Phaser.Scene{
 
         //enemy.disableBody(true,true);
     }
+
+    /*
+
+    //Es un metodo que intenta ver la colision entre el enemigo y el jugador para hacerle daño. No consigo que funcione
+
+    hurtPlayers(player, enemy) {
+    if (this.enemy.isAlive()) {
+        // Obtén la cantidad de daño que causa el enemigo
+        const damage = this.enemy.attack;
+
+        // Reduce la cantidad de vida del jugador
+        this.player.takenDamage(damage);
+
+        console.log("VIDA DEL JUGADOR:" + this.player.hp);
+        this.resetPos(enemy);
+        console.log("VIDA DEL ENEMIGO: "+ this.enemy.hp);
+        
+    }
+
+    } 
+    */
+
     resetPos(enem){
         enem.y= this.game.config.height/2+64;
         enem.x= this.game.config.width/2;
         //ship.enableBody(true, ship.x, ship.y, true, true); //da error no sé porque
     }
     /////////////////////////////////////////////////////
+
     update(){
         //scene.hudScene.bringToTop();
         this.movePlayer1Manager();
@@ -96,7 +124,7 @@ class SceneGame extends Phaser.Scene{
         //this.updateScoreInHUD();
         this.cuatroDedos.trackClosestPlayer(this.player1,this.player2);
         const hud = this.scene.get("HUDScene");
-        hud.updateScore(this.score,this.h1,this.e1,this.e1,this.e2);
+        hud.updateScore(this.h1,this.e1,this.h2,this.e2);
     }
 
     /*player1Attack() {
@@ -110,7 +138,7 @@ class SceneGame extends Phaser.Scene{
     }*/
 
     player1Attack() {
-        const attackArea = new Phaser.Geom.Circle(this.weapon1.x, this.weapon1.y, 55);
+        const attackArea = new Phaser.Geom.Circle(this.weapon1.x, this.weapon1.y, 50);
      
         this.enemies.getChildren().forEach(enemy => {
           if (Phaser.Geom.Circle.ContainsPoint(attackArea, enemy)) {
@@ -188,7 +216,7 @@ class SceneGame extends Phaser.Scene{
     }
 
     player2Attack() {
-        const attackArea = new Phaser.Geom.Circle(this.weapon2.x, this.weapon2.y, 55);
+        const attackArea = new Phaser.Geom.Circle(this.weapon2.x, this.weapon2.y, 50);
      
         this.enemies.getChildren().forEach(enemy => {
           if (Phaser.Geom.Circle.ContainsPoint(attackArea, enemy)) {
@@ -298,8 +326,14 @@ class SceneGame extends Phaser.Scene{
             hudScene.updateScore(health1, exp1, health2, exp2);
         }
     }
-
     */
+    
+
+
+
+
+
+    
 }
     
     
