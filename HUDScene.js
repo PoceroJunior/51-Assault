@@ -1,6 +1,6 @@
 class HUDScene extends Phaser.Scene {
     constructor() {
-        super({ key: "HUDScene"});
+        super({ key: "HUDScene" });
         this.tiempo = 3*60;
     }
 
@@ -44,6 +44,7 @@ class HUDScene extends Phaser.Scene {
     // por si se necesita mas tarde: this.exp2Text.setText("EXP|${exp2}");
     
     }
+
     iniciarContador() {
         var self = this; // Capturar la referencia a la instancia de la clase
 
@@ -61,11 +62,12 @@ class HUDScene extends Phaser.Scene {
                 clearInterval(intervalo);
                 tiempoRestante = "0:00";
             } else {
-                self.tiempo -=1;
+                self.tiempo -=1; // Reducir el tiempo (por alguna razon resta de 2 en 2)
                 self.timeText.setText(self.formatTiempo()); // Actualizar el texto en cada iteración
             }
         }, 1000);
     }
+
     formatTiempo() {
         var minutos = Math.floor(this.tiempo / 60);
         var segundos = this.tiempo % 60;

@@ -8,6 +8,11 @@ class SceneSelectCh extends Phaser.Scene{
         this.load.image ('pj2', "Assets/Interface/player-selection/character2-selection.png");
         this.load.image ('salirButton', "Assets/Interface/player-selection/atras-button.png");
 
+        // detecta tecla F11
+this.input.keyboard.on('keydown-F11', () => {
+    this.setFullScreen();
+    });
+    
     }
     create() {
         this.background = this.add.image(395,270, 'backgroundSelect');
@@ -28,8 +33,21 @@ class SceneSelectCh extends Phaser.Scene{
             this.scene.start('bootGame');
         });
         this.pj2Button.on ('pointerdown', () => {
-            this.scene.start('BootGame');
+            this.scene.start('bootGame');
         });
 
+    }
+
+    //Si detecta la tecla F11, pone/quita la pantalla completa
+    setFullScreen() {
+        const gameCanvas = this.sys.canvas;
+    
+        if (gameCanvas.requestFullscreen) {
+            try {
+                gameCanvas.requestFullscreen();
+            } catch (error) {
+                console.error('Error al solicitar pantalla completa:', error);
+            }
+        }
     }
 }

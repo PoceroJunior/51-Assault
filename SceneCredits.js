@@ -6,6 +6,11 @@ class SceneCredits extends Phaser.Scene{
         this.load.image ('background2', "Assets/Interface/creditos.png");
         this.load.image ('salirButton', "Assets/Interface/options/atras-button.png");
 
+        // detecta tecla F11
+this.input.keyboard.on('keydown-F11', () => {
+    this.setFullScreen();
+    });
+
     }
     create() {
         this.background = this.add.image(395,270, 'background2');
@@ -18,4 +23,18 @@ class SceneCredits extends Phaser.Scene{
         });
 
     }
+
+    //Si detecta la tecla F11, pone/quita la pantalla completa
+    setFullScreen() {
+        const gameCanvas = this.sys.canvas;
+    
+        if (gameCanvas.requestFullscreen) {
+            try {
+                gameCanvas.requestFullscreen();
+            } catch (error) {
+                console.error('Error al solicitar pantalla completa:', error);
+            }
+        }
+    }
+    
 }

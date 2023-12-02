@@ -1,6 +1,7 @@
 class SceneGame extends Phaser.Scene{
     constructor(){
         super("playGame");
+        this.lastSpawnTime = 0;
     }
     preload(){
 
@@ -116,7 +117,6 @@ height: 540,
         this.enemies.add(this.cuatroDedos);
         /*
         //this.enemies.add(this.estrellado);
-        this.enemies.add(this.carroniero);
         this.enemies.add(this.pezLava);
          */
 
@@ -208,6 +208,35 @@ height: 540,
     /////////////////////////////////////////////////////
 
     update(){
+
+        function getRandomNumberWithMargin(min, max, margin) {
+            const side = Phaser.Math.Between(0, 3); // 0: arriba, 1: derecha, 2: abajo, 3: izquierda
+        
+            let randomValue;
+        
+            switch (side) {
+                case 0:
+                    // Arriba
+                    randomValue = Phaser.Math.Between(min + margin, max - margin);
+                    return { x: randomValue, y: min - margin };
+                case 1:
+                    // Derecha
+                    randomValue = Phaser.Math.Between(min + margin, max - margin);
+                    return { x: max + margin, y: randomValue };
+                case 2:
+                    // Abajo
+                    randomValue = Phaser.Math.Between(min + margin, max - margin);
+                    return { x: randomValue, y: max + margin };
+                case 3:
+                    // Izquierda
+                    randomValue = Phaser.Math.Between(min + margin, max - margin);
+                    return { x: min - margin, y: randomValue };
+                default:
+                    return { x: 0, y: 0 }; // Valor predeterminado en caso de algún problema
+            }
+        }
+        const randomPosition = getRandomNumberWithMargin(0, 790, 30);
+
         //scene.hudScene.bringToTop();
         this.movePlayer1Manager();
         this.moveWeapon1Manager();
@@ -218,15 +247,21 @@ height: 540,
         //OLEADA 1 ()
         this.cuatroDedos.trackClosestPlayer(this.player1,this.player2);
 
-        if(HUDScene.tiempo == 20){
-
-            this.carroniero = new Enemy (this,this.game.config.width/2 - getRandomNumber(390, 780) , this.game.config.height/2 + getRandomNumber(270, 540), "carroniero");
+        //Spawn carroniero
+        if (this.time.now > 20000 && this.time.now > this.lastSpawnTime + 5000) {
+            this.lastSpawnTime = this.time.now; // Actualiza el tiempo del último spawn
+            // Resto del código de spawn...
+            const randomPosition = getRandomNumberWithMargin(0, 790, 30);
+            this.carroniero = new Enemy(this, randomPosition.x, randomPosition.y, "carroniero");
+            this.enemies.add(this.carroniero);
             this.carroniero.setEnemyType("carroniero");
             this.carroniero.setScale(2);
             this.carroniero.setInteractive();
-    
+            this.carroniero.trackClosestPlayer(this.player1, this.player2);
         }
-
+        
+        
+        
  /*
         this.estrellado = new Enemy (this,this.game.config.width/2, this.game.config.height/2+64, "estrellado");
         this.estrellado.setEnemyType("estrellado");
@@ -245,7 +280,7 @@ height: 540,
 
         //this.pezLava.trackClosestPlayer(this.player1,this.player2);
 
-       // this.carroniero.trackClosestPlayer(this.player1,this.player2);
+        
 
         
         //const hud = this.scene.get("HUDScene");
