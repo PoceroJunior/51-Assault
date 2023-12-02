@@ -53,9 +53,30 @@ class SceneGame extends Phaser.Scene{
         this.cuatroDedos.setEnemyType("cuatroDedos");
         this.cuatroDedos.setScale(2);
         this.cuatroDedos.setInteractive();
+
+        /*
+        this.estrellado = new Enemy (this,this.game.config.width/2, this.game.config.height/2+64, "estrellado");
+        this.estrellado.setEnemyType("estrellado");
+        this.estrellado.setScale(2);
+        this.estrellado.setInteractive();
+        */
+
+        this.carroniero = new Enemy (this,this.game.config.width/2, this.game.config.height/2+64, "carroniero");
+        this.carroniero.setEnemyType("carroniero");
+        this.carroniero.setScale(2);
+        this.carroniero.setInteractive();
+
+        this.pezLava = new Enemy (this,this.game.config.width/2, this.game.config.height/2+64, "pezLava");
+        this.pezLava.setEnemyType("pezLava");
+        this.pezLava.setScale(2);
+        this.pezLava.setInteractive();
+
         //Grupo de enemigos
         this.enemies= this.physics.add.group();
         this.enemies.add(this.cuatroDedos);
+        //this.enemies.add(this.estrellado);
+        this.enemies.add(this.carroniero);
+        this.enemies.add(this.pezLava);
 
         //colisiones
         this.physics.add.overlap (this.players, this.enemies, this.hurtPlayers, null, this); //detecta que cuando se le hace daño a un personaje se le hace a todos? cuando se le hace daño a un enemigo se les hace a todos?
@@ -77,11 +98,9 @@ class SceneGame extends Phaser.Scene{
         }
 
         else{
-            this.resetPos(enemy);
-            //enemy.setActive(false).setVisible(false);//.setVisible(false); // Ocultar y desactivar el enemigo
-            //enemy.destroy();
             //enemy.disableBody(true, true); //da error no sé porque
             //this.body.destroy(); //no se si tendría que ponerse 
+            this.resetPos(enemy);
         }
 
         //enemy.disableBody(true,true);
@@ -133,13 +152,30 @@ class SceneGame extends Phaser.Scene{
     /////////////////////////////////////////////////////
 
     update(){
+        //scene.hudScene.bringToTop();
         this.movePlayer1Manager();
         this.moveWeapon1Manager();
         this.movePlayer2Manager();
         this.moveWeapon2Manager();
+        //this.updateScoreInHUD();
         this.cuatroDedos.trackClosestPlayer(this.player1,this.player2);
+        this.carroniero.trackClosestPlayer(this.player1,this.player2);
+        this.pezLava.trackClosestPlayer(this.player1,this.player2);
+        
+        //const hud = this.scene.get("HUDScene");
+        //hud.updateScore(this.h1,this.e1,this.h2,this.e2);
         this.updateScoreInHUD(this.h1,this.e1,this.h2,this.e2);
     }
+
+    /*player1Attack() {
+        const attackArea = new Phaser.Geom.Circle(this.player1.x, this.player1.y, 50); // esto hace el area circular de las unidades que quieras, lo podemos usar para el area de ataque
+        
+        this.enemies.forEach(enemy => {  // igual poner .getChildren, no se como esta implementado eso
+            if (Phaser.Geom.Circle.ContainsPoint(attackArea, enemy)) {
+                this.enemy.destroy();
+            }
+        });
+    }*/
 
     player1Attack() {
         const attackArea = new Phaser.Geom.Circle(this.weapon1.x, this.weapon1.y, 50);
@@ -228,7 +264,6 @@ class SceneGame extends Phaser.Scene{
     
             if (!enemy.isAlive()) {
               this.resetPos(enemy);
-              this.enemy.destroy();
             }
           }
         });
@@ -304,6 +339,7 @@ class SceneGame extends Phaser.Scene{
             this.player2Attack();
         } */
 
+
     //Si detecta la tecla F11, pone/quita la pantalla completa
     setFullScreen() {
         const gameCanvas = this.sys.canvas;
@@ -333,3 +369,8 @@ class SceneGame extends Phaser.Scene{
 }
     
     
+
+
+
+
+

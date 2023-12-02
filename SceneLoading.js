@@ -19,6 +19,9 @@ class SceneLoading extends Phaser.Scene{
     this.load.spritesheet("armacac2", "Assets/Gameplay/weapons/axe-spritesheet.png", {frameWidth:16, frameHeight:16});
     //Enemigos
     this.load.spritesheet("cuatroDedos", "Assets/Gameplay/Enemy/cuatro-dedos-enemy.png", {frameWidth: 16, frameHeight: 16});
+    //this.load.spritesheet("estrellado", "Assets/Gameplay/Enemy/estrellado-enemy.png", {frameWidth: 48, frameHeight: 54});
+    this.load.spritesheet("carroniero", "Assets/Gameplay/Enemy/carroniero-enemy.png", {frameWidth: 24, frameHeight: 24});
+    this.load.spritesheet("pezLava", "Assets/Gameplay/Enemy/pez-lava-enemy.png", {frameWidth: 24, frameHeight: 24});
 
     }
     create(){
