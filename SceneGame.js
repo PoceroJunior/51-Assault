@@ -48,8 +48,26 @@ class SceneGame extends Phaser.Scene{
         this.players.add(this.player1);
         this.players.add(this.player2);
 
+//INICIALIZACIÓN SPAWNEO
+
+function getRandomNumber(min, max) {
+    // Genera un número aleatorio entre 0 (inclusive) y 1 (exclusivo)
+    const randomDecimal = Math.random();
+
+    // Ajusta el valor al rango deseado
+    const randomInRange = randomDecimal * (max - min) + min;
+
+    // Redondea al entero más cercano
+    const randomNumber = Math.round(randomInRange);
+
+    return randomNumber;
+}
+
+if(HUDScene.tiempo == 20){
+
+}
         //Inicializacion de los enemigos
-        this.cuatroDedos = new Enemy (this,this.game.config.width/2, this.game.config.height/2+64, "cuatroDedos");
+        this.cuatroDedos = new Enemy (this,this.game.config.width/2 + getRandomNumber(50, 1000) , this.game.config.height/2 + getRandomNumber(50, 1000), "cuatroDedos");
         this.cuatroDedos.setEnemyType("cuatroDedos");
         this.cuatroDedos.setScale(2);
         this.cuatroDedos.setInteractive();
@@ -70,6 +88,7 @@ class SceneGame extends Phaser.Scene{
         this.pezLava.setEnemyType("pezLava");
         this.pezLava.setScale(2);
         this.pezLava.setInteractive();
+//FIN SPAWNEO
 
         //Grupo de enemigos
         this.enemies= this.physics.add.group();
@@ -100,7 +119,7 @@ class SceneGame extends Phaser.Scene{
         else{
             //enemy.disableBody(true, true); //da error no sé porque
             //this.body.destroy(); //no se si tendría que ponerse 
-            this.resetPos(enemy);
+            enemy.die();
         }
 
         //enemy.disableBody(true,true);
@@ -185,7 +204,7 @@ class SceneGame extends Phaser.Scene{
             enemy.takenDamage(1);
     
             if (!enemy.isAlive()) {
-              this.resetPos(enemy);
+              enemy.die();
             }
           }
         });
@@ -263,7 +282,7 @@ class SceneGame extends Phaser.Scene{
             enemy.takenDamage(1);
     
             if (!enemy.isAlive()) {
-              this.resetPos(enemy);
+              enemy.die();
             }
           }
         });

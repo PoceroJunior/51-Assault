@@ -4,6 +4,7 @@ class Enemy extends Phaser.GameObjects.Sprite {
 
     scene.add.existing(this);
     scene.physics.world.enable(this);
+    this.body.setCollideWorldBounds(true);
 
     // se declara para cada enemigo
     this.attack = null;
@@ -15,7 +16,6 @@ class Enemy extends Phaser.GameObjects.Sprite {
     this.target = null; // El objetivo es el jugador mas cercano
     this.setScale(2);
 
-    this.body.setCollideWorldBounds(true);
     //animacion (si es necesaria) a continuacion...
 
     this.anims.create({
@@ -46,6 +46,16 @@ class Enemy extends Phaser.GameObjects.Sprite {
     }
     
   }
+
+  die(){
+    this.anims.stop("enemyAnim", true);
+    this.body.setEnable(false);
+    //Agregar aquí otros efectos que suceden cuando se mata un enemigo
+    // Eliminar el enemigo después de un tiempo (por ejemplo, 1 segundo)
+    this.destroy();
+    
+  }
+
   setEnemyType(EnemyType){ 
     switch (EnemyType){
 
@@ -87,14 +97,21 @@ class Enemy extends Phaser.GameObjects.Sprite {
   
       if (distanceToPlayer1 < distanceToPlayer2) {
         // El jugador 1 está más cerca, persigue al jugador 1
-        this.moveTowardsPlayer(player1);
+        if (player1) {
+        this.moveTowardsPlayer.bind(this)(player1);
+        }
       } else {
+        if (player2) {
         // El jugador 2 está más cerca o están a la misma distancia, persigue al jugador 2
-        this.moveTowardsPlayer(player2);
+        this.moveTowardsPlayer.bind(this)(player2);
+        }
       }
     }
     // Método para mover al enemigo hacia el jugador
     moveTowardsPlayer(player) {
+      if (!this.body) {
+        return; // Salir si this.body es undefined
+      }
       //if (this.isAlive()){
         const angle = Phaser.Math.Angle.Between(this.x, this.y, player.x, player.y);
 
