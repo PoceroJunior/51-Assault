@@ -32,38 +32,6 @@ class SceneLoading extends Phaser.Scene{
         this.scene.start("playGame");
 
         //animations
-        //players
-        this.anims.create
-        ({
-            key: "walk1",
-            frames: this.anims.generateFrameNumbers("player1"),
-            frameRate: 20,
-            repeat: -1
-
-        });
-        this.anims.create
-        ({
-            key: "walk2",
-            frames: this.anims.generateFrameNumbers("player2"),
-            frameRate: 20,
-            repeat: -1
-    
-        });
-        this.anims.create
-        ({
-            key: "idle2",
-            frames: this.anims.generateFrameNumbers("player2", {frames: [0]}),
-            frameRate: 20,
-            repeat: -1
-
-        });
-        this.anims.create
-        ({
-            key: "idle1",
-            frames: this.anims.generateFrameNumbers("player1", {frames: [0]}),
-            frameRate: 20,
-            repeat: -1
-        });
         //weapons
         this.anims.create
         ({

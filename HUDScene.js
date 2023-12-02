@@ -1,6 +1,6 @@
 class HUDScene extends Phaser.Scene {
     constructor() {
-        super({ key: "HUDScene", active: true });
+        super({ key: "HUDScene"});
         this.tiempo = 3*60;
     }
 
@@ -61,8 +61,7 @@ class HUDScene extends Phaser.Scene {
                 clearInterval(intervalo);
                 tiempoRestante = "0:00";
             } else {
-                //self.tiempo -=1; // Reducir el tiempo (por alguna razon resta de 2 en 2)
-                self.tiempo -=0.5;
+                self.tiempo -=1;
                 self.timeText.setText(self.formatTiempo()); // Actualizar el texto en cada iteración
             }
         }, 1000);
