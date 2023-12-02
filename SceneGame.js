@@ -77,9 +77,11 @@ class SceneGame extends Phaser.Scene{
         }
 
         else{
+            this.resetPos(enemy);
+            //enemy.setActive(false).setVisible(false);//.setVisible(false); // Ocultar y desactivar el enemigo
+            //enemy.destroy();
             //enemy.disableBody(true, true); //da error no sé porque
             //this.body.destroy(); //no se si tendría que ponerse 
-            this.resetPos(enemy);
         }
 
         //enemy.disableBody(true,true);
@@ -131,27 +133,13 @@ class SceneGame extends Phaser.Scene{
     /////////////////////////////////////////////////////
 
     update(){
-        //scene.hudScene.bringToTop();
         this.movePlayer1Manager();
         this.moveWeapon1Manager();
         this.movePlayer2Manager();
         this.moveWeapon2Manager();
-        //this.updateScoreInHUD();
         this.cuatroDedos.trackClosestPlayer(this.player1,this.player2);
-        //const hud = this.scene.get("HUDScene");
-        //hud.updateScore(this.h1,this.e1,this.h2,this.e2);
         this.updateScoreInHUD(this.h1,this.e1,this.h2,this.e2);
     }
-
-    /*player1Attack() {
-        const attackArea = new Phaser.Geom.Circle(this.player1.x, this.player1.y, 50); // esto hace el area circular de las unidades que quieras, lo podemos usar para el area de ataque
-        
-        this.enemies.forEach(enemy => {  // igual poner .getChildren, no se como esta implementado eso
-            if (Phaser.Geom.Circle.ContainsPoint(attackArea, enemy)) {
-                this.enemy.destroy();
-            }
-        });
-    }*/
 
     player1Attack() {
         const attackArea = new Phaser.Geom.Circle(this.weapon1.x, this.weapon1.y, 50);
@@ -240,6 +228,7 @@ class SceneGame extends Phaser.Scene{
     
             if (!enemy.isAlive()) {
               this.resetPos(enemy);
+              this.enemy.destroy();
             }
           }
         });

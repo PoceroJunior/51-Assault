@@ -40,7 +40,11 @@ class Enemy extends Phaser.GameObjects.Sprite {
   takenDamage(damage){
     if (this.isAlive()){
       this.hp-= damage;
+      if(this.hp == 0){
+        this.alive = false;
+      }
     }
+    
   }
   setEnemyType(EnemyType){ 
     switch (EnemyType){
@@ -91,14 +95,21 @@ class Enemy extends Phaser.GameObjects.Sprite {
     }
     // Método para mover al enemigo hacia el jugador
     moveTowardsPlayer(player) {
-      const angle = Phaser.Math.Angle.Between(this.x, this.y, player.x, player.y);
-  
-      // Calcula la velocidad en las direcciones x e y basada en el ángulo
-      const velocityX = Math.cos(angle) * this.speed;
-      const velocityY = Math.sin(angle) * this.speed;
-  
-      // Establece la velocidad del enemigo para que se mueva hacia el jugador
-      this.body.setVelocity(velocityX, velocityY);
-      this.play("enemyAnim", true);
+      //if (this.isAlive()){
+        const angle = Phaser.Math.Angle.Between(this.x, this.y, player.x, player.y);
+
+        // Calcula la velocidad en las direcciones x e y basada en el ángulo
+        const velocityX = Math.cos(angle) * this.speed;
+        const velocityY = Math.sin(angle) * this.speed;
+    
+        // Establece la velocidad del enemigo para que se mueva hacia el jugador
+        this.body.setVelocity(velocityX, velocityY);
+        this.play("enemyAnim", true);
+      //}
+      //else{
+      //  this.body.setVelocity(0, 0);
+      //}
     }
+
+
   }
