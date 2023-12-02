@@ -31,17 +31,13 @@ class SceneGame extends Phaser.Scene{
         this.background.setOrigin(0,0);
         //
         //
-        this.player1 =this.physics.add.sprite(this.game.config.width/2 -64, this.game.config.height/2, "player1");
-        this.player1.setScale(3); //hace el jugador un poco más grande
-        this.player1.setCollideWorldBounds(true); // colisiones con los bordes de la imagen seleccioanda; del jugador con el borde
-
-        this.player2 =this.physics.add.sprite(this.game.config.width/2 +64, this.game.config.height/2, "player2");
-        this.player2.setScale(3); //hace el jugador un poco más grande
-        this.player2.setCollideWorldBounds(true);
+        this.player1 = new Player1 (this, this.game.config.width/2 -64, this.game.config.height/2, "player1");
 
         this.weapon1 = this.physics.add.sprite(this.game.config.width/2 -32, this.game.config.height/2, "armacac1");
         this.weapon1.setScale(2.5);
         this.weapon1.setCollideWorldBounds(true);
+        
+        this.player2 = new Player2 (this, this.game.config.width/2 +64, this.game.config.height/2, "player2");
 
         this.weapon2 = this.physics.add.sprite(this.game.config.width/2 +96, this.game.config.height/2, "armacac2");
         this.weapon2.setScale(2.5);
