@@ -161,11 +161,10 @@ if(HUDScene.tiempo == 20){
             x = Phaser.Math.RND.between(0, this.game.config.width);
             y = Phaser.Math.RND.between(0, this.game.config.height);
         } while (
-            (x >= centerX - sectionWidth && x <= centerX + sectionWidth) &&
-            (y >= centerY - sectionHeight && y <= centerY + sectionHeight)
+            (x >= centerX - sectionWidth - 100 && x <= centerX + sectionWidth + 100) &&
+            (y >= centerY - sectionHeight - 100 && y <= centerY + sectionHeight + 100)
         );
-        enem.y= y;
-        enem.x= x;
+        enem.setPosition(x, y);
 
     }
     /////////////////////////////////////////////////////
