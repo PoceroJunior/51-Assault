@@ -48,7 +48,7 @@ class SceneGame extends Phaser.Scene{
         this.players.add(this.player1);
         this.players.add(this.player2);
 
-//INICIALIZACIÓN SPAWNEO
+//INICIALIZACIÓN SPAWNEO (OLEADA 0)
 
 function getRandomNumber(min, max) {
     // Genera un número aleatorio entre 0 (inclusive) y 1 (exclusivo)
@@ -63,39 +63,62 @@ function getRandomNumber(min, max) {
     return randomNumber;
 }
 
-if(HUDScene.tiempo == 20){
 
+function getRandomNumberWithMargin(min, max, margin) {
+    const side = Phaser.Math.Between(0, 3); // 0: arriba, 1: derecha, 2: abajo, 3: izquierda
+
+    let randomValue;
+
+    switch (side) {
+        case 0:
+            // Arriba
+            randomValue = Phaser.Math.Between(min + margin, max - margin);
+            return { x: randomValue, y: min - margin };
+        case 1:
+            // Derecha
+            randomValue = Phaser.Math.Between(min + margin, max - margin);
+            return { x: max + margin, y: randomValue };
+        case 2:
+            // Abajo
+            randomValue = Phaser.Math.Between(min + margin, max - margin);
+            return { x: randomValue, y: max + margin };
+        case 3:
+            // Izquierda
+            randomValue = Phaser.Math.Between(min + margin, max - margin);
+            return { x: min - margin, y: randomValue };
+        default:
+            return { x: 0, y: 0 }; // Valor predeterminado en caso de algún problema
+    }
 }
-        //Inicializacion de los enemigos
-        this.cuatroDedos = new Enemy (this,this.game.config.width/2 + getRandomNumber(390, 780) , this.game.config.height/2 + getRandomNumber(270, 540), "cuatroDedos");
-        this.cuatroDedos.setEnemyType("cuatroDedos");
-        this.cuatroDedos.setScale(2);
-        this.cuatroDedos.setInteractive();
 
-        /*
-        this.estrellado = new Enemy (this,this.game.config.width/2, this.game.config.height/2+64, "estrellado");
-        this.estrellado.setEnemyType("estrellado");
-        this.estrellado.setScale(2);
-        this.estrellado.setInteractive();
-        */
+// Llamada para obtener coordenadas en el borde con un margen de 30 unidades
+const randomPosition = getRandomNumberWithMargin(0, 790, 30);
 
-        this.carroniero = new Enemy (this,this.game.config.width/2 + getRandomNumber(390, 780) , this.game.config.height/2 + getRandomNumber(270, 540), "carroniero");
-        this.carroniero.setEnemyType("carroniero");
-        this.carroniero.setScale(2);
-        this.carroniero.setInteractive();
+this.cuatroDedos = new Enemy(this, randomPosition.x, randomPosition.y, "cuatroDedos");
 
-        this.pezLava = new Enemy (this,this.game.config.width/2 + getRandomNumber(390, 780) , this.game.config.height/2 + getRandomNumber(270, 540), "pezLava");
-        this.pezLava.setEnemyType("pezLava");
-        this.pezLava.setScale(2);
-        this.pezLava.setInteractive();
+/*
+width: 790,
+height: 540,
+*/ 
+   //Inicializacion de los enemigos
+  
+   //this.cuatroDedos = new Enemy (this, (getRandomNumberWithMargin(0, 790, 30)) , getRandomNumberWithMargin(0, 540, 30), "cuatroDedos");
+   this.cuatroDedos.setEnemyType("cuatroDedos");
+   this.cuatroDedos.setScale(2);
+   this.cuatroDedos.setInteractive();
+
+     
 //FIN SPAWNEO
 
         //Grupo de enemigos
+        
         this.enemies= this.physics.add.group();
         this.enemies.add(this.cuatroDedos);
+        /*
         //this.enemies.add(this.estrellado);
         this.enemies.add(this.carroniero);
         this.enemies.add(this.pezLava);
+         */
 
         //colisiones
         this.physics.add.overlap (this.players, this.enemies, this.hurtPlayers, null, this); //detecta que cuando se le hace daño a un personaje se le hace a todos? cuando se le hace daño a un enemigo se les hace a todos?
@@ -191,13 +214,44 @@ if(HUDScene.tiempo == 20){
         this.movePlayer2Manager();
         this.moveWeapon2Manager();
         //this.updateScoreInHUD();
+
+        //OLEADA 1 ()
         this.cuatroDedos.trackClosestPlayer(this.player1,this.player2);
-        this.carroniero.trackClosestPlayer(this.player1,this.player2);
-        this.pezLava.trackClosestPlayer(this.player1,this.player2);
+
+        if(HUDScene.tiempo == 20){
+
+            this.carroniero = new Enemy (this,this.game.config.width/2 - getRandomNumber(390, 780) , this.game.config.height/2 + getRandomNumber(270, 540), "carroniero");
+            this.carroniero.setEnemyType("carroniero");
+            this.carroniero.setScale(2);
+            this.carroniero.setInteractive();
+    
+        }
+
+ /*
+        this.estrellado = new Enemy (this,this.game.config.width/2, this.game.config.height/2+64, "estrellado");
+        this.estrellado.setEnemyType("estrellado");
+        this.estrellado.setScale(2);
+        this.estrellado.setInteractive();
+        */
+/*
+        
+        this.pezLava = new Enemy (this,this.game.config.width/2 + getRandomNumber(390, 780) , this.game.config.height/2 + getRandomNumber(270, 540), "pezLava");
+        this.pezLava.setEnemyType("pezLava");
+        this.pezLava.setScale(2);
+        this.pezLava.setInteractive();
+
+        */
+
+
+        //this.pezLava.trackClosestPlayer(this.player1,this.player2);
+
+       // this.carroniero.trackClosestPlayer(this.player1,this.player2);
+
         
         //const hud = this.scene.get("HUDScene");
         //hud.updateScore(this.h1,this.e1,this.h2,this.e2);
         this.updateScoreInHUD(this.h1,this.e1,this.h2,this.e2);
+
     }
 
     /*player1Attack() {
