@@ -67,7 +67,7 @@ if(HUDScene.tiempo == 20){
 
 }
         //Inicializacion de los enemigos
-        this.cuatroDedos = new Enemy (this,this.game.config.width/2 + getRandomNumber(50, 1000) , this.game.config.height/2 + getRandomNumber(50, 1000), "cuatroDedos");
+        this.cuatroDedos = new Enemy (this,this.game.config.width/2 + getRandomNumber(390, 780) , this.game.config.height/2 + getRandomNumber(270, 540), "cuatroDedos");
         this.cuatroDedos.setEnemyType("cuatroDedos");
         this.cuatroDedos.setScale(2);
         this.cuatroDedos.setInteractive();
@@ -79,12 +79,12 @@ if(HUDScene.tiempo == 20){
         this.estrellado.setInteractive();
         */
 
-        this.carroniero = new Enemy (this,this.game.config.width/2, this.game.config.height/2+64, "carroniero");
+        this.carroniero = new Enemy (this,this.game.config.width/2 + getRandomNumber(390, 780) , this.game.config.height/2 + getRandomNumber(270, 540), "carroniero");
         this.carroniero.setEnemyType("carroniero");
         this.carroniero.setScale(2);
         this.carroniero.setInteractive();
 
-        this.pezLava = new Enemy (this,this.game.config.width/2, this.game.config.height/2+64, "pezLava");
+        this.pezLava = new Enemy (this,this.game.config.width/2 + getRandomNumber(390, 780) , this.game.config.height/2 + getRandomNumber(270, 540), "pezLava");
         this.pezLava.setEnemyType("pezLava");
         this.pezLava.setScale(2);
         this.pezLava.setInteractive();
@@ -146,25 +146,40 @@ if(HUDScene.tiempo == 20){
     } 
     */
 
-    resetPos(enem){
+    resetPosX(){
         //ship.enableBody(true, ship.x, ship.y, true, true); //da error no sé porque
 
         const sectionWidth = this.game.config.width / 3; // Dividir en 3 secciones
-        const sectionHeight = this.game.config.height / 3;
     
         const centerX = this.game.config.width / 2;
-        const centerY = this.game.config.height / 2;
     
-        let x, y;
+        let x;
     
         do {
             x = Phaser.Math.RND.between(0, this.game.config.width);
+
+        } while (
+            (x >= centerX - sectionWidth - 100 && x <= centerX + sectionWidth + 100) 
+        );
+        return x;
+
+    }
+
+    resetPosY(){
+        //ship.enableBody(true, ship.x, ship.y, true, true); //da error no sé porque
+
+        const sectionHeight = this.game.config.height / 3;
+    
+        const centerY = this.game.config.height / 2;
+    
+        let y;
+    
+        do {
             y = Phaser.Math.RND.between(0, this.game.config.height);
         } while (
-            (x >= centerX - sectionWidth - 100 && x <= centerX + sectionWidth + 100) &&
             (y >= centerY - sectionHeight - 100 && y <= centerY + sectionHeight + 100)
         );
-        enem.setPosition(x, y);
+        return y;
 
     }
     /////////////////////////////////////////////////////
