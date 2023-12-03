@@ -35,11 +35,7 @@ class Player1 extends Phaser.Physics.Arcade.Sprite {
             return this.alive= true;
         }
         else { 
-            
-           
             return this.alive= false;
-
-
         }
       }
     takeDamage(damage) {

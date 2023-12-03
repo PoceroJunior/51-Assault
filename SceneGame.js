@@ -16,13 +16,6 @@ class SceneGame extends Phaser.Scene{
        
         //VARIABLES GLOBALES
         this.scene.launch("HUDScene");
-        //variables de prueba...
-    
-        var score= 10;
-        var h1= 10;
-        var h2= 10;
-        var e1= 2;
-        var e2= 4;
 
         //
         this.cursorKeys= this.input.keyboard.createCursorKeys();
@@ -164,12 +157,13 @@ height: 540,
             //this.body.destroy(); //no se si tendría que ponerse 
             player.die();
             console.log("Está muerto");
-            gameOver = true;        
-            this.scene.start('SceneLose');
-            this.death= this.add.image(0,0, "SceneLose");
-            this.death.setOrigin(0,0);
-             this.death.setDisplaySize(this.game.config.width,this.game.config.height)
-                this.scene.start('SceneLose');
+
+            //gameOver = true;        
+            //this.scene.start('SceneLose');
+            //this.death= this.add.image(0,0, "SceneLose");
+            //this.death.setOrigin(0,0);
+            //this.death.setDisplaySize(this.game.config.width,this.game.config.height)
+            //this.scene.start('SceneLose');
         
         }
 
@@ -288,9 +282,7 @@ height: 540,
             this.carroniero.setInteractive();
             this.carroniero.trackClosestPlayer(this.player1, this.player2);
         }
-        
-        
-        
+    
  /*
         this.estrellado = new Enemy (this,this.game.config.width/2, this.game.config.height/2+64, "estrellado");
         this.estrellado.setEnemyType("estrellado");
@@ -298,7 +290,7 @@ height: 540,
         this.estrellado.setInteractive();
         */
 /*
-        
+
         this.pezLava = new Enemy (this,this.game.config.width/2 + getRandomNumber(390, 780) , this.game.config.height/2 + getRandomNumber(270, 540), "pezLava");
         this.pezLava.setEnemyType("pezLava");
         this.pezLava.setScale(2);
@@ -306,15 +298,11 @@ height: 540,
 
         */
 
-
         //this.pezLava.trackClosestPlayer(this.player1,this.player2);
 
-        
-
-        
         //const hud = this.scene.get("HUDScene");
         //hud.updateScore(this.h1,this.e1,this.h2,this.e2);
-        this.updateScoreInHUD(this.h1,this.e1,this.h2,this.e2);
+        this.updateScoreInHUD(this.player1.hp,this.player1.xp,this.player2.hp,this.player2.xp);
 
     }
 
@@ -490,7 +478,6 @@ height: 540,
             this.player2Attack();
         } */
 
-
     //Si detecta la tecla F11, pone/quita la pantalla completa
     setFullScreen() {
         const gameCanvas = this.sys.canvas;
@@ -503,14 +490,9 @@ height: 540,
             }
         }
     }
-    
-   
+
     updateScoreInHUD(health1, exp1, health2, exp2) {
         // Obtén la escena del HUD y llama a su método para actualizar el puntaje
-        health1 = this.player1.hp;
-        health2 = this.player2.hp;
-        exp1 = this.player1.xp;
-        exp2 = this.player2.xp;
         const hudScene = this.scene.get('HUDScene');
         if (hudScene) {
             hudScene.updateScore(health1, exp1, health2, exp2);
