@@ -1,6 +1,8 @@
 class SceneMenu extends Phaser.Scene{
     constructor(){
         super ({ key: 'SceneMenu'});
+        this.playing = false;
+        this.mute = false;
     }
     preload(){
         //Interfaces
@@ -9,6 +11,7 @@ class SceneMenu extends Phaser.Scene{
         this.load.image ('creditosButton', "Assets/Interface/Main-menu/creditos-button.png");
         this.load.image ('opcionesButton', "Assets/Interface/Main-menu/opciones-button.png");
         this.load.image ('salirButton', "Assets/Interface/Main-menu/salir-button.png");
+
         //Música
         this.load.audio("menumusic", ["Assets/Interface/Sounds/feed-the-machine.ogg", "Assets/Interface/Sounds/feed-the-machine.mp3"]);
         //Sonidos
@@ -34,17 +37,18 @@ class SceneMenu extends Phaser.Scene{
         //sonido botones
         this.buttonsound = this.sound.add("audioboton");
         //Música
-        this.musicmenu = this.sound.add("menumusic")
-        //this.musicmenu.play();
+        this.musicmenu = this.sound.add("menumusic");
+        
         var musicConfig = {
-            mute: false,
+            mute: this.mute,
             volume: 0.1,
             rate: 1,
             detune: 0,
             seek: 0,
-            loop: true,
-            delay: 0,
+            loop: false,
+            delay: 0
         }
+
         var botonConfig = {
             mute: musicConfig.mute,
             volume: musicConfig.volume,
@@ -54,19 +58,12 @@ class SceneMenu extends Phaser.Scene{
             loop: false,
             delay: 0
         }
-        
-        //intento de hacer que no se repita cuando vuelves de otra escena.
-        /*
-        var playing = null;
 
-        if (playing == null){
-            var playing = false;
+        if (this.playing == false){
+            //play a la musica
+            this.musicmenu.play(musicConfig);
+            this.playing = true;
         }
-        if (playing == false){
-            this.musicmenu.play(musicConfig); //play a la musica
-            playing = true;
-        }
-        */
 
         this.startButton.on ('pointerdown', () => {
             this.scene.start('SceneSelectCh');
@@ -80,6 +77,8 @@ class SceneMenu extends Phaser.Scene{
             this.scene.start('SceneCredits');
             this.buttonsound.play(botonConfig);
         });
+
+        console.log(this.mute);
     }
     
 
@@ -97,11 +96,11 @@ class SceneMenu extends Phaser.Scene{
     }
 
     muteOrUnmuteMusic(){
-        if (musicConfig.mute = true) {
-            musicConfig.mute = false;
+        if (this.mute = true) {
+            this.mute = false;
         }
         else {
-            musicConfig.mute = true;
+            this.mute = true;
         }
     }
     

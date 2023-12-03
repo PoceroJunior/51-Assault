@@ -20,6 +20,8 @@ class SceneOptions extends Phaser.Scene{
     }
     create() {
 
+        this.scene.launch("SceneMenu");
+
         var botonConfig2 = {
             mute: false,
             volume: 0.1,
@@ -41,12 +43,20 @@ class SceneOptions extends Phaser.Scene{
         this.muteButton.setInteractive();
         this.muteButton.on ('pointerdown', () => {
             this.buttonsound2.play(botonConfig2);
+            const SceneMenu = this.scene.get('SceneMenu');
+            if (SceneMenu) {
+            SceneMenu.mute = true;
+            }
         });
         this.unmuteButton = this.add.image (530,270, 'unmute');
         this.unmuteButton.setScale(1.6);
         this.unmuteButton.setInteractive();
         this.unmuteButton.on ('pointerdown', () => {
             this.buttonsound2.play(botonConfig2);
+            const SceneMenu = this.scene.get('SceneMenu');
+            if (SceneMenu) {
+            SceneMenu.mute = false;
+            }
         });
         this.exitButton = this.add.image(100,500, 'salirButton');
         this.exitButton.setScale(1.5);

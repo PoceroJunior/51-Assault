@@ -207,7 +207,7 @@ Es importante mencionar que las pantallas de victoria y derrota constituirán do
 
 Estos estados de las pantallas están reflejados en la siguiente imagen:
 <p align="center">
-  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/da687003-0ec9-4843-a838-911310385ac2" width= '550' height='300'/>
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/e677f099-a41a-4f7d-a005-0647ece4c083" width= '590' height='600'/>
 </p>
 <p align=center>Figura 4.1 Estados del videojuego</p>
 

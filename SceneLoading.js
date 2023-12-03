@@ -9,7 +9,7 @@ class SceneLoading extends Phaser.Scene{
     
     //fondo
     this.load.image("background", "Assets/Gameplay/background.png");
-
+    
     //HUD
     this.load.image("health1", "Assets/Interface/HUD/health-character1.png");
     this.load.image("health2", "Assets/Interface/HUD/health-character2.png");
@@ -34,7 +34,7 @@ class SceneLoading extends Phaser.Scene{
     });
 }
     create(){
-        
+
         //pone una imagen que indica que se está cargando 
         this.loading= this.add.image(0,0, "SceneLoading");
         this.loading.setOrigin(0,0);
@@ -57,7 +57,7 @@ class SceneLoading extends Phaser.Scene{
             frames: this.anims.generateFrameNumbers("armacac2"),
             frameRate: 20,
             repeat: 0
-        });
+        });        
 
     }
 
