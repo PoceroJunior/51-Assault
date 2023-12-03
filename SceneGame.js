@@ -497,6 +497,12 @@ height: 540,
         if (hudScene) {
             hudScene.updateScore(health1, exp1, health2, exp2);
         }
+        if (hudScene.tiempo == 0){
+            this.scene.start('SceneWin');
+            hudScene.tiempo = 3*60;
+            this.scene.stop("HUDScene");
+        }
+
     }
     
 }

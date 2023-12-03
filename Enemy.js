@@ -46,7 +46,6 @@ class Enemy extends Phaser.GameObjects.Sprite {
         this.hp = 0;
         this.alive = false;
         this.die();
-
     }
 }
 
@@ -130,7 +129,18 @@ class Enemy extends Phaser.GameObjects.Sprite {
         // Establece la velocidad del enemigo para que se mueva hacia el jugador
         this.body.setVelocity(velocityX, velocityY);
         this.play("enemyAnim", true);
-
+        if (this.x <= player.x){           
+          this.flipX = true; 
+        }         
+          else{           
+            this.flipX = false;         
+          }         
+          if (this.y <= player.y){           
+            this.flipY = true;         
+          }         
+          else{           
+            this.flipY = false;         
+          }
         
         //flipea los enemigos. econtrar como hacer que solo cambie el tipo de enmigo cuatroDedos
         this.angle = angle;                 
