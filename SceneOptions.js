@@ -37,26 +37,24 @@ class SceneOptions extends Phaser.Scene{
 
         //sonido boton
         this.buttonsound2 = this.sound.add("audioboton2");
+        const soundManager = this.sound;
+
 
         this.muteButton = this.add.image (250,270, 'mute');
         this.muteButton.setScale(1.6);
         this.muteButton.setInteractive();
-        this.muteButton.on ('pointerdown', () => {
+        this.muteButton.on('pointerdown', () => {
             this.buttonsound2.play(botonConfig2);
-            const SceneMenu = this.scene.get('SceneMenu');
-            if (SceneMenu) {
-            SceneMenu.mute = true;
-            }
+            // Mute: Pausa todos los sonidos
+            soundManager.pauseAll();
         });
         this.unmuteButton = this.add.image (530,270, 'unmute');
         this.unmuteButton.setScale(1.6);
         this.unmuteButton.setInteractive();
-        this.unmuteButton.on ('pointerdown', () => {
+        this.unmuteButton.on('pointerdown', () => {
             this.buttonsound2.play(botonConfig2);
-            const SceneMenu = this.scene.get('SceneMenu');
-            if (SceneMenu) {
-            SceneMenu.mute = false;
-            }
+            // Unmute: Reanuda todos los sonidos
+            soundManager.resumeAll();
         });
         this.exitButton = this.add.image(100,500, 'salirButton');
         this.exitButton.setScale(1.5);
