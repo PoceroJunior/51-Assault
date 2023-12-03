@@ -52,7 +52,7 @@ class HUDScene extends Phaser.Scene {
 
     //#region metodos de control de tiempo...
     iniciarContador() {
-        this.tiempo = 3*60;
+        this.tiempo = 1.25*60;
         var self = this; // Capturar la referencia a la instancia de la clase
 
         var intervalo = setInterval(function() {

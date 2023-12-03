@@ -231,7 +231,7 @@ class SceneGame extends Phaser.Scene{
         const randomPosition = getRandomNumberWithMargin(0, 790, 30);
         
         //Spawn carroniero
-        if (this.time.now > 20000 && this.time.now > this.lastSpawnTime + 5000) {
+        if (this.time.now > 10000 && this.time.now > this.lastSpawnTime + 2000) {
             this.lastSpawnTime = this.time.now; // Actualiza el tiempo del último spawn
             // Resto del código de spawn...
             const randomPosition = getRandomNumberWithMargin(0, 790, 30);
