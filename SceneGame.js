@@ -121,7 +121,14 @@ height: 540,
     damagePlayers(player, enemy){ 
         player.hp = player.hp-enemy.attack; 
     }
-    
+
+    GameOverManager(){
+
+        this.scene.start("SceneLose");
+        const hudScene = this.scene.get('HUDScene');
+        hudScene.tiempo = 3*60;
+        this.scene.stop("HUDScene");
+    }
     //funciones de prueba
     DeathManager(player, enemy){
  
@@ -147,17 +154,18 @@ height: 540,
     }
     PlayerDeath(player, enemy){
 
-        if(player.isAlive())
+        if(player.isAlive() == true)
         {
         player.takeDamage(enemy.attack);
         console.log("VIDA DEL JUGADOR: "+ player.hp);
+        console.log("IF"+ player.isAlive());
         }
-
-        else{
+        if(player.isAlive()== false){
             //enemy.disableBody(true, true); //da error no sé porque
             //this.body.destroy(); //no se si tendría que ponerse 
-            player.die();
-            console.log("Está muerto");
+            //player.die();
+            this.GameOverManager();
+            console.log("Está muerto"+ player.isAlive());
 
             //this.scene.start('SceneLose');
             //this.death= this.add.image(0,0, "SceneLose");
