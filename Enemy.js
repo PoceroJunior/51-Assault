@@ -38,15 +38,17 @@ class Enemy extends Phaser.GameObjects.Sprite {
     }
   }
 
-  takenDamage(damage){
-    if (this.isAlive()){
-      this.hp-= damage;
-      if(this.hp == 0){
+  takeDamage(damage) {
+    // Función para recibir daño
+    this.hp -= damage;
+    if (this.hp <= 0 && !this.isAlive()) {
+        // El jugador ha muerto, puede añadirse lógica adicional aquí
+        this.hp = 0;
         this.alive = false;
-      }
+        this.die();
+
     }
-    
-  }
+}
 
   die(){
     this.anims.stop("enemyAnim", true);
