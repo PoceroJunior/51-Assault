@@ -124,8 +124,9 @@ height: 540,
     
     //funciones de prueba
     DeathManager(player, enemy){
-        this.EnemyDeath(player, enemy);
+ 
         this.PlayerDeath(player, enemy);
+        this.EnemyDeath(player, enemy);
     }
     //funciones de prueba
     EnemyDeath(player, enemy){
@@ -158,7 +159,6 @@ height: 540,
             player.die();
             console.log("Está muerto");
 
-            //gameOver = true;        
             //this.scene.start('SceneLose');
             //this.death= this.add.image(0,0, "SceneLose");
             //this.death.setOrigin(0,0);
@@ -321,7 +321,7 @@ height: 540,
      
         this.enemies.getChildren().forEach(enemy => {
           if (Phaser.Geom.Circle.ContainsPoint(attackArea, enemy)) {
-            enemy.takenDamage(1);
+            enemy.takeDamage(1);
     
             if (!enemy.isAlive()) {
               enemy.die();
@@ -399,7 +399,7 @@ height: 540,
      
         this.enemies.getChildren().forEach(enemy => {
           if (Phaser.Geom.Circle.ContainsPoint(attackArea, enemy)) {
-            enemy.takenDamage(1);
+            enemy.takeDamage(1);
     
             if (!enemy.isAlive()) {
               enemy.die();

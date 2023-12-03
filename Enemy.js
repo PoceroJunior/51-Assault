@@ -1,4 +1,4 @@
-class Enemy extends Phaser.GameObjects.Sprite {
+class Enemy extends Phaser.Physics.Arcade.Sprite{
   constructor(scene, x, y, spriteImg) {
     super(scene, x, y, spriteImg);
 
@@ -50,11 +50,7 @@ class Enemy extends Phaser.GameObjects.Sprite {
 }
 
   die(){
-    this.anims.stop("enemyAnim", true);
-    this.body.setEnable(false);
-    //Agregar aquí otros efectos que suceden cuando se mata un enemigo
-    // Eliminar el enemigo después de un tiempo (por ejemplo, 1 segundo)
-    this.destroy();
+    this.disableBody(true, true);
     
   }
 

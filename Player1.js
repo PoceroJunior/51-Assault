@@ -54,8 +54,7 @@ class Player1 extends Phaser.Physics.Arcade.Sprite {
         this.body.setEnable(false);
         //Agregar aquí otros efectos que suceden cuando se mata un enemigo
         // Eliminar el enemigo después de un tiempo (por ejemplo, 1 segundo)
-        this.destroy();
-        
+        this.destroy();        
       }
     gainExperience(enemyExperience) {
         // Función para ganar experiencia al derrotar enemigos
