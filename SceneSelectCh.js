@@ -8,6 +8,9 @@ class SceneSelectCh extends Phaser.Scene{
         this.load.image ('pj2', "Assets/Interface/player-selection/character2-selection.png");
         this.load.image ('salirButton', "Assets/Interface/player-selection/atras-button.png");
 
+        //Sonidos
+        this.load.audio("audioboton4", ["Assets/Interface/Sounds/HiHatBoton.ogg", "Assets/Interface/Sounds/HiHatBoton.mp3"])
+
         // detecta tecla F11
 this.input.keyboard.on('keydown-F11', () => {
     this.setFullScreen();
@@ -15,6 +18,19 @@ this.input.keyboard.on('keydown-F11', () => {
     
     }
     create() {
+
+        var botonConfig4 = {
+            mute: false,
+            volume: 0.1,
+            rate: 1,
+            detune: 0,
+            seek: 0,
+            loop: false,
+            delay: 0
+        }
+
+        this.buttonsound4 = this.sound.add("audioboton4");
+
         this.background = this.add.image(395,270, 'backgroundSelect');
         this.background.setScale(1.65, 2);
         this.pj1Button = this.add.image (250,270, 'pj1');
@@ -27,12 +43,15 @@ this.input.keyboard.on('keydown-F11', () => {
         this.exitButton.setScale(1.5);
         this.exitButton.setInteractive();
         this.exitButton.on ('pointerdown', () => {
+            this.buttonsound4.play(botonConfig4);
             this.scene.start('menu');
         });
         this.pj1Button.on ('pointerdown', () => {
+            this.buttonsound4.play(botonConfig4);
             this.scene.start('bootGame');
         });
         this.pj2Button.on ('pointerdown', () => {
+            this.buttonsound4.play(botonConfig4);
             this.scene.start('bootGame');
         });
 

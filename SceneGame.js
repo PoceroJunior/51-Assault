@@ -478,10 +478,10 @@ height: 540,
    
     updateScoreInHUD(health1, exp1, health2, exp2) {
         // Obtén la escena del HUD y llama a su método para actualizar el puntaje
-        health1 = 10;
-        health2 = 10;
-        exp1 = 1;
-        exp2 = 1;
+        health1 = 10;//player1.hp;
+        health2 = 10;//player2.hp;
+        exp1 = 1;//player1.xp;
+        exp2 = 1;//player2.xp;
         const hudScene = this.scene.get('HUDScene');
         if (hudScene) {
             hudScene.updateScore(health1, exp1, health2, exp2);

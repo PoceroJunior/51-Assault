@@ -22,7 +22,6 @@ class SceneLoading extends Phaser.Scene{
     //this.load.spritesheet("estrellado", "Assets/Gameplay/Enemy/estrellado-enemy.png", {frameWidth: 48, frameHeight: 54});
     this.load.spritesheet("carroniero", "Assets/Gameplay/Enemy/carroniero-enemy.png", {frameWidth: 24, frameHeight: 24});
     this.load.spritesheet("pezLava", "Assets/Gameplay/Enemy/pez-lava-enemy.png", {frameWidth: 24, frameHeight: 24});
-
     // detecta tecla F11
 this.input.keyboard.on('keydown-F11', () => {
     this.setFullScreen();

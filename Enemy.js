@@ -7,6 +7,7 @@ class Enemy extends Phaser.GameObjects.Sprite {
     this.body.setCollideWorldBounds(true);
 
     // se declara para cada enemigo
+    //this.Type;
     this.attack = null;
     this.hp= null; 
     this.xp= null; 
@@ -60,30 +61,35 @@ class Enemy extends Phaser.GameObjects.Sprite {
     switch (EnemyType){
 
       case "cuatroDedos":
+        //this.Type = "cuatroDedos";
         this.attack = 2;
         this.hp= 2;
         this.xp= 1;
         break;
 
       case "carroniero":
+        //this.Type = "carroniero";
         this.attack = 1;
         this.hp= 10;
         this.xp= 7;
         break;
 
       case "estrellado":
+        //this.Type = "estrellado";
         this.attack = 1;
         this.hp= 7;
         this.xp= 4;
         break;
 
       case "pezLava":
+        //this.Type = "pezLava";
         this.attack = 2;
         this.hp= 6;
         this.xp= 6;
         break;
 
       case "planetario":
+        //this.Type = "planetario";
         this.attack = 1;
         this.hp= 4;
         this.xp= 3;
@@ -123,27 +129,74 @@ class Enemy extends Phaser.GameObjects.Sprite {
         this.body.setVelocity(velocityX, velocityY);
         this.play("enemyAnim", true);
 
-        /*
+        
         //flipea los enemigos. econtrar como hacer que solo cambie el tipo de enmigo cuatroDedos
-        this.angle = angle;         
-        if (this.x <= player.x){           
-          this.flipX = true; 
-        }         
-          else{           
-            this.flipX = false;         
-          }         
-          if (this.y <= player.y){           
-            this.flipY = true;         
-          }         
-          else{           
-            this.flipY = false;         
-          }
-        */
+        this.angle = angle;                 
       //}
       //else{
       //  this.body.setVelocity(0, 0);
       //}
+      /*
+      switch (Type){
 
+        case "cuatroDedos":
+          if (this.x <= player.x){           
+            this.flipX = true; 
+          }         
+            else{           
+              this.flipX = false;         
+            }         
+            if (this.y <= player.y){           
+              this.flipY = true;         
+            }         
+            else{           
+              this.flipY = false;         
+            }
+          break;
+  
+        case "carroniero":
+          if (this.x <= player.x){           
+            this.flipX = true; 
+          }         
+            else{           
+              this.flipX = false;         
+            }         
+          break;
+  
+        case "estrellado":
+          if (this.x <= player.x){           
+            this.flipX = true; 
+          }         
+            else{           
+              this.flipX = false;         
+            }         
+          break;
+  
+        case "pezLava":
+          if (this.x <= player.x){           
+            this.flipX = true; 
+          }         
+            else{           
+              this.flipX = false;         
+            }         
+          break;
+  
+        case "planetario":
+          if (this.x <= player.x){           
+            this.flipX = true; 
+          }         
+            else{           
+              this.flipX = false;         
+            }         
+            if (this.y <= player.y){           
+              this.flipY = true;         
+            }         
+            else{           
+              this.flipY = false;         
+            }
+          break;
+      }
+      */
       
     }
 

@@ -6,6 +6,8 @@ class HUDScene extends Phaser.Scene {
 
     create() {
         
+        //this.scene.launch("winScene");
+
         this.interfaceh1 = this.add.tileSprite(1, 1, 106, 34, "health1");
         this.interfaceh1.setScale(1.2);
         this.interfaceh1.setOrigin(0,0);
@@ -41,6 +43,9 @@ class HUDScene extends Phaser.Scene {
         this.exp2Text.setText("EXP:"+exp2);
         this.timeText.setText(this.formatTiempo()); // Llamar a una función para formatear el tiempo
     
+        //if (tiempo == 0){
+        //    this.scene.start('winScene');
+        //}
     // por si se necesita mas tarde: this.exp2Text.setText("EXP|${exp2}");
     
     }
