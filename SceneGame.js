@@ -121,7 +121,7 @@ height: 540,
          */
 
         //colisiones
-        this.physics.add.overlap (this.players, this.enemies, this.hurtPlayers, null, this); //detecta que cuando se le hace daño a un personaje se le hace a todos? cuando se le hace daño a un enemigo se les hace a todos?
+        this.physics.add.overlap (this.players, this.enemies, this.DeathManager, null, this); //detecta que cuando se le hace daño a un personaje se le hace a todos? cuando se le hace daño a un enemigo se les hace a todos?
 
     }
 
@@ -130,19 +130,40 @@ height: 540,
     }
     
     //funciones de prueba
-    hurtPlayers(player, enemy){
+    DeathManager(player, enemy){
+        this.EnemyDeath(player, enemy);
+        this.PlayerDeath(player, enemy);
+    }
+    //funciones de prueba
+    EnemyDeath(player, enemy){
 
         if(enemy.isAlive())
         {
-        enemy.takenDamage(1);
-        this.damagePlayers(player, enemy);
-        console.log("VIDA DEL ENEMIGO: "+ enemy.hp + "VIDA DEL JUGADOR: "+ player.hp);
+        enemy.takeDamage(player.attack);
+        console.log("VIDA DEL ENEMIGO: "+ enemy.hp);
+        }
+        else{
+            //enemy.disableBody(true, true); //da error no sé porque
+            //this.body.destroy(); //no se si tendría que ponerse 
+            enemy.die();
+            console.log("Está muerto");
+        }
+
+        //enemy.disableBody(true,true);
+    }
+    PlayerDeath(player, enemy){
+
+        if(player.isAlive())
+        {
+        player.takeDamage(enemy.attack);
+        console.log("VIDA DEL JUGADOR: "+ player.hp);
         }
 
         else{
             //enemy.disableBody(true, true); //da error no sé porque
             //this.body.destroy(); //no se si tendría que ponerse 
-            enemy.die();
+            player.die();
+            console.log("Está muerto");
         }
 
         //enemy.disableBody(true,true);
@@ -237,13 +258,14 @@ height: 540,
         }
         const randomPosition = getRandomNumberWithMargin(0, 790, 30);
 
+        if (this.player1.isAlive() && this.player2.isAlive()){
         //scene.hudScene.bringToTop();
         this.movePlayer1Manager();
         this.moveWeapon1Manager();
         this.movePlayer2Manager();
         this.moveWeapon2Manager();
         //this.updateScoreInHUD();
-
+        }
         //OLEADA 1 ()
         this.cuatroDedos.trackClosestPlayer(this.player1,this.player2);
 

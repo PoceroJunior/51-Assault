@@ -39,6 +39,7 @@ class Player2 extends Phaser.Physics.Arcade.Sprite {
 
         }
       }
+      
     takeDamage(damage) {
         // Función para recibir daño
         this.hp -= damage;
@@ -46,10 +47,18 @@ class Player2 extends Phaser.Physics.Arcade.Sprite {
             // El jugador ha muerto, puede añadirse lógica adicional aquí
             this.hp = 0;
             this.alive = false;
-
+            this.die();
         }
     }
-
+    die(){
+        this.anims.stop("idle2", true);
+        this.anims.stop("walk2", true);
+        this.body.setEnable(false);
+        //Agregar aquí otros efectos que suceden cuando se mata un enemigo
+        // Eliminar el enemigo después de un tiempo (por ejemplo, 1 segundo)
+        this.destroy();
+        
+      }
     gainExperience(enemyExperience) {
         // Función para ganar experiencia al derrotar enemigos
         this.xp += xp;
