@@ -1,7 +1,7 @@
 class HUDScene extends Phaser.Scene {
     constructor() {
         super({ key: "HUDScene" });
-        this.tiempo = 3*60;
+        this.tiempo;
     }
 
     create() {
@@ -45,6 +45,7 @@ class HUDScene extends Phaser.Scene {
     }
 
     iniciarContador() {
+        this.tiempo = 3*60;
         var self = this; // Capturar la referencia a la instancia de la clase
 
         var intervalo = setInterval(function() {
