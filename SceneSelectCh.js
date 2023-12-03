@@ -1,6 +1,6 @@
 class SceneSelectCh extends Phaser.Scene{
     constructor(){
-        super ({ key: 'selectCh'});
+        super ({ key: 'SceneSelectCh'});
     }
     preload(){
         this.load.image ('backgroundSelect', "Assets/Interface/player-selection/pixil-frame-0.png");
@@ -44,15 +44,15 @@ this.input.keyboard.on('keydown-F11', () => {
         this.exitButton.setInteractive();
         this.exitButton.on ('pointerdown', () => {
             this.buttonsound4.play(botonConfig4);
-            this.scene.start('menu');
+            this.scene.start('SceneMenu');
         });
         this.pj1Button.on ('pointerdown', () => {
             this.buttonsound4.play(botonConfig4);
-            this.scene.start('bootGame');
+            this.scene.start('SceneLoading');
         });
         this.pj2Button.on ('pointerdown', () => {
             this.buttonsound4.play(botonConfig4);
-            this.scene.start('bootGame');
+            this.scene.start('SceneLoading');
         });
 
     }

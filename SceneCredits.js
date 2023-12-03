@@ -1,6 +1,6 @@
 class SceneCredits extends Phaser.Scene{
     constructor(){
-        super ({ key: 'credits'});
+        super ({ key: 'SceneCredits'});
     }
     preload(){
         this.load.image ('background2', "Assets/Interface/creditos.png");
@@ -36,7 +36,7 @@ this.input.keyboard.on('keydown-F11', () => {
         this.exitButton.setInteractive();
         this.exitButton.on ('pointerdown', () => {
             this.buttonsound3.play(botonConfig3);
-            this.scene.start('menu');
+            this.scene.start('SceneMenu');
         });
 
     }

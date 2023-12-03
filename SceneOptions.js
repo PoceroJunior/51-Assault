@@ -1,6 +1,6 @@
 class SceneOptions extends Phaser.Scene{
     constructor(){
-        super ({ key: 'options'});
+        super ({ key: 'SceneOptions'});
     }
     preload(){
 
@@ -53,7 +53,7 @@ class SceneOptions extends Phaser.Scene{
         this.exitButton.setInteractive();
         this.exitButton.on ('pointerdown', () => {
             this.buttonsound2.play(botonConfig2);
-            this.scene.start('menu');
+            this.scene.start('SceneMenu');
         });
 
     }

@@ -1,6 +1,6 @@
 class SceneGame extends Phaser.Scene{
     constructor(){
-        super("playGame");
+        super("SceneGame");
         this.lastSpawnTime = 0;
     }
     preload(){
@@ -164,6 +164,13 @@ height: 540,
             //this.body.destroy(); //no se si tendría que ponerse 
             player.die();
             console.log("Está muerto");
+            gameOver = true;        
+            this.scene.start('SceneLose');
+            this.death= this.add.image(0,0, "SceneLose");
+            this.death.setOrigin(0,0);
+             this.death.setDisplaySize(this.game.config.width,this.game.config.height)
+                this.scene.start('SceneLose');
+        
         }
 
         //enemy.disableBody(true,true);

@@ -1,8 +1,9 @@
 class SceneMenu extends Phaser.Scene{
     constructor(){
-        super ({ key: 'menu'});
+        super ({ key: 'SceneMenu'});
     }
     preload(){
+        //Interfaces
         this.load.image ('backgroundMenu', "Assets/Interface/Main-menu/main-menu-background-good.png");
         this.load.image ('jugarButton', "Assets/Interface/Main-menu/jugar-button.png");
         this.load.image ('creditosButton', "Assets/Interface/Main-menu/creditos-button.png");
@@ -68,15 +69,15 @@ class SceneMenu extends Phaser.Scene{
         */
 
         this.startButton.on ('pointerdown', () => {
-            this.scene.start('selectCh');
+            this.scene.start('SceneSelectCh');
             this.buttonsound.play(botonConfig);
         });
         this.optionButton.on ('pointerdown', () => {
-            this.scene.start('options');
+            this.scene.start('SceneOptions');
             this.buttonsound.play(botonConfig);
         });
         this.creditButton.on ('pointerdown', () => {
-            this.scene.start('credits');
+            this.scene.start('SceneCredits');
             this.buttonsound.play(botonConfig);
         });
     }

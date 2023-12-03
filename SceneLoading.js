@@ -1,6 +1,6 @@
 class SceneLoading extends Phaser.Scene{
     constructor(){
-        super("bootGame");
+        super("SceneLoading");
     }
     preload(){
     //fondo
@@ -8,6 +8,8 @@ class SceneLoading extends Phaser.Scene{
     //interfaz
     // PANTALLA DE CARGA
     this.load.image("LoadingScreen", "Assets/Interface/loading-screen.png");
+    this.load.image("SceneLose", "Assets/Interface/lose-screen.png");
+    this.load.image("SceneWin", "Assets/Interface/lose-screen.png");
     //HUD
     this.load.image("health1", "Assets/Interface/HUD/health-character1.png");
     this.load.image("health2", "Assets/Interface/HUD/health-character2.png");
@@ -30,10 +32,10 @@ this.input.keyboard.on('keydown-F11', () => {
     }
     create(){
         //pone una imagen que indica que se está cargando 
-        this.loading= this.add.image(0,0, "LoadingScreen");
+        this.loading= this.add.image(0,0, "SceneLoading");
         this.loading.setOrigin(0,0);
         this.loading.setDisplaySize(this.game.config.width,this.game.config.height);
-        this.scene.start("playGame");
+        this.scene.start("SceneGame");
 
         //animations
         //weapons
