@@ -4,19 +4,16 @@ class SceneGame extends Phaser.Scene{
         this.lastSpawnTime = 0;
     }
     preload(){
-
-       // detecta tecla F11
-       this.input.keyboard.on('keydown-F11', () => {
+        // detecta tecla F11
+        this.input.keyboard.on('keydown-F11', () => {
         this.setFullScreen();
         });
     }
 
-
     create(){
        
-        //VARIABLES GLOBALES
+        // #region VARIABLES GLOBALES Y BASE
         this.scene.launch("HUDScene");
-
         //
         this.cursorKeys= this.input.keyboard.createCursorKeys();
         this.keys = this.input.keyboard.addKeys("W,A,S,D,E,Q,SHIFT,J,I,K,L,U,O");
@@ -24,104 +21,102 @@ class SceneGame extends Phaser.Scene{
         this.background =this.add.tileSprite(0,0,this.game.config.width,this.game.config.height,"background");
         this.background.setOrigin(0,0);
         //
-        //
+        //#endregion
+
+        //#region JUGADOR 1
+
         this.player1 = new Player1 (this, this.game.config.width/2 -64, this.game.config.height/2, "player1");
 
         this.weapon1 = this.physics.add.sprite(this.game.config.width/2 -32, this.game.config.height/2, "armacac1");
         this.weapon1.setScale(2.5);
         this.weapon1.setCollideWorldBounds(true);
         
+        //#endregion
+
+        //#region JUGADOR 2
+
         this.player2 = new Player2 (this, this.game.config.width/2 +64, this.game.config.height/2, "player2");
 
         this.weapon2 = this.physics.add.sprite(this.game.config.width/2 +96, this.game.config.height/2, "armacac2");
         this.weapon2.setScale(2.5);
         this.weapon2.setCollideWorldBounds(true);
-
+        //#endregion
+          
         //grupo de jugadores
         this.players= this.physics.add.group();
         this.players.add(this.player1);
         this.players.add(this.player2);
 
-//INICIALIZACIÓN SPAWNEO (OLEADA 0)
+        // #region INICIALIZACIÓN SPAWNEO (OLEADA 0)
 
-function getRandomNumber(min, max) {
-    // Genera un número aleatorio entre 0 (inclusive) y 1 (exclusivo)
-    const randomDecimal = Math.random();
+        //#region funciones aleatorias
+        function getRandomNumber(min, max) {
+            // Genera un número aleatorio entre 0 (inclusive) y 1 (exclusivo)
+            const randomDecimal = Math.random();
 
-    // Ajusta el valor al rango deseado
-    const randomInRange = randomDecimal * (max - min) + min;
+            // Ajusta el valor al rango deseado
+            const randomInRange = randomDecimal * (max - min) + min;
 
-    // Redondea al entero más cercano
-    const randomNumber = Math.round(randomInRange);
+            // Redondea al entero más cercano
+            const randomNumber = Math.round(randomInRange);
 
-    return randomNumber;
-}
+            return randomNumber;
+        }
 
+        function getRandomNumberWithMargin(min, max, margin) {
+            const side = Phaser.Math.Between(0, 3); // 0: arriba, 1: derecha, 2: abajo, 3: izquierda
 
-function getRandomNumberWithMargin(min, max, margin) {
-    const side = Phaser.Math.Between(0, 3); // 0: arriba, 1: derecha, 2: abajo, 3: izquierda
+            let randomValue;
 
-    let randomValue;
+            switch (side) {
+                case 0:
+                    // Arriba
+                    randomValue = Phaser.Math.Between(min + margin, max - margin);
+                    return { x: randomValue, y: min - margin };
+                case 1:
+                    // Derecha
+                    randomValue = Phaser.Math.Between(min + margin, max - margin);
+                    return { x: max + margin, y: randomValue };
+                case 2:
+                    // Abajo
+                    randomValue = Phaser.Math.Between(min + margin, max - margin);
+                    return { x: randomValue, y: max + margin };
+                case 3:
+                    // Izquierda
+                    randomValue = Phaser.Math.Between(min + margin, max - margin);
+                    return { x: min - margin, y: randomValue };
+                default:
+                    return { x: 0, y: 0 }; // Valor predeterminado en caso de algún problema
+            }
+        }
 
-    switch (side) {
-        case 0:
-            // Arriba
-            randomValue = Phaser.Math.Between(min + margin, max - margin);
-            return { x: randomValue, y: min - margin };
-        case 1:
-            // Derecha
-            randomValue = Phaser.Math.Between(min + margin, max - margin);
-            return { x: max + margin, y: randomValue };
-        case 2:
-            // Abajo
-            randomValue = Phaser.Math.Between(min + margin, max - margin);
-            return { x: randomValue, y: max + margin };
-        case 3:
-            // Izquierda
-            randomValue = Phaser.Math.Between(min + margin, max - margin);
-            return { x: min - margin, y: randomValue };
-        default:
-            return { x: 0, y: 0 }; // Valor predeterminado en caso de algún problema
-    }
-}
-
-// Llamada para obtener coordenadas en el borde con un margen de 30 unidades
-const randomPosition = getRandomNumberWithMargin(0, 790, 30);
-
-this.cuatroDedos = new Enemy(this, randomPosition.x, randomPosition.y, "cuatroDedos");
-
-/*
-width: 790,
-height: 540,
-*/ 
-   //Inicializacion de los enemigos
-  
-   //this.cuatroDedos = new Enemy (this, (getRandomNumberWithMargin(0, 790, 30)) , getRandomNumberWithMargin(0, 540, 30), "cuatroDedos");
-   this.cuatroDedos.setEnemyType("cuatroDedos");
-   this.cuatroDedos.setScale(2);
-   this.cuatroDedos.setInteractive();
-
-     
-//FIN SPAWNEO
-
-        //Grupo de enemigos
+        //#endregion
         
+        // Llamada para obtener coordenadas en el borde con un margen de 30 unidades
+        const randomPosition = getRandomNumberWithMargin(0, 790, 30);
+        //Inicializacion de los enemigos
+        this.cuatroDedos = new Enemy(this, randomPosition.x, randomPosition.y, "cuatroDedos"); 
+        this.cuatroDedos.setEnemyType("cuatroDedos");
+        this.cuatroDedos.setScale(2);
+        this.cuatroDedos.setInteractive();
+
+        // #endregion
+
+        //grupo de enemigos
         this.enemies= this.physics.add.group();
         this.enemies.add(this.cuatroDedos);
-        /*
-        //this.enemies.add(this.estrellado);
-        this.enemies.add(this.pezLava);
-         */
 
         //colisiones
-        this.physics.add.overlap (this.players, this.enemies, this.DeathManager, null, this); //detecta que cuando se le hace daño a un personaje se le hace a todos? cuando se le hace daño a un enemigo se les hace a todos?
-
+        this.physics.add.overlap (this.players, this.enemies, this.DeathManager, null, this); 
     }
 
+    //#region daño a los jugadores
     damagePlayers(player, enemy){ 
         player.hp = player.hp-enemy.attack; 
     }
+    //#endregion
 
+    //#region FUNCIONES DE MUERTE Y GAMEOVER
     GameOverManager(){
 
         this.scene.start("SceneLose");
@@ -141,73 +136,32 @@ height: 540,
         if(enemy.isAlive())
         {
         enemy.takeDamage(player.attack);
-        console.log("VIDA DEL ENEMIGO: "+ enemy.hp);
         }
         else{
-            //enemy.disableBody(true, true); //da error no sé porque
-            //this.body.destroy(); //no se si tendría que ponerse 
             enemy.die();
-            console.log("Está muerto");
         }
 
-        //enemy.disableBody(true,true);
     }
     PlayerDeath(player, enemy){
 
         if(player.isAlive() == true)
         {
         player.takeDamage(enemy.attack);
-        console.log("VIDA DEL JUGADOR: "+ player.hp);
-        console.log("IF"+ player.isAlive());
         }
         if(player.isAlive()== false){
-            //enemy.disableBody(true, true); //da error no sé porque
-            //this.body.destroy(); //no se si tendría que ponerse 
-            //player.die();
             this.GameOverManager();
-            console.log("Está muerto"+ player.isAlive());
-
-            //this.scene.start('SceneLose');
-            //this.death= this.add.image(0,0, "SceneLose");
-            //this.death.setOrigin(0,0);
-            //this.death.setDisplaySize(this.game.config.width,this.game.config.height)
-            //this.scene.start('SceneLose');
         
         }
-
-        //enemy.disableBody(true,true);
     }
+    //#endregion
 
-    /*
-
-    //Es un metodo que intenta ver la colision entre el enemigo y el jugador para hacerle daño. No consigo que funcione
-
-    hurtPlayers(player, enemy) {
-    if (this.enemy.isAlive()) {
-        // Obtén la cantidad de daño que causa el enemigo
-        const damage = this.enemy.attack;
-
-        // Reduce la cantidad de vida del jugador
-        this.player.takenDamage(damage);
-
-        console.log("VIDA DEL JUGADOR:" + this.player.hp);
-        this.resetPos(enemy);
-        console.log("VIDA DEL ENEMIGO: "+ this.enemy.hp);
-        
-    }
-
-    } 
-    */
-
+    //#region RESETPOS
     resetPosX(){
-        //ship.enableBody(true, ship.x, ship.y, true, true); //da error no sé porque
 
         const sectionWidth = this.game.config.width / 3; // Dividir en 3 secciones
-    
         const centerX = this.game.config.width / 2;
-    
         let x;
-    
+
         do {
             x = Phaser.Math.RND.between(0, this.game.config.width);
 
@@ -215,16 +169,10 @@ height: 540,
             (x >= centerX - sectionWidth - 100 && x <= centerX + sectionWidth + 100) 
         );
         return x;
-
     }
-
     resetPosY(){
-        //ship.enableBody(true, ship.x, ship.y, true, true); //da error no sé porque
-
         const sectionHeight = this.game.config.height / 3;
-    
         const centerY = this.game.config.height / 2;
-    
         let y;
     
         do {
@@ -235,10 +183,13 @@ height: 540,
         return y;
 
     }
-    /////////////////////////////////////////////////////
+    //#endregion
 
     update(){
 
+        this.cuatroDedos.trackClosestPlayer(this.player1,this.player2);//tracking del cuatroDedos
+
+        //#region function getRandomNumberWithMargin
         function getRandomNumberWithMargin(min, max, margin) {
             const side = Phaser.Math.Between(0, 3); // 0: arriba, 1: derecha, 2: abajo, 3: izquierda
         
@@ -265,19 +216,20 @@ height: 540,
                     return { x: 0, y: 0 }; // Valor predeterminado en caso de algún problema
             }
         }
-        const randomPosition = getRandomNumberWithMargin(0, 790, 30);
+        //#endregion
 
+        //#region Control del movimiento del personaje (si está vivo)
         if (this.player1.isAlive() && this.player2.isAlive()){
-        //scene.hudScene.bringToTop();
         this.movePlayer1Manager();
         this.moveWeapon1Manager();
         this.movePlayer2Manager();
         this.moveWeapon2Manager();
-        //this.updateScoreInHUD();
         }
-        //OLEADA 1 ()
-        this.cuatroDedos.trackClosestPlayer(this.player1,this.player2);
+        //#endregion
 
+        // #region OLEADA 1
+        const randomPosition = getRandomNumberWithMargin(0, 790, 30);
+        
         //Spawn carroniero
         if (this.time.now > 20000 && this.time.now > this.lastSpawnTime + 5000) {
             this.lastSpawnTime = this.time.now; // Actualiza el tiempo del último spawn
@@ -290,40 +242,13 @@ height: 540,
             this.carroniero.setInteractive();
             this.carroniero.trackClosestPlayer(this.player1, this.player2);
         }
-    
- /*
-        this.estrellado = new Enemy (this,this.game.config.width/2, this.game.config.height/2+64, "estrellado");
-        this.estrellado.setEnemyType("estrellado");
-        this.estrellado.setScale(2);
-        this.estrellado.setInteractive();
-        */
-/*
-
-        this.pezLava = new Enemy (this,this.game.config.width/2 + getRandomNumber(390, 780) , this.game.config.height/2 + getRandomNumber(270, 540), "pezLava");
-        this.pezLava.setEnemyType("pezLava");
-        this.pezLava.setScale(2);
-        this.pezLava.setInteractive();
-
-        */
-
-        //this.pezLava.trackClosestPlayer(this.player1,this.player2);
-
-        //const hud = this.scene.get("HUDScene");
-        //hud.updateScore(this.h1,this.e1,this.h2,this.e2);
+        //#endregion
+        
         this.updateScoreInHUD(this.player1.hp,this.player1.xp,this.player2.hp,this.player2.xp);
 
     }
 
-    /*player1Attack() {
-        const attackArea = new Phaser.Geom.Circle(this.player1.x, this.player1.y, 50); // esto hace el area circular de las unidades que quieras, lo podemos usar para el area de ataque
-        
-        this.enemies.forEach(enemy => {  // igual poner .getChildren, no se como esta implementado eso
-            if (Phaser.Geom.Circle.ContainsPoint(attackArea, enemy)) {
-                this.enemy.destroy();
-            }
-        });
-    }*/
-
+    //#region funciones del personaje 1
     player1Attack() {
         const attackArea = new Phaser.Geom.Circle(this.weapon1.x, this.weapon1.y, 50);
      
@@ -402,6 +327,9 @@ height: 540,
         this.weapon1.y = Phaser.Math.Clamp(this.weapon1.y, this.weapon1.height*1.6, this.game.config.height - this.weapon1.height*1.6);
     }
 
+    //#endregion
+
+    //#region funciones del personaje 2
     player2Attack() {
         const attackArea = new Phaser.Geom.Circle(this.weapon2.x, this.weapon2.y, 50);
      
@@ -478,14 +406,6 @@ height: 540,
         this.weapon2.x = Phaser.Math.Clamp(this.weapon2.x, this.weapon2.width*1.2, this.game.config.width - this.weapon2.width*1.2);
         this.weapon2.y = Phaser.Math.Clamp(this.weapon2.y, this.weapon2.height*1.6, this.game.config.height - this.weapon2.height*1.6);
     }
-
-    /* Shift para posible futuro ataque especial o mecánica
-        useEspecialAttack()
-        if (this.keys.SHIFT.isDown){
-            this.specialattack.play("Acac2", true);
-            this.player2Attack();
-        } */
-
     //Si detecta la tecla F11, pone/quita la pantalla completa
     setFullScreen() {
         const gameCanvas = this.sys.canvas;
@@ -494,11 +414,14 @@ height: 540,
             try {
                 gameCanvas.requestFullscreen();
             } catch (error) {
-                console.error('Error al solicitar pantalla completa:', error);
             }
         }
     }
 
+    //#endregion
+
+
+    //actualizacion del HUD...
     updateScoreInHUD(health1, exp1, health2, exp2) {
         // Obtén la escena del HUD y llama a su método para actualizar el puntaje
         const hudScene = this.scene.get('HUDScene');

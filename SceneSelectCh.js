@@ -3,6 +3,7 @@ class SceneSelectCh extends Phaser.Scene{
         super ({ key: 'SceneSelectCh'});
     }
     preload(){
+        //Imagenes
         this.load.image ('backgroundSelect', "Assets/Interface/player-selection/pixil-frame-0.png");
         this.load.image ('pj1', "Assets/Interface/player-selection/character1-selection.png");
         this.load.image ('pj2', "Assets/Interface/player-selection/character2-selection.png");
@@ -12,13 +13,14 @@ class SceneSelectCh extends Phaser.Scene{
         this.load.audio("audioboton4", ["Assets/Interface/Sounds/HiHatBoton.ogg", "Assets/Interface/Sounds/HiHatBoton.mp3"])
 
         // detecta tecla F11
-this.input.keyboard.on('keydown-F11', () => {
-    this.setFullScreen();
-    });
+        this.input.keyboard.on('keydown-F11', () => {
+        this.setFullScreen();
+        });
     
     }
     create() {
 
+        //boton...
         var botonConfig4 = {
             mute: false,
             volume: 0.1,
@@ -28,20 +30,28 @@ this.input.keyboard.on('keydown-F11', () => {
             loop: false,
             delay: 0
         }
-
         this.buttonsound4 = this.sound.add("audioboton4");
 
+        //imagen de fondo...
         this.background = this.add.image(395,270, 'backgroundSelect');
         this.background.setScale(1.65, 2);
+
+        //boton del personaje 1
         this.pj1Button = this.add.image (250,270, 'pj1');
         this.pj1Button.setScale(1.6);
         this.pj1Button.setInteractive();
+
+        //boton del personaje 2
         this.pj2Button = this.add.image (530,270, 'pj2');
         this.pj2Button.setScale(1.6);
         this.pj2Button.setInteractive();
+
+        //boton de salida.
         this.exitButton = this.add.image(100,500, 'salirButton');
         this.exitButton.setScale(1.5);
         this.exitButton.setInteractive();
+        
+        //interaccion con los distintos botones...
         this.exitButton.on ('pointerdown', () => {
             this.buttonsound4.play(botonConfig4);
             this.scene.start('SceneMenu');

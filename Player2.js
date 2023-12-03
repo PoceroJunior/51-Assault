@@ -4,6 +4,8 @@ class Player2 extends Phaser.Physics.Arcade.Sprite {
         scene.add.existing(this);
         scene.physics.add.existing(this);
         this.setScale(3);
+
+        //#region Atributos y animaciones...
         // Atributos del jugador 1
         this.speed = 140;
         this.hp = 10;
@@ -28,42 +30,45 @@ class Player2 extends Phaser.Physics.Arcade.Sprite {
             repeat: -1
 
         });
+        //#endregion
     }
+        //#region Daño y muerte del personaje...
+        isAlive (){
+            if (this.hp > 0){ 
+                return this.alive= true;
+            }
+            else { 
+            
+            
+                return this.alive= false;
 
-    isAlive (){
-        if (this.hp > 0){ 
-            return this.alive= true;
+            }
         }
-        else { 
-           
-           
-            return this.alive= false;
-
-        }
-      }
-      
-    takeDamage(damage) {
-        // Función para recibir daño
-        this.hp -= damage;
-        if (this.hp <= 0 && !this.isAlive()) {
-            // El jugador ha muerto, puede añadirse lógica adicional aquí
-            this.hp = 0;
-            this.alive = false;
-            this.die();
-        }
-    }
-    die(){
-        this.anims.stop("idle2", true);
-        this.anims.stop("walk2", true);
-        this.body.setEnable(false);
-        //Agregar aquí otros efectos que suceden cuando se mata un enemigo
-        // Eliminar el enemigo después de un tiempo (por ejemplo, 1 segundo)
-        this.destroy();
         
-      }
-    gainExperience(enemyExperience) {
-        // Función para ganar experiencia al derrotar enemigos
-        this.xp += xp;
-        // Puedes agregar lógica adicional aquí, como aumentar el nivel del jugador, etc.
-    }
+        takeDamage(damage) {
+            // Función para recibir daño
+            this.hp -= damage;
+            if (this.hp <= 0 && !this.isAlive()) {
+                // El jugador ha muerto, puede añadirse lógica adicional aquí
+                this.hp = 0;
+                this.alive = false;
+                this.die();
+            }
+        }
+        die(){
+            this.anims.stop("idle2", true);
+            this.anims.stop("walk2", true);
+            this.body.setEnable(false);
+            //Agregar aquí otros efectos que suceden cuando se mata un enemigo
+            // Eliminar el enemigo después de un tiempo (por ejemplo, 1 segundo)
+            this.destroy();
+            
+        }
+        //#endregion
+        
+        gainExperience(enemyExperience) {
+            // Función para ganar experiencia al derrotar enemigos
+            this.xp += xp;
+            // Puedes agregar lógica adicional aquí, como aumentar el nivel del jugador, etc.
+        }
 }

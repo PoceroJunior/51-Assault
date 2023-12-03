@@ -6,8 +6,8 @@ class Enemy extends Phaser.Physics.Arcade.Sprite{
     scene.physics.world.enable(this);
     this.body.setCollideWorldBounds(true);
 
+    //#region Atributos y animaciones...
     // se declara para cada enemigo
-    //this.Type;
     this.attack = null;
     this.hp= null; 
     this.xp= null; 
@@ -17,7 +17,7 @@ class Enemy extends Phaser.Physics.Arcade.Sprite{
     this.target = null; // El objetivo es el jugador mas cercano
     this.setScale(2);
 
-    //animacion (si es necesaria) a continuacion...
+    //animacion...
 
     this.anims.create({
       key: "enemyAnim",
@@ -25,8 +25,11 @@ class Enemy extends Phaser.Physics.Arcade.Sprite{
       frameRate: 10,
       repeat: -1
     });
+    //#endregion
+
   }
 
+  //#region Daño y muerte del personaje...
   isAlive (){
     if (this.hp > 0){ 
       return this.alive= true;
@@ -54,6 +57,9 @@ class Enemy extends Phaser.Physics.Arcade.Sprite{
     
   }
 
+  //#endregion
+
+  //con este metodo se le asigna cada atributo...
   setEnemyType(EnemyType){ 
     switch (EnemyType){
 
@@ -94,6 +100,7 @@ class Enemy extends Phaser.Physics.Arcade.Sprite{
     }
   }
 
+  //#region tracking del jugador
   trackClosestPlayer(player1, player2) {
       const distanceToPlayer1 = Phaser.Math.Distance.Between(this.x, this.y, player1.x, player1.y);
       const distanceToPlayer2 = Phaser.Math.Distance.Between(this.x, this.y, player2.x, player2.y);
@@ -110,14 +117,15 @@ class Enemy extends Phaser.Physics.Arcade.Sprite{
         }
       }
     }
+
+
     // Método para mover al enemigo hacia el jugador
     moveTowardsPlayer(player) {
       if (!this.body) {
         return; // Salir si this.body es undefined
       }
-      //if (this.isAlive()){
-        const angle = Phaser.Math.Angle.Between(this.x, this.y, player.x, player.y);
 
+        const angle = Phaser.Math.Angle.Between(this.x, this.y, player.x, player.y);
         // Calcula la velocidad en las direcciones x e y basada en el ángulo
         const velocityX = Math.cos(angle) * this.speed;
         const velocityY = Math.sin(angle) * this.speed;
@@ -137,76 +145,9 @@ class Enemy extends Phaser.Physics.Arcade.Sprite{
           else{           
             this.flipY = false;         
           }
-        
-        //flipea los enemigos. econtrar como hacer que solo cambie el tipo de enmigo cuatroDedos
-        this.angle = angle;                 
-      //}
-      //else{
-      //  this.body.setVelocity(0, 0);
-      //}
-      /*
-      switch (Type){
-
-        case "cuatroDedos":
-          if (this.x <= player.x){           
-            this.flipX = true; 
-          }         
-            else{           
-              this.flipX = false;         
-            }         
-            if (this.y <= player.y){           
-              this.flipY = true;         
-            }         
-            else{           
-              this.flipY = false;         
-            }
-          break;
-  
-        case "carroniero":
-          if (this.x <= player.x){           
-            this.flipX = true; 
-          }         
-            else{           
-              this.flipX = false;         
-            }         
-          break;
-  
-        case "estrellado":
-          if (this.x <= player.x){           
-            this.flipX = true; 
-          }         
-            else{           
-              this.flipX = false;         
-            }         
-          break;
-  
-        case "pezLava":
-          if (this.x <= player.x){           
-            this.flipX = true; 
-          }         
-            else{           
-              this.flipX = false;         
-            }         
-          break;
-  
-        case "planetario":
-          if (this.x <= player.x){           
-            this.flipX = true; 
-          }         
-            else{           
-              this.flipX = false;         
-            }         
-            if (this.y <= player.y){           
-              this.flipY = true;         
-            }         
-            else{           
-              this.flipY = false;         
-            }
-          break;
-      }
-      */
-      
+          this.angle = angle;                 
     }
 
+    //#endregion
 
   }

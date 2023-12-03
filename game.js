@@ -1,4 +1,4 @@
-//tamaño fondo juego e interfaces: 480x270
+//configuracion base
 window.onload=function(){
     var config ={
         type: Phaser.AUTO,

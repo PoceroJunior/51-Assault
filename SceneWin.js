@@ -30,15 +30,18 @@ class SceneWin extends Phaser.Scene{
             loop: false,
             delay: 0
         }
-
         this.buttonsound5 = this.sound.add("audioboton5");
 
+        //imagen de victoria...
         this.victoria= this.add.image(0,0, "SceneWin");
         this.victoria.setOrigin(0,0);
         this.victoria.setDisplaySize(this.game.config.width,this.game.config.height);
+
+        //boton de salir...
         this.exitButton = this.add.image(100,500, 'salirButton');
         this.exitButton.setScale(1.5);
         this.exitButton.setInteractive();
+        //interaccion del boton de salida
         this.exitButton.on ('pointerdown', () => {
             this.buttonsound5.play(botonConfig5);
             this.scene.start('SceneMenu');

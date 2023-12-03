@@ -20,7 +20,7 @@ class SceneOptions extends Phaser.Scene{
     }
     create() {
 
-        this.scene.launch("SceneMenu");
+        this.scene.launch("SceneMenu"); //launch de la escena de opciones...
 
         var botonConfig2 = {
             mute: false,
@@ -32,6 +32,7 @@ class SceneOptions extends Phaser.Scene{
             delay: 0
         }
     
+        //Imagen del fondo...
         this.background = this.add.image(395,270, 'background3');
         this.background.setScale(1.65, 2);
 
@@ -39,26 +40,34 @@ class SceneOptions extends Phaser.Scene{
         this.buttonsound2 = this.sound.add("audioboton2");
         const soundManager = this.sound;
 
-
+        //boton de quitar sonido
         this.muteButton = this.add.image (250,270, 'mute');
         this.muteButton.setScale(1.6);
         this.muteButton.setInteractive();
+
+        //interaccion de los botones
         this.muteButton.on('pointerdown', () => {
             this.buttonsound2.play(botonConfig2);
             // Mute: Pausa todos los sonidos
             soundManager.pauseAll();
         });
+
+        //boton de poner sonido
         this.unmuteButton = this.add.image (530,270, 'unmute');
         this.unmuteButton.setScale(1.6);
         this.unmuteButton.setInteractive();
+
         this.unmuteButton.on('pointerdown', () => {
             this.buttonsound2.play(botonConfig2);
             // Unmute: Reanuda todos los sonidos
             soundManager.resumeAll();
         });
+
+        //boton de salida...
         this.exitButton = this.add.image(100,500, 'salirButton');
         this.exitButton.setScale(1.5);
         this.exitButton.setInteractive();
+        
         this.exitButton.on ('pointerdown', () => {
             this.buttonsound2.play(botonConfig2);
             this.scene.start('SceneMenu');

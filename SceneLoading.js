@@ -3,7 +3,6 @@ class SceneLoading extends Phaser.Scene{
         super("SceneLoading");
     }
     preload(){
-
     //PANTALLA DE CARGA
     this.load.image("LoadingScreen", "Assets/Interface/loading-screen.png");
     
@@ -23,8 +22,6 @@ class SceneLoading extends Phaser.Scene{
 
     //Enemigos
     this.load.spritesheet("cuatroDedos", "Assets/Gameplay/Enemy/cuatro-dedos-enemy.png", {frameWidth: 16, frameHeight: 16});
-
-    //this.load.spritesheet("estrellado", "Assets/Gameplay/Enemy/estrellado-enemy.png", {frameWidth: 48, frameHeight: 54});
     this.load.spritesheet("carroniero", "Assets/Gameplay/Enemy/carroniero-enemy.png", {frameWidth: 24, frameHeight: 24});
     this.load.spritesheet("pezLava", "Assets/Gameplay/Enemy/pez-lava-enemy.png", {frameWidth: 24, frameHeight: 24});
     
@@ -35,30 +32,31 @@ class SceneLoading extends Phaser.Scene{
 }
     create(){
 
-        //pone una imagen que indica que se está cargando 
-        this.loading= this.add.image(0,0, "SceneLoading");
-        this.loading.setOrigin(0,0);
-        this.loading.setDisplaySize(this.game.config.width,this.game.config.height);
-        this.scene.start("SceneGame");
+    //pone una imagen que indica que se está cargando 
+    this.loading= this.add.image(0,0, "SceneLoading");
+    this.loading.setOrigin(0,0);
+    this.loading.setDisplaySize(this.game.config.width,this.game.config.height);
+    this.scene.start("SceneGame");
 
-        //animations
-        //weapons
-        this.anims.create
-        ({
-            key: "Acac1",
-            frames: this.anims.generateFrameNumbers("armacac1"),
-            frameRate: 20,
-            repeat: 0
-        });
+    // #region Animaciones...
+    //weapons
+    this.anims.create
+    ({
+        key: "Acac1",
+        frames: this.anims.generateFrameNumbers("armacac1"),
+        frameRate: 20,
+        repeat: 0
+    });
 
-        this.anims.create
-        ({
-            key: "Acac2",
-            frames: this.anims.generateFrameNumbers("armacac2"),
-            frameRate: 20,
-            repeat: 0
-        });        
-
+    this.anims.create
+    ({
+        key: "Acac2",
+        frames: this.anims.generateFrameNumbers("armacac2"),
+        frameRate: 20,
+        repeat: 0
+    });        
+    //#endregion
+    
     }
 
     //Si detecta la tecla F11, pone/quita la pantalla completa

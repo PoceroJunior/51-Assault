@@ -11,7 +11,6 @@ class SceneMenu extends Phaser.Scene{
         this.load.image ('creditosButton', "Assets/Interface/Main-menu/creditos-button.png");
         this.load.image ('opcionesButton', "Assets/Interface/Main-menu/opciones-button.png");
         this.load.image ('salirButton', "Assets/Interface/Main-menu/salir-button.png");
-
         //Música
         this.load.audio("menumusic", ["Assets/Interface/Sounds/feed-the-machine.ogg", "Assets/Interface/Sounds/feed-the-machine.mp3"]);
         //Sonidos
@@ -22,14 +21,23 @@ class SceneMenu extends Phaser.Scene{
         });
     }
     create() {
+        //
+        //#region creacion de los assets...
+        //imagen de fondo
         this.background = this.add.image(395,270, 'backgroundMenu');
         this.background.setScale(1.65, 2);
+
+        //boton de jugar...
         this.startButton = this.add.image (395,150, 'jugarButton');
         this.startButton.setScale(2);
         this.startButton.setInteractive();
+
+        //boton de opciones
         this.optionButton = this.add.image(395, 220, 'opcionesButton');
         this.optionButton.setScale(2);
         this.optionButton.setInteractive();
+
+        //boton de creditos
         this.creditButton = this.add.image(395, 290, 'creditosButton');
         this.creditButton.setScale(2);
         this.creditButton.setInteractive();
@@ -39,6 +47,9 @@ class SceneMenu extends Phaser.Scene{
         //Música
         this.musicmenu = this.sound.add("menumusic");
         
+        //#endregion
+        
+        // #region configuracion de la musica...
         var musicConfig = {
             mute: this.mute,
             volume: 0.1,
@@ -58,13 +69,16 @@ class SceneMenu extends Phaser.Scene{
             loop: false,
             delay: 0
         }
-
+        //#endregion
+        
+        //condicion de parada de la musica
         if (this.playing == false){
             //play a la musica
             this.musicmenu.play(musicConfig);
             this.playing = true;
         }
 
+        //interaccion de los botones...
         this.startButton.on ('pointerdown', () => {
             this.scene.start('SceneSelectCh');
             this.buttonsound.play(botonConfig);
@@ -81,8 +95,16 @@ class SceneMenu extends Phaser.Scene{
         console.log(this.mute);
     }
     
+    muteOrUnmuteMusic(){
+        if (this.mute = true) {
+            this.mute = false;
+        }
+        else {
+            this.mute = true;
+        }
+    }
 
-        //Si detecta la tecla F11, pone/quita la pantalla completa
+    //Si detecta la tecla F11, pone/quita la pantalla completa
     setFullScreen() {
         const gameCanvas = this.sys.canvas;
     
@@ -95,13 +117,6 @@ class SceneMenu extends Phaser.Scene{
         }
     }
 
-    muteOrUnmuteMusic(){
-        if (this.mute = true) {
-            this.mute = false;
-        }
-        else {
-            this.mute = true;
-        }
-    }
+
     
 }

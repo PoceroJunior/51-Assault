@@ -6,6 +6,7 @@ class HUDScene extends Phaser.Scene {
 
     create() {
 
+        //#region creacion de los sprites de vida
         this.interfaceh1 = this.add.tileSprite(1, 1, 106, 34, "health1");
         this.interfaceh1.setScale(1.2);
         this.interfaceh1.setOrigin(0,0);
@@ -17,6 +18,8 @@ class HUDScene extends Phaser.Scene {
         this.interfaceh2.setOrigin(0,0);
         this.interfaceh2.x = 10;
         this.interfaceh2.y = 62;
+
+        //#endregion
         //
         this.interfaceT = this.add.tileSprite(1, 1, 49, 28, "time");
         this.interfaceT.setScale(1.2);
@@ -24,12 +27,16 @@ class HUDScene extends Phaser.Scene {
         this.interfaceT.x = 721;
         this.interfaceT.y = 10;
         //
+
+        //#region creacion de texto
         this.health1Text = this.add.text(22, 23, 'HP', { fontSize: '15px', fill: '#fff' });
         this.exp1Text = this.add.text(80, 23, 'EXP', { fontSize: '15px', fill: '#fff' });
         this.health2Text = this.add.text(22, 75, 'HP', { fontSize: '15px', fill: '#fff' });
         this.exp2Text = this.add.text(80, 75, 'EXP', { fontSize: '15px', fill: '#fff' });
         this.timeText = this.add.text(733, 18, '', { fontSize: '15px', fill: '#fff' })
         //
+        //#endregion
+
         this.iniciarContador();
 
     }
@@ -39,11 +46,11 @@ class HUDScene extends Phaser.Scene {
         this.exp1Text.setText("EXP:"+ exp1);
         this.health2Text.setText("HP:"+ health2);
         this.exp2Text.setText("EXP:"+exp2);
-        this.timeText.setText(this.formatTiempo()); // Llamar a una función para formatear el tiempo
-    // por si se necesita mas tarde: this.exp2Text.setText("EXP|${exp2}");
+        this.timeText.setText(this.formatTiempo()); // Llama a una función para formatear el tiempo
     
     }
 
+    //#region metodos de control de tiempo...
     iniciarContador() {
         this.tiempo = 3*60;
         var self = this; // Capturar la referencia a la instancia de la clase
@@ -62,7 +69,7 @@ class HUDScene extends Phaser.Scene {
                 clearInterval(intervalo);
                 tiempoRestante = "0:00";
             } else {
-                self.tiempo -=1; // Reducir el tiempo (por alguna razon resta de 2 en 2)
+                self.tiempo -=1; // Reducir el tiempo
                 self.timeText.setText(self.formatTiempo()); // Actualizar el texto en cada iteración
             }
         }, 1000);
@@ -82,4 +89,5 @@ class HUDScene extends Phaser.Scene {
             return minutos + ":" + Math.trunc(segundos);
         }
     }
+    //#endregion
 }
