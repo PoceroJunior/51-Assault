@@ -2,6 +2,7 @@ class SceneGame extends Phaser.Scene{
     constructor(){
         super("SceneGame");
         this.lastSpawnTime = 0;
+        this.pausa = false;
     }
     preload(){
         // detecta tecla F11
@@ -121,7 +122,8 @@ class SceneGame extends Phaser.Scene{
 
         this.scene.start("SceneLose");
         const hudScene = this.scene.get('HUDScene');
-        hudScene.tiempo = 3*60;
+        hudScene.tiempo = 10;
+        hudScene.reloj = 10000000;
         this.scene.stop("HUDScene");
     }
     //funciones de prueba
@@ -220,10 +222,13 @@ class SceneGame extends Phaser.Scene{
 
         //#region Control del movimiento del personaje (si está vivo)
         if (this.player1.isAlive() && this.player2.isAlive()){
-        this.movePlayer1Manager();
-        this.moveWeapon1Manager();
-        this.movePlayer2Manager();
-        this.moveWeapon2Manager();
+            if(this.pausa == false){ //esto es para cuando metamos el menu de pausa. Jugar con esta variable para cuando sea true
+                //los pjs y los enemigos se paren
+            this.movePlayer1Manager();
+            this.moveWeapon1Manager();
+            this.movePlayer2Manager();
+            this.moveWeapon2Manager();
+            }
         }
         //#endregion
 
@@ -430,7 +435,8 @@ class SceneGame extends Phaser.Scene{
         }
         if (hudScene.tiempo == 0){
             this.scene.start('SceneWin');
-            hudScene.tiempo = 3*60;
+            hudScene.tiempo = 10;
+            hudScene.reloj = 10000000;
             this.scene.stop("HUDScene");
         }
 

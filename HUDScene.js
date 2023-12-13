@@ -1,7 +1,8 @@
 class HUDScene extends Phaser.Scene {
     constructor() {
         super({ key: "HUDScene" });
-        this.tiempo;
+        this.tiempo = 1.25*60;
+        this.reloj = 1000;
     }
 
     create() {
@@ -51,8 +52,9 @@ class HUDScene extends Phaser.Scene {
     }
 
     //#region metodos de control de tiempo...
-    iniciarContador() {
+    iniciarContador() { //puedo hacer que entre una variable.
         this.tiempo = 1.25*60;
+
         var self = this; // Capturar la referencia a la instancia de la clase
 
         var intervalo = setInterval(function() {
@@ -72,7 +74,7 @@ class HUDScene extends Phaser.Scene {
                 self.tiempo -=1; // Reducir el tiempo
                 self.timeText.setText(self.formatTiempo()); // Actualizar el texto en cada iteración
             }
-        }, 1000);
+        }, this.reloj);
     }
 
     formatTiempo() {

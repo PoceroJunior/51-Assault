@@ -42,6 +42,12 @@ class SceneMenu extends Phaser.Scene{
         this.creditButton.setScale(2);
         this.creditButton.setInteractive();
 
+        //boton de salir
+        this.exitButton = this.add.image(395, 360, 'salirButton');
+        this.exitButton.setScale(2);
+        this.exitButton.setInteractive();
+
+
         //sonido botones
         this.buttonsound = this.sound.add("audioboton");
         //Música
@@ -91,10 +97,12 @@ class SceneMenu extends Phaser.Scene{
             this.scene.start('SceneCredits');
             this.buttonsound.play(botonConfig);
         });
-
-        console.log(this.mute);
+        this.exitButton.on ('pointerdown', () => {
+            this.buttonsound.play(botonConfig);
+        });
     }
     
+    /*
     muteOrUnmuteMusic(){
         if (this.mute = true) {
             this.mute = false;
@@ -103,7 +111,8 @@ class SceneMenu extends Phaser.Scene{
             this.mute = true;
         }
     }
-
+    */ 
+   
     //Si detecta la tecla F11, pone/quita la pantalla completa
     setFullScreen() {
         const gameCanvas = this.sys.canvas;
