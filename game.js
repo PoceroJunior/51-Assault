@@ -1,5 +1,6 @@
 //configuracion base
 window.onload=function(){
+
     var config ={
         type: Phaser.AUTO,
         width: 790,
@@ -11,4 +12,6 @@ window.onload=function(){
         physics: {default: "arcade", arcade:{debug: false}}
     }
     var game=new Phaser.Game(config);
+
+
 }

@@ -1,8 +1,41 @@
-.textocentrado {
-    text-align: center;
+body { 
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/005/468/413/original/space-travel-flightto-to-purple-bust-nebula-free-video.jpg');
+    background-size: cover; 
+    background-position: top;
+    background-repeat: no-repeat;
 }
 
-canvas {
-    margin: auto;
-    display: block;
+.textoCentrado {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: #B37346;
+    margin-top: 20px;
+    max-width: 30%; 
+    margin-left: auto; 
+    margin-right: auto; 
+    background-color: #FFBC2B;
+    border: 4px solid #B37346;
+    font-style: initial;
+    font-weight: bold;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
 }
+
+        canvas {
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-position: top;
+            height: 80vh;
+            flex-direction: column;
+            border: url('https://static.vecteezy.com/system/resources/previews/013/473/789/non_2x/futuristic-live-streaming-overlay-with-frosty-blue-color-live-gaming-screen-panel-and-broadcast-frame-design-with-abstract-shapes-streaming-panel-overlay-template-design-for-gamers-free-png.png');
+            margin-bottom: 20px; 
+            border: 4px solid #000000;
+
+            
+        
+            
+        }
+        
