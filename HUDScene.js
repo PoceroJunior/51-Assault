@@ -17,8 +17,8 @@ class HUDScene extends Phaser.Scene {
         this.interfaceh2 = this.add.tileSprite(1, 1, 106, 34, "health2");
         this.interfaceh2.setScale(1.2);
         this.interfaceh2.setOrigin(0,0);
-        this.interfaceh2.x = 10;
-        this.interfaceh2.y = 62;
+        this.interfaceh2.x = 146;
+        this.interfaceh2.y = 10;
 
         //#endregion
         //
@@ -32,8 +32,8 @@ class HUDScene extends Phaser.Scene {
         //#region creacion de texto
         this.health1Text = this.add.text(22, 23, 'HP', { fontSize: '15px', fill: '#fff' });
         this.exp1Text = this.add.text(80, 23, 'EXP', { fontSize: '15px', fill: '#fff' });
-        this.health2Text = this.add.text(22, 75, 'HP', { fontSize: '15px', fill: '#fff' });
-        this.exp2Text = this.add.text(80, 75, 'EXP', { fontSize: '15px', fill: '#fff' });
+        this.health2Text = this.add.text(158, 23, 'HP', { fontSize: '15px', fill: '#fff' });
+        this.exp2Text = this.add.text(216, 23, 'EXP', { fontSize: '15px', fill: '#fff' });
         this.timeText = this.add.text(733, 18, '', { fontSize: '15px', fill: '#fff' })
         //
         //#endregion

@@ -300,7 +300,7 @@ class SceneGame extends Phaser.Scene{
     
         // Ajustar la posición si el jugador está a punto de salir
         this.player1.x = Phaser.Math.Clamp(this.player1.x, this.player1.width*1.2, this.game.config.width - this.player1.width*1.2);
-        this.player1.y = Phaser.Math.Clamp(this.player1.y, this.player1.height*1.6, this.game.config.height - this.player1.height*1.6);
+        this.player1.y = Phaser.Math.Clamp(this.player1.y, this.player1.height*(78/16), this.game.config.height - this.player1.height*1.6);
     }
 
     moveWeapon1Manager(speed, offset){
@@ -329,7 +329,7 @@ class SceneGame extends Phaser.Scene{
     
         // Ajustar la posición del arma si el jugador está a punto de salir
         this.weapon1.x = Phaser.Math.Clamp(this.weapon1.x, this.weapon1.width*1.2, this.game.config.width - this.weapon1.width*1.2);
-        this.weapon1.y = Phaser.Math.Clamp(this.weapon1.y, this.weapon1.height*1.6, this.game.config.height - this.weapon1.height*1.6);
+        this.weapon1.y = Phaser.Math.Clamp(this.weapon1.y, this.weapon1.height*(78/16), this.game.config.height - this.weapon1.height*1.6);
     }
 
     //#endregion
@@ -381,7 +381,7 @@ class SceneGame extends Phaser.Scene{
 
         // Ajustar la posición si el jugador está a punto de salir
         this.player2.x = Phaser.Math.Clamp(this.player2.x, this.player2.width*1.2, this.game.config.width - this.player2.width*1.2);
-        this.player2.y = Phaser.Math.Clamp(this.player2.y, this.player2.height*1.6, this.game.config.height - this.player2.height*1.6);
+        this.player2.y = Phaser.Math.Clamp(this.player2.y, this.player2.height*(78/16), this.game.config.height - this.player2.height*1.6);
     }
 
     moveWeapon2Manager(speed, offset){
@@ -409,7 +409,7 @@ class SceneGame extends Phaser.Scene{
     
         // Ajustar la posición del arma si el jugador está a punto de salir
         this.weapon2.x = Phaser.Math.Clamp(this.weapon2.x, this.weapon2.width*1.2, this.game.config.width - this.weapon2.width*1.2);
-        this.weapon2.y = Phaser.Math.Clamp(this.weapon2.y, this.weapon2.height*1.6, this.game.config.height - this.weapon2.height*1.6);
+        this.weapon2.y = Phaser.Math.Clamp(this.weapon2.y, this.weapon2.height*(78/16), this.game.config.height - this.weapon2.height*1.6);
     }
     //Si detecta la tecla F11, pone/quita la pantalla completa
     setFullScreen() {
