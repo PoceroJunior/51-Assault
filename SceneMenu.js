@@ -11,6 +11,7 @@ class SceneMenu extends Phaser.Scene{
         this.load.image ('creditosButton', "Assets/Interface/Main-menu/creditos-button.png");
         this.load.image ('opcionesButton', "Assets/Interface/Main-menu/opciones-button.png");
         this.load.image ('salirButton', "Assets/Interface/Main-menu/salir-button.png");
+        this.load.image ('guiaButton', "Assets/Interface/Main-menu/guia-button.png");
         //Música
         this.load.audio("menumusic", ["Assets/Interface/Sounds/feed-the-machine.ogg", "Assets/Interface/Sounds/feed-the-machine.mp3"]);
         //Sonidos
@@ -42,8 +43,13 @@ class SceneMenu extends Phaser.Scene{
         this.creditButton.setScale(2);
         this.creditButton.setInteractive();
 
+        //boton de guia
+        this.guideButton = this.add.image(395, 360, 'guiaButton');
+        this.guideButton.setScale(1);
+        this.guideButton.setInteractive();
+
         //boton de salir
-        this.exitButton = this.add.image(395, 360, 'salirButton');
+        this.exitButton = this.add.image(395, 430, 'salirButton');
         this.exitButton.setScale(2);
         this.exitButton.setInteractive();
 
@@ -97,6 +103,10 @@ class SceneMenu extends Phaser.Scene{
             this.scene.start('SceneCredits');
             this.buttonsound.play(botonConfig);
         });
+        this.guideButton.on ('pointerdown', () => {
+            this.scene.start('SceneGuide');
+            this.buttonsound.play(botonConfig);
+        });
         this.exitButton.on ('pointerdown', () => {
             this.buttonsound.play(botonConfig);
             window.close();
@@ -126,7 +136,4 @@ class SceneMenu extends Phaser.Scene{
             }
         }
     }
-
-
-    
 }
