@@ -122,7 +122,8 @@ class SceneGame extends Phaser.Scene{
 
         this.scene.start("SceneLose");
         const hudScene = this.scene.get('HUDScene');
-        hudScene.tiempo = 10;
+        hudScene.tiempo = 10000;
+        hudScene.auxiliar = 1.25*60;
         hudScene.reloj = 10000000;
         this.scene.stop("HUDScene");
     }
@@ -435,7 +436,8 @@ class SceneGame extends Phaser.Scene{
         }
         if (hudScene.tiempo == 0){
             this.scene.start('SceneWin');
-            hudScene.tiempo = 10;
+            hudScene.tiempo = 10000;
+            hudScene.auxiliar = 1.25*60;
             hudScene.reloj = 10000000;
             this.scene.stop("HUDScene");
         }

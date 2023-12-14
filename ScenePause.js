@@ -23,7 +23,7 @@ class ScenePause extends Phaser.Scene {
     //imagen con opacidad del 90% de fondo
     this.pausafoto =this.add.tileSprite(0,0,this.game.config.width,this.game.config.height,"pausa");
     this.pausafoto.setOrigin(0,0);
-   
+
     //sonido boton
     this.buttonsound8 = this.sound.add("audioboton8");
     const soundManager = this.sound;
@@ -61,13 +61,19 @@ class ScenePause extends Phaser.Scene {
         soundManager.resumeAll();
     });
 
-    //botón de play
+    //botÃ³n de play
     this.jugarButton = this.add.image(395,475, 'playButton');
     this.jugarButton.setScale(1.5);
     this.jugarButton.setInteractive();
+
     this.jugarButton.on ('pointerdown', () => {
         this.buttonsound8.play(botonConfig8);
-        this.scene.start('SceneMenu');
+        this.scene.stop();
+        this.scene.resume('SceneGame'); 
+        this.scene.start('HUDScene');
+        const hudScene = this.scene.get('HUDScene');
+        hudScene.tiempo = hudScene.auxiliar;
+        hudScene.reloj = 10000000;
     });
 
     //boton de salida...
@@ -75,8 +81,17 @@ class ScenePause extends Phaser.Scene {
     this.exitButton.setScale(1.5);
     this.exitButton.setInteractive();
     this.exitButton.on ('pointerdown', () => {
-        this.buttonsound8.play(botonConfig8);
-        this.scene.start('SceneMenu');
+        //TERMINAR ESTO SERIA CLAVE
+        //this.scene.stop();
+        //const hudScene = this.scene.get('HUDScene');
+        //hudScene.tiempo = 10;
+        //hudScene.reloj = 10000000;
+        //this.buttonsound8.play(botonConfig8);
+        //this.scene.resume('SceneGame');
+        //this.scene.start('HUDScene');
+        //hudScene.tiempo = hudScene.auxiliar;
+        //hudScene.reloj = 10000000;
+        //this.scene.start("SceneMenu"); //pq no funciona? xd
         //dejar todo como deberia estar, el tiempo en su respectivo valor y las variables retocadas a como deberian
     });
 
