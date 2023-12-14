@@ -99,6 +99,7 @@ class SceneMenu extends Phaser.Scene{
         });
         this.exitButton.on ('pointerdown', () => {
             this.buttonsound.play(botonConfig);
+            window.close();
         });
     }
     
