@@ -81,6 +81,7 @@ class ScenePause extends Phaser.Scene {
     this.exitButton.setScale(1.5);
     this.exitButton.setInteractive();
     this.exitButton.on ('pointerdown', () => {
+        window.location.reload();
         //TERMINAR ESTO SERIA CLAVE
         //this.scene.stop();
         //const hudScene = this.scene.get('HUDScene');
