@@ -339,19 +339,25 @@ El ataque y vida de los enemigos están ligados a su tipo, así como su forma de
 </p>
 
 ## 10. Diagrama de clases y API REST
+A continuación se muestra el diagrama de clases de la aplicación
+<p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/73e8da92-f02e-4ce8-a182-80e316b6c89b" width= '500' height='300'/>
+</p>
 
-
-
-
-## 11. Instrucciones precisas para ejecutar la aplicación:
-~~~
-
-
-
+## 11. Instrucciones precisas para ejecutar la aplicación
 
 ~~~
+Se creó un proyecto "Spring Starter Web" Tipo Maven y con la función "Spring Web", por ejemplo la llamaremos 51-Assault.
 
+Para abrir el servidor desde spring tenemos que seleccionar esta carpeta como directorio de trabajo y lanzar la aplicación.
 
+Luego debemos desplegar la carpeta "51-Assault" > "src/main/java" > "com.example.demo"
+
+Aquí encontraremos el archivo "ServidorApplication.java", la cual debemos seleccionar con el click derecho del ratón, y seleccionar entre el menu de opciones que se despliega
+"Run As..." > "Java Application".
+
+Por último, debemos abrir nuestro navegador y copiar el siguiente enlace: http://localhost:8080/index.html
+~~~
 
 ## 12. Equipo de desarrollo
 <p align="center">
