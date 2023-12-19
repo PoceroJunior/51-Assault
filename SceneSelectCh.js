@@ -20,6 +20,7 @@ class SceneSelectCh extends Phaser.Scene{
     }
     create() {
 
+        this.scene.get('SceneLogin').removeTextInputs();
         //boton...
         var botonConfig4 = {
             mute: false,

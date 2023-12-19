@@ -14,6 +14,7 @@
 <body>
 
     <script type="text/javascript" src="phaser.min.js"></script>
+    <script type="text/javascript" src="SceneLogin.js"></script>
     <script type="text/javascript" src="SceneMenu.js"></script>
     <script type="text/javascript" src="SceneOptions.js"></script>
     <script type="text/javascript" src="SceneSelectCh.js"></script>
@@ -34,7 +35,26 @@
         <div class = textoCentrado>
             <p> ¡Pulsa F11 para pantalla completa! </p>
         </div>
-   
+
+        <div id="inicioSesion" style="display: none;">
+            <h2>Iniciar Sesión</h2>
+            <label for="usuario">Usuario:</label>
+            <input type="text" id="usuario" name="usuario">
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" id="contrasena" name="contrasena">
+            <button onclick="iniciarSesion()">Iniciar</button>
+            <p>¿No tienes una cuenta? <a href="#" onclick="mostrarRegistro()" class="enlaceRegistrarse">Registrarse</a></p>
+        </div>
+    
+        <div id="registro" style="display: none;">
+            <h2>Registrarse</h2>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre">
+            <label for="nuevaContrasena">Contraseña:</label>
+            <input type="password" id="nuevaContrasena" name="nuevaContrasena">
+            <button onclick="registrar()">Registrar</button>
+            <p>¿Ya tienes una cuenta? <a href="#" onclick="mostrarInicioSesion()" class="enlaceIniciarSesion">Iniciar Sesión</a></p>
+        </div>
 
     
 

@@ -24,6 +24,8 @@ class SceneMenu extends Phaser.Scene{
     create() {
         //
         //#region creacion de los assets...
+        this.scene.get('SceneLogin').removeTextInputs();
+
         //imagen de fondo
         this.background = this.add.image(395,270, 'backgroundMenu');
         this.background.setScale(1.65, 2);
@@ -92,8 +94,9 @@ class SceneMenu extends Phaser.Scene{
 
         //interaccion de los botones...
         this.startButton.on ('pointerdown', () => {
-            this.scene.start('SceneSelectCh');
+            this.scene.start('SceneLogin');
             this.buttonsound.play(botonConfig);
+
         });
         this.optionButton.on ('pointerdown', () => {
             this.scene.start('SceneOptions');
@@ -111,6 +114,7 @@ class SceneMenu extends Phaser.Scene{
             this.buttonsound.play(botonConfig);
             window.close();
         });
+
     }
     
     /*
