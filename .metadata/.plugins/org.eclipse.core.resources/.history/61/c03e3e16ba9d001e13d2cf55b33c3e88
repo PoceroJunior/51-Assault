@@ -1,0 +1,70 @@
+package com.example.demo;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+@RestController
+@RequestMapping("/usuarios")
+public class UsuarioController {
+
+    // Supongamos que hay una lista simulada de usuarios para este ejemplo.
+    // En una aplicación real, deberías utilizar una capa de servicio y acceso a datos.
+
+    private static List<Usuario> listaUsuarios = new ArrayList<>();
+
+    @GetMapping("/{userId}")
+    public ResponseEntity<String> getUserById(@PathVariable Long userId) {
+        Usuario usuario = obtenerUsuarioPorId(userId);
+
+        if (usuario != null) {
+            String mensaje = "ID: " + usuario.getId() +
+                             ", Nombre: " + usuario.getNombre() +
+                             ", Contraseña: " + usuario.getContrasena();
+
+            return ResponseEntity.ok("Información del usuario: " + mensaje);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado");
+        }
+    }
+
+    @PostMapping("/register")
+    public ResponseEntity<String> registerUser(@RequestBody Usuario nuevoUsuario) {
+        // Agregar lógica para guardar el nuevo usuario en la lista o en la base de datos.
+        listaUsuarios.add(nuevoUsuario);
+
+        return ResponseEntity.ok("Usuario registrado exitosamente");
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> loginUser(@RequestParam String nombre, @RequestParam String contrasena) {
+        // Agregar lógica para autenticar al usuario.
+        Usuario usuarioAutenticado = autenticarUsuario(nombre, contrasena);
+
+        if (usuarioAutenticado != null) {
+            return ResponseEntity.ok("Inicio de sesión exitoso");
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales inválidas");
+        }
+    }
+
+    // Método de ejemplo para obtener un usuario por ID
+    private Usuario obtenerUsuarioPorId(Long userId) {
+        return listaUsuarios.stream()
+                .filter(usuario -> usuario.getId().equals(userId))
+                .findFirst()
+                .orElse(null);
+    }
+
+    // Método de ejemplo para autenticar al usuario
+    private Usuario autenticarUsuario(String nombre, String contrasena) {
+        return listaUsuarios.stream()
+                .filter(usuario -> usuario.getNombre().equals(nombre) && usuario.getContrasena().equals(contrasena))
+                .findFirst()
+                .orElse(null);
+    }
+}

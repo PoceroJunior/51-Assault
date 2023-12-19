@@ -1,0 +1,48 @@
+package com.example.demo;
+import org.springframework.web.bind.annotation.*;
+
+
+@RestController
+@RequestMapping("/usuarios")
+public class usuarioController {
+
+    private final UserService userService; // Declaración del UserService
+
+    // Constructor donde se inyecta el UserService
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+	    // Métodos para manejar las peticiones HTTP
+	    // Por ejemplo:
+
+	    @GetMapping("/{userId}")
+	    public usuario getUserById(@PathVariable Long userId) {
+	        // Lógica para obtener usuario por ID
+	        // Aquí puedes llamar a un servicio que se encargue de la lógica de negocio
+	        // Supongamos que la clase User representa la información de un usuario
+
+	        return userService.getUserById(userId);
+	    }
+
+	    @PostMapping("/register")
+	    public ResponseEntity<String> registerUser(@RequestBody User user) {
+	        // Lógica para registrar un nuevo usuario
+	        // userService.saveUser(user);
+	        return ResponseEntity.ok("Usuario registrado exitosamente");
+	    }
+
+	    @PostMapping("/login")
+	    public ResponseEntity<String> loginUser(@RequestParam String username, @RequestParam String password) {
+	        // Lógica para autenticar al usuario
+	        // if (userService.authenticate(username, password)) {
+	        //     return ResponseEntity.ok("Inicio de sesión exitoso");
+	        // } else {
+	        //     return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales inválidas");
+	        // }
+	        return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body("Método no implementado");
+	    }
+
+	    // Otros métodos para actualizar usuario, eliminar, etc.
+	}
+
+}
