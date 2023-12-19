@@ -199,15 +199,16 @@ La primera escena que el jugador encontrará es la pantalla del menú principal,
 - Jugar: Al seleccionar esta opción, el jugador iniciará el juego y será dirigido a la pantalla de juego.
 - Opciones: Esta opción permitirá acceder a los ajustes de sonido.
 - Créditos: Al elegir esta opción, se mostrarán los nombres de los miembros del equipo de desarrollo del juego.
+- Guía: Muestra un pequeño resumen de los controles y el objetivo del juego.
 - Salir: Al seleccionar esta opción, el jugador saldrá del juego.
 
-Tanto en las pantallas de Créditos como en las de Opciones, existirá un botón claramente visible que permitirá regresar al menú principal en cualquier momento.
+Tanto en las pantallas de opciones, créditos y guía, existirá un botón claramente visible que permitirá regresar al menú principal en cualquier momento.
 En lo que respecta a la pantalla del juego, se mostrará el tiempo restante para que el juego concluya.
 Es importante mencionar que las pantallas de victoria y derrota constituirán dos pantallas diferentes a las cuales el jugador será redirigido según el resultado alcanzado durante el juego. Estas escenas proporcionarán una distinción entre la victoria y la derrota, ofreciendo una experiencia inmersiva para el jugador.
 
 Estos estados de las pantallas están reflejados en la siguiente imagen:
 <p align="center">
-  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/e677f099-a41a-4f7d-a005-0647ece4c083" width= '590' height='600'/>
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/d05a81c6-152a-4b46-add1-53fe6b6e5b85" width= '800' height='600'/>
 </p>
 <p align=center>Figura 4.1 Estados del videojuego</p>
 
@@ -337,7 +338,22 @@ El ataque y vida de los enemigos están ligados a su tipo, así como su forma de
   <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/a15c330d-3d65-414d-8807-da1aeedb4953" width= '300' height='300'/>
 </p>
 
-## 10. Equipo de desarrollo
+## 10. Diagrama de clases y API REST
+
+
+
+
+## 11. Instrucciones precisas para ejecutar la aplicación:
+~~~
+
+
+
+
+~~~
+
+
+
+## 12. Equipo de desarrollo
 <p align="center">
   <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/7b877746-218d-4715-8c01-6705d83c5e59" width= '300' height='300'/>
 </p>
@@ -349,7 +365,7 @@ El estudio Zepol Game Studios está conformado por:
 - Sonia Montero Nogales
 - Elena Milara Mencía
 
-## 11. Anexo y referencias
+## 13. Anexo y referencias
 - (s.f.). GitHub: Let’s build from here · GitHub. https://github.com/dsaltares/sion-tower/blob/master/doc/gdd/gdd.pdf
 
 - poncle. (2022). Vampire Survivors [Videojuego]. https://store.steampowered.com/app/1794680/Vampire_Survivors/
