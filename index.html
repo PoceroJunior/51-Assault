@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html> 
     <meta charset = "UTF-8">
+   
 <head>
     
     <link rel = "stylesheet" href = "WebStyle.css"> 
-    
     <title> 51-Assault </title>
      
 
@@ -12,6 +12,8 @@
 </head>
 
 <body>
+
+    
 
     <script type="text/javascript" src="phaser.min.js"></script>
     <script type="text/javascript" src="SceneLogin.js"></script>
@@ -30,7 +32,20 @@
     <script type="text/javascript" src="SceneWin.js"></script>
     <script type="text/javascript" src="game.js"></script>
     <script type="text/javascript" src="SceneLose.js"></script>
+
+    <!-- Parte de Websockets-->
         
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script>
+        const socket = io('http://localhost:3000'); // Reemplaza con la URL de tu servidor si es diferente
+
+        // Manejar el evento de mensaje del servidor
+        socket.on('message', (mensaje) => {
+            document.getElementById('mensaje').innerText = mensaje;
+        });
+    </script>
+
+    <!--Fin de parte de Websockets-->
 
         <div class = textoCentrado>
             <p> ¡Pulsa F11 para pantalla completa! </p>
