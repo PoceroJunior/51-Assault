@@ -8,7 +8,8 @@
     <title> 51-Assault </title>
      
 
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+ 
+
 </head>
 
 <body>
@@ -19,6 +20,20 @@
  
 
     <script type="text/javascript" src="/phaser.min.js"></script>
+
+   <!-- Agrega el script de Socket.io -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+
+<script>
+  const socket2 = io('http://localhost:3000'); // Reemplaza con la URL de tu servidor si es diferente
+
+  // Manejar el evento de mensaje del servidor
+  socket.on('chat', (data) => {
+    console.log('Mensaje recibido:', data);
+    // Puedes realizar acciones con el mensaje recibido aquí
+  });
+</script>
+
     <script type="text/javascript" src="/SceneLogin.js"></script>
     <script type="text/javascript" src="/SceneMenu.js"></script>
     <script type="text/javascript" src="/SceneOptions.js"></script>
