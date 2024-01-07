@@ -21,16 +21,15 @@
 
     <script type="text/javascript" src="/phaser.min.js"></script>
 
-   <!-- Agrega el script de Socket.io -->
+   <!-- Se agrega el script de Socket.io -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
 
 <script>
-  const socket2 = io('http://localhost:3000'); // Reemplaza con la URL de tu servidor si es diferente
+  const socket2 = io('http://localhost:3000'); 
 
-  // Manejar el evento de mensaje del servidor
   socket.on('chat', (data) => {
     console.log('Mensaje recibido:', data);
-    // Puedes realizar acciones con el mensaje recibido aquí
+    
   });
 </script>
 
@@ -51,27 +50,21 @@
     <script type="text/javascript" src="/game.js"></script>
     <script type="text/javascript" src="/SceneLose.js"></script>
 
-    <!-- Parte de Websockets-->
+    <!-- Parte principal de Websockets-->
         
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
     <script>
-        const socket = io('http://localhost:3000'); // Reemplaza con la URL de tu servidor si es diferente
+        const socket = io('http://localhost:3000'); 
 
-        // Manejar el evento de mensaje del servidor
         socket.on('message', (mensaje) => {
             document.getElementById('mensaje').innerText = mensaje;
         });
     </script>
 <!--////////////////////////////////////////////////////-->
-<!-- Incluye la biblioteca de Socket.io -->
 <script src="https://cdn.socket.io/4.1.2/socket.io.min.js"></script>
 
-<!-- Tu otro código JavaScript -->
 <script>
-  // Conéctate al servidor Socket.io
   const socket1 = io();
-
-  // Ahora puedes escuchar eventos y emitir mensajes desde el cliente
 </script>
 <!--////////////////////////////////////////////////////-->
 

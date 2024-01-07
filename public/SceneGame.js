@@ -1,18 +1,20 @@
-class SceneGame extends Phaser.Scene{
-    constructor(){
+class SceneGame extends Phaser.Scene {
+    constructor() {
         super("SceneGame");
-        this.lastSpawnTime = 0;
-        this.pausa = false;
-    }
-    preload(){
-        // detecta tecla F11
-        this.input.keyboard.on('keydown-F11', () => {
-        this.setFullScreen();
-        });
+        // ... (otros códigos de inicialización)
+        this.socket = new WebSocket('ws://localhost:3000');
     }
 
+    preload(){
+        // Detecta la tecla F11
+        this.input.keyboard.on('keydown-F11', () => {
+            this.setFullScreen();
+        });
+    }
+    
     create(){
-       
+        this.scene.launch("HUDScene");
+        this.addWebSocketListeners();
         // #region VARIABLES GLOBALES Y BASE
         this.scene.launch("HUDScene");
         //
@@ -204,10 +206,42 @@ resetPosY(){
     return y;
 
 }
+
+addWebSocketListeners() {
+    const socket = new WebSocket('ws://localhost:3000');
+
+    socket.addEventListener('open', (event) => {
+        console.log('WebSocket abierto:', event);
+    });
+
+    socket.addEventListener('message', (event) => {
+        console.log('Mensaje recibido del servidor:', event.data);
+    });
+
+    socket.addEventListener('error', (event) => {
+        console.error('Error en la conexión WebSocket:', event);
+    });
+
+    socket.addEventListener('close', (event) => {
+        console.log('WebSocket cerrado:', event);
+    });
+
+    this.socket = socket;
+}
+
 //#endregion
 
 update(){
     
+// Se envía la posición del jugador al servidor
+if (this.player1.isAlive()) {
+    this.socket.send(JSON.stringify({
+        type: "updatePosition",
+        playerID: 1,
+        x: this.player1.x,
+        y: this.player1.y
+    }));
+}
 
 
     this.cuatroDedos.trackClosestPlayer(this.player1,this.player2);//tracking del cuatroDedos
@@ -465,9 +499,33 @@ updateScoreInHUD(health1, exp1, health2, exp2) {
 
 }
 shutdown() {
-// Eliminar las teclas cuando la escena se apague
+// Elimina las teclas asignadas cuando la escena se apague
 this.liberarTeclas();
 }
+
+
+handleServerMessage(data) {
+    // Maneja los mensajes del servidor
+    switch (data.type) {
+        case "updatePlayerPosition":
+            // Y la posición del otro jugador se actualiza
+            this.updateOtherPlayerPosition(data.playerID, data.x, data.y);
+            break;
+    }
+}
+
+updateOtherPlayerPosition(playerID, x, y) {
+    // Busca al jugador con ese ID
+    const otherPlayer = this.players.getChildren().find(player => player.playerID === playerID);
+
+    if (otherPlayer) {
+        // Y se actualiza su posición del jugador
+        otherPlayer.setPosition(x, y);
+    }
+}
+
+
+
 }
 
 

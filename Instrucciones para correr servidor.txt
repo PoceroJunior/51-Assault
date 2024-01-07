@@ -15,6 +15,10 @@ npm install
 
 npm install express
 
+ -Creo que cors no hace falta: 
+npm install cors
+
+-Comando para ejecutar server:
 node server.js
 
 

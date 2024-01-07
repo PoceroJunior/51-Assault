@@ -227,12 +227,7 @@ class SceneLogin extends Phaser.Scene {
 
 var ip = location.host;
 
-// En SceneLogin.js
-//////////
 
-
-////////////////
-// Para registrar un usuario
 function registrarUsuario() {
     const nombre = document.getElementById('miCajaDeTexto1').value;
     const contrasena = document.getElementById('miCajaDeTexto2').value;
@@ -243,7 +238,6 @@ function registrarUsuario() {
     });
 }
 
-// Para iniciar sesión
 function iniciarSesionUsuario() {
     const nombre = document.getElementById('miCajaDeTexto1').value;
     const contrasena = document.getElementById('miCajaDeTexto2').value;
@@ -254,7 +248,6 @@ function iniciarSesionUsuario() {
     });
 }
 
-// Para borrar usuario
 function borrarUsuario() {
     const nombre = document.getElementById('miCajaDeTexto1').value;
     const contrasena = document.getElementById('miCajaDeTexto2').value;
@@ -265,7 +258,6 @@ function borrarUsuario() {
     });
 }
 
-// Para actualizar usuario
 function actualizarUsuario() {
     const nombre = document.getElementById('miCajaDeTexto1').value;
     const contrasena = document.getElementById('miCajaDeTexto2').value;
@@ -276,7 +268,6 @@ function actualizarUsuario() {
         message: JSON.stringify({ tipo: 'actualizarUsuario', nombre, contrasena, nuevaContrasena })
     });
 }
-    ///////////////
     function iniciarJuego(scene){
 		scene.scene.start('SceneSelectCh')
 	}
