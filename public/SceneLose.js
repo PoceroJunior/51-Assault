@@ -41,8 +41,9 @@ class SceneLose extends Phaser.Scene{
         this.exitButton.setInteractive();
         //interaccion del boton de salida
         this.exitButton.on ('pointerdown', () => {
+			this.scene.start ("SceneMenu");
             this.buttonsound6.play(botonConfig6);
-            this.scene.start('SceneMenu');
+
         });
 
     }

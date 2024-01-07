@@ -87,7 +87,6 @@ class HUDScene extends Phaser.Scene {
                 tiempoRestante = "0:00";
             } else {
                 self.tiempo -=1; // Reducir el tiempo
-                guardartiempo(self.tiempo);
                 self.timeText.setText(self.formatTiempo()); // Actualizar el texto en cada iteración
             }
         }, this.reloj);

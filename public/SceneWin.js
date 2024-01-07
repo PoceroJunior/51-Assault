@@ -43,9 +43,9 @@ class SceneWin extends Phaser.Scene{
         this.exitButton.setInteractive();
         //interaccion del boton de salida
         this.exitButton.on ('pointerdown', () => {
+			this.scene.start ("SceneMenu");
             this.buttonsound5.play(botonConfig5);
-            this.scene.start('SceneMenu');
-            this.scene.stop('SceneGame');
+            
         });
 
     }

@@ -93,11 +93,18 @@ class SceneMenu extends Phaser.Scene{
         }
 
         //interaccion de los botones...
-        this.startButton.on ('pointerdown', () => {
-            this.scene.start('SceneLogin');
+        this.startButton.on('pointerdown', () => {
             this.buttonsound.play(botonConfig);
 
+            if (this.scene.get('SceneLogin').isLoggedIn) {
+                // Si el usuario ha iniciado sesión, va directamente a la pantalla de selección de personaje
+                this.scene.start('SceneSelectCh');
+            } else {
+                // Si el usuario no ha iniciado sesión, muestra la pantalla de login
+                this.scene.start('SceneLogin');
+            }
         });
+        
         this.optionButton.on ('pointerdown', () => {
             this.scene.start('SceneOptions');
             this.buttonsound.play(botonConfig);
