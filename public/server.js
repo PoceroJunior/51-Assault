@@ -4,7 +4,7 @@ const app = express();
 const http = require('http').Server(app);
 
 // Configuracion para servir archivos estaticos desde la carpeta 'public'
-app.use(express.static(__dirname + '/public')); 
+app.use(express.static(__dirname + '/public'));
 
 // Ruta para servir el archivo HTML en la ruta raiz
 app.get('/', (req, res) => {
