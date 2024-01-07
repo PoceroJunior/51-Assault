@@ -13,7 +13,10 @@
 
 <body>
 
+    <script src="https://cdn.socket.io/4.1.2/socket.io.min.js"></script>
+
     
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
     <script type="text/javascript" src="/phaser.min.js"></script>
     <script type="text/javascript" src="/SceneLogin.js"></script>
@@ -44,6 +47,18 @@
             document.getElementById('mensaje').innerText = mensaje;
         });
     </script>
+<!--////////////////////////////////////////////////////-->
+<!-- Incluye la biblioteca de Socket.io -->
+<script src="https://cdn.socket.io/4.1.2/socket.io.min.js"></script>
+
+<!-- Tu otro código JavaScript -->
+<script>
+  // Conéctate al servidor Socket.io
+  const socket1 = io();
+
+  // Ahora puedes escuchar eventos y emitir mensajes desde el cliente
+</script>
+<!--////////////////////////////////////////////////////-->
 
     <!--Fin de parte de Websockets-->
 
