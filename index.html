@@ -2,23 +2,15 @@
 <html> 
     <meta charset = "UTF-8">
    
-<head>
-    
+<head>   
     <link rel="stylesheet" href="/WebStyle.css">
     <title> 51-Assault </title>
-     
-
- 
 
 </head>
 
 <body>
 
     <script src="https://cdn.socket.io/4.1.2/socket.io.min.js"></script>
-
-    
- 
-
     <script type="text/javascript" src="/phaser.min.js"></script>
 
    <!-- Se agrega el script de Socket.io -->
@@ -27,7 +19,8 @@
 <script>
   const socket2 = io('http://localhost:3000'); 
 
-  socket.on('chat', (data) => {
+  
+  socket.on('chat', (data) => { //pone por consola "Mensaje recibido:" y su dato cuando se produzca el evento 'chat' 
     console.log('Mensaje recibido:', data);
     
   });

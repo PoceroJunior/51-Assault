@@ -135,9 +135,9 @@ class SceneGame extends Phaser.Scene {
    //#region FUNCIONES DE MUERTE Y GAMEOVER
    GameOverManager(){
     console.log ("Entrando a GameOverManager...")
+    this.shutdown();
     this.scene.stop("SceneGame");
     console.log ("Salimos de SceneGame")
-    this.liberarTeclas();
     this.input.keyboard.enabled = true;
 
     this.scene.start("SceneLose");
@@ -158,7 +158,7 @@ EnemyDeath(player, enemy){
 
     if(enemy.isAlive())
     {
-    enemy.takeDamage(player.attack);
+        enemy.takeDamage(player.attack);
     }
     else{
         enemy.die();
@@ -169,7 +169,7 @@ PlayerDeath(player, enemy){
 
     if(player.isAlive() == true)
     {
-    player.takeDamage(enemy.attack);
+        player.takeDamage(enemy.attack);
     }
     if(player.isAlive()== false){
         this.GameOverManager();
@@ -233,16 +233,16 @@ addWebSocketListeners() {
 
 update(){
     
-// Se envía la posición del jugador al servidor
-if (this.player1.isAlive()) {
-    this.socket.send(JSON.stringify({
-        type: "updatePosition",
-        playerID: 1,
-        x: this.player1.x,
-        y: this.player1.y
-    }));
-}
-
+    this.addWebSocketListeners();
+    // Se envía la posición del jugador al servidor
+    if (this.player1.isAlive()) {
+        this.socket.send(JSON.stringify({
+            type: "updatePosition",
+            playerID: 1,
+            x: this.player1.x,
+            y: this.player1.y
+        }));
+    }
 
     this.cuatroDedos.trackClosestPlayer(this.player1,this.player2);//tracking del cuatroDedos
 
@@ -523,8 +523,6 @@ updateOtherPlayerPosition(playerID, x, y) {
         otherPlayer.setPosition(x, y);
     }
 }
-
-
 
 }
 
