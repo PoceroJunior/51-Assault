@@ -8,6 +8,4 @@ function post(player, message) {
       socket.emit('get', { index: i.toString() }); // Emitir el evento 'get' con el índice
     }
   }
-  //aqui habría que añadir tambien los eventos delete y put...
-  
   
