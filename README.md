@@ -360,17 +360,28 @@ Por último, debemos abrir nuestro navegador y copiar el siguiente enlace: http:
 ~~~
 
 ## 12. Websockets
-~~~
-Se ha implementado la conexión online mediante websockets. El servidor ha sido creado en el lenguaje Java, y la parte del cliente se ha programado en Javascript, especificando las funcionalidades que serán visiblemente compartidas entre clieentes.
+
+Se ha implementado la conexión online mediante websockets. El servidor ha sido creado en el lenguaje Java, y la parte del cliente se ha programado en Javascript, especificando las funcionalidades que serán visiblemente compartidas entre clientes.
+
 He aquí la lista con las mecánicas transmitidas mediante los websockets:
--Las posiciones de los jugadores.
--Las posiciones de las armas.
--El ataque y animación de las armas.
--La animación de movimiento de los personajes.
--Posición de los enemigos.
--Si los enemigos están vivos o muertos.
--La vida de cada uno de los jugadores.
-~~~
+  <p align="center">
+    
+- Las posiciones de los jugadores.
+    
+- Las posiciones de las armas.
+  
+- El ataque y animación de las armas.
+  
+- La animación de movimiento de los personajes.
+  
+- Posición de los enemigos.
+  
+- Si los enemigos están vivos o muertos.
+  
+- La vida de cada uno de los jugadores.
+  
+  </p>
+
 
 ## 13. Equipo de desarrollo
 <p align="center">
