@@ -359,7 +359,20 @@ Aquí encontraremos el archivo "ServidorApplication.java", la cual debemos selec
 Por último, debemos abrir nuestro navegador y copiar el siguiente enlace: http://localhost:8080/index.html
 ~~~
 
-## 12. Equipo de desarrollo
+## 12. Websockets
+~~~
+Se ha implementado la conexión online mediante websockets. El servidor ha sido creado en el lenguaje Java, y la parte del cliente se ha programado en Javascript, especificando las funcionalidades que serán visiblemente compartidas entre clieentes.
+He aquí la lista con las mecánicas transmitidas mediante los websockets:
+-Las posiciones de los jugadores.
+-Las posiciones de las armas.
+-El ataque y animación de las armas.
+-La animación de movimiento de los personajes.
+-Posición de los enemigos.
+-Si los enemigos están vivos o muertos.
+-La vida de cada uno de los jugadores.
+~~~
+
+## 13. Equipo de desarrollo
 <p align="center">
   <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/7b877746-218d-4715-8c01-6705d83c5e59" width= '300' height='300'/>
 </p>
@@ -371,7 +384,7 @@ El estudio Zepol Game Studios está conformado por:
 - Sonia Montero Nogales
 - Elena Milara Mencía
 
-## 13. Anexo y referencias
+## 14. Anexo y referencias
 - (s.f.). GitHub: Let’s build from here · GitHub. https://github.com/dsaltares/sion-tower/blob/master/doc/gdd/gdd.pdf
 
 - poncle. (2022). Vampire Survivors [Videojuego]. https://store.steampowered.com/app/1794680/Vampire_Survivors/
