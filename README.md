@@ -341,7 +341,7 @@ El ataque y vida de los enemigos están ligados a su tipo, así como su forma de
 ## 10. Diagrama de clases y API REST
 A continuación se muestra el diagrama de clases de la aplicación
 <p align="center">
-  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/73e8da92-f02e-4ce8-a182-80e316b6c89b" width= '500' height='300'/>
+  <img src="ttps://github.com/PoceroJunior/51-Assault/assets/100695225/0bbbbba8-61a6-46d2-9057-35387a506658" width= '500' height='300'/>
 </p>
 
 ## 11. Instrucciones precisas para ejecutar la aplicación
