@@ -354,7 +354,7 @@ Para abrir el servidor desde spring tenemos que seleccionar esta carpeta como di
 Luego debemos desplegar la carpeta "51-Assault" > "src/main/java" > "com.example.demo"
 
 Aquí encontraremos el archivo "ServidorApplication.java", la cual debemos seleccionar con el click derecho del ratón, y seleccionar entre el menu de opciones que se despliega
-"Run As..." > "Java Application".
+"Run As..." > "Spring Boot Application".
 
 Por último, debemos abrir nuestro navegador y copiar el siguiente enlace: http://localhost:8080/index.html
 ~~~
