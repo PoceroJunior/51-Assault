@@ -1,0 +1,238 @@
+
+
+let player1HaSeleccionado = false;
+let player2HaSeleccionado = false;
+
+var player1 = { x: 0, y: 0, flipX: false }; // Inicialización predeterminada
+var player2 = { x: 0, y: 0, flipX: false }; // Inicialización predeterminada
+
+var weapon1 = { x: 0, y: 0, flipX: false }; // Inicialización predeterminada
+var weapon2 = { x: 0, y: 0, flipX: false }; // Inicialización predeterminada
+
+
+let host;
+let connection;
+
+
+var enemies;
+
+
+function CreateWebSocket() {
+    const serverUrl = 'ws://' + location.host + '/user';
+    connection = new WebSocket(serverUrl);
+
+
+    connection.onopen = function() {
+        console.log('Estableciendo conexion');
+    };
+    connection.onerror = function(e) {
+        console.log('WS error: ' + e);
+    };
+    connection.onmessage = function(data) {
+        info = JSON.parse(data.data);
+        console.log('enviando mensaje');
+        if (info.ishost == 1) {
+            host = 1;
+        } else if (info.ishost == 0) {
+            host = 0;
+        } else if (host == 1) {
+			console.log('Mensaje del Host 1:', info); // Aquí puedes ver el mensaje del Host 1
+            J1message(info);
+        } else if (host == 0) {
+            J2message(info);
+        }
+    };
+    connection.onclose = function() {
+        console.log('WS Conexion cerrada');
+    };
+
+    function J1message(info) {
+		player2HaSeleccionado = info.ready;
+		
+		if(player1HaSeleccionado && player2HaSeleccionado){
+        // se pasa la informacion (hay que añadir las condiciones necesarias tambien)
+        player2.x = info.x;
+        player2.y = info.y;
+        player2.flipX = info.flipX;
+        weapon2.x = info.weaponX;
+        weapon2.y = info.weaponY;
+        weapon2.flipX = info.flipWeapon;
+		//weapon2.play(info.CaCAnimation, true);
+		atacando2 = info.atacando2;
+		pausa = info.pausa;
+		salirPausa = info.salirPausa;
+		}
+    }
+
+    function J2message(info) {
+		player1HaSeleccionado = info.ready;
+		if(player1HaSeleccionado && player2HaSeleccionado){
+        // se pasa la informacion (hay que añadir las condiciones necesarias tambien)
+        player1.x = info.x;
+        player1.y = info.y;
+        player1.flipX = info.flipX;
+        weapon1.x = info.weaponX;
+        weapon1.y = info.weaponY;
+        weapon1.flipX = info.flipWeapon;
+        //weapon1.play(info.CaCAnimation, true);
+        atacando1 = info.atacando1;
+        pausa = info.pausa;
+        salirPausa = info.salirPausa;
+		}
+    }
+}
+class SceneSelectCh extends Phaser.Scene{
+    constructor(){
+        super ({ key: 'SceneSelectCh'});
+    }
+    preload(){
+        //Imagenes
+        this.load.image ('backgroundSelect', "Assets/Interface/player-selection/pixil-frame-0.png");
+        this.load.image ('pj1', "Assets/Interface/player-selection/character1-selection.png");
+        this.load.image ('pj2', "Assets/Interface/player-selection/character2-selection.png");
+        this.load.image ('salirButton', "Assets/Interface/player-selection/atras-button.png");
+        this.load.image ('iniciarButton', "Assets/Interface/login/iniciar-button.png");
+
+        //Sonidos
+        this.load.audio("audioboton4", ["Assets/Interface/Sounds/HiHatBoton.ogg", "Assets/Interface/Sounds/HiHatBoton.mp3"])
+
+        // detecta tecla F11
+        this.input.keyboard.on('keydown-F11', () => {
+        this.setFullScreen();
+        });
+    
+    }
+    create() {
+		
+	CreateWebSocket();
+	console.log(host);
+        this.scene.get('SceneLogin').removeTextInputs();
+        //boton...
+        var botonConfig4 = {
+            mute: false,
+            volume: 0.1,
+            rate: 1,
+            detune: 0,
+            seek: 0,
+            loop: false,
+            delay: 0
+        }
+        this.buttonsound4 = this.sound.add("audioboton4");
+
+        //imagen de fondo...
+        this.background = this.add.image(395,270, 'backgroundSelect');
+        this.background.setScale(1.65, 2);
+
+		//Boton iniciar
+		this.iniciarButton = this.add.image(395, 270, 'iniciarButton')
+		this.iniciarButton.setScale(1.6);
+		this.iniciarButton.setInteractive();
+
+
+
+        //boton de salida.
+        this.exitButton = this.add.image(100,500, 'salirButton');
+        this.exitButton.setScale(1.5);
+        this.exitButton.setInteractive();
+        
+        
+        
+        //interaccion con los distintos botones...
+        this.exitButton.on ('pointerdown', () => {
+            this.buttonsound4.play(botonConfig4);
+            connection.close();
+            this.scene.start('SceneMenu');
+            
+        });
+        this.iniciarButton.on('pointerdown', () => {
+            if (host == 1) {
+                player1HaSeleccionado = true;
+                connection.send(
+			JSON.stringify({ 
+				ready: player1HaSeleccionado,
+				x: player1.x ,
+				y: player1.y,
+				flipX: player1.flipX,
+				weaponX: weapon1.x,
+				weaponY: weapon1.y,
+				flipWeapon: weapon1.flipX,
+				//CaCAnimation: "Acac1",
+				pausa: pausa,
+				salirPausa: salirPausa
+			 })
+			);
+                this.pj1Button = this.add.image(395, 270, 'pj1');
+                this.pj1Button.setScale(1.6);
+                this.mostrarMensaje("Buscando partida...", "#FF0000");
+
+                console.log(player1HaSeleccionado, player2HaSeleccionado, host);
+                
+
+            } if (host == 0) {
+                player2HaSeleccionado = true;
+                connection.send(
+			JSON.stringify({ 
+				ready: player2HaSeleccionado,
+				x: player2.x,
+				y: player2.y,
+				flipX: player2.flipX,
+				weaponX: weapon2.x,
+				weaponY: weapon2.y,
+				flipWeapon: weapon2.flipX,
+				//CaCAnimation: "Acac2",
+				pausa: pausa,
+				salirPausa:salirPausa
+				 })
+				 );
+                this.pj2Button = this.add.image(395, 270, 'pj2');
+                this.pj2Button.setScale(1.6);
+                this.mostrarMensaje("Buscando partida...", "#FF0000");
+
+                console.log(player1HaSeleccionado, player2HaSeleccionado, host);
+                
+            }
+        });
+    }
+    
+    
+    update(){
+		     
+		if (player2HaSeleccionado && player1HaSeleccionado) {
+			this.mostrarMensaje("Has encontrado partida", "#00FF00")
+			
+    // Esperar 2 segundos antes de iniciar la escena SceneLoading
+    this.time.delayedCall(2000, () => {
+        this.scene.start('SceneLoading');
+    }, [], this);
+}
+}
+
+    //Si detecta la tecla F11, pone/quita la pantalla completa
+    setFullScreen() {
+        const gameCanvas = this.sys.canvas;
+    
+        if (gameCanvas.requestFullscreen) {
+            try {
+                gameCanvas.requestFullscreen();
+            } catch (error) {
+                console.error('Error al solicitar pantalla completa:', error);
+            }
+        }
+    }
+    
+    mostrarMensaje(mensaje, color) {
+    // Elimina el mensaje anterior si existe
+    if (this.mensajeText) {
+        this.mensajeText.destroy();
+    }
+
+    const centerX = this.game.config.width / 2;
+    const centerY = this.game.config.height / 2 - 150;
+
+    // Crea un nuevo texto con el mensaje y color proporcionados
+    this.mensajeText = this.add.text(centerX, centerY, mensaje, {
+        font: "20px Arial",
+        fill: color,
+    }).setOrigin(0.5);
+}
+}

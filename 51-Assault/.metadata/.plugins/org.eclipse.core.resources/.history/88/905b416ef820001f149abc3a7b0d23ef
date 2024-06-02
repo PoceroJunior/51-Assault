@@ -1,0 +1,245 @@
+package com.example.demo;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+
+@RestController
+@RequestMapping("/usuarios")
+public class UsuarioController {
+
+    private static List<Usuario> listaUsuarios = new ArrayList<>();
+    private static long contadorId = 0;
+    private static long contador = 0;
+    
+
+    /*@GetMapping("/{userId}")
+    public ResponseEntity<String> getUserById(@PathVariable Long userId) {
+        Usuario usuario = obtenerUsuarioPorId(userId);
+
+        if (usuario != null) {
+            String mensaje = "ID: " + usuario.getId() +
+                             ", Nombre: " + usuario.getNombre() +
+                             ", Contraseña: " + usuario.getContrasena();
+
+            return ResponseEntity.ok("Información del usuario: " + mensaje);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado");
+        }
+    }*/
+
+    @PostMapping("/register")
+    public ResponseEntity<String> registerUser(@RequestBody Usuario nuevoUsuario) {
+        // Agregar lógica para guardar el nuevo usuario en la lista o en la base de datos.
+        nuevoUsuario.setId(contadorId++);
+
+        listaUsuarios.add(nuevoUsuario);
+        saveInFile(nuevoUsuario);
+
+        return ResponseEntity.ok("Usuario registrado exitosamente");
+    }
+    
+    private void saveInFile(Usuario usuario) {
+        try (FileWriter writer = new FileWriter("usuarios.txt", true)) {
+        	//writer.write(usuario.getNombre() + " " + usuario.getContrasena().hashCode() + "\n");
+            writer.write(usuario.getNombre() + " " + usuario.getContrasena() + "\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> loginUser(@RequestBody Usuario usuario) {
+    	if (verificarLogin(usuario.getNombre(), usuario.getContrasena())) {
+            contador = contador + 1;
+            return new ResponseEntity<>("Inicio de sesión exitoso", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Credenciales incorrectas", HttpStatus.UNAUTHORIZED);
+        }
+    }
+    
+    private boolean verificarLogin(String usuario, String contrasena) {
+        try {
+            List<String> lines = Files.readAllLines(Paths.get("usuarios.txt"));
+            for (String line : lines) {
+                String[] parts = line.split(" ");
+                if (parts.length == 2) {
+                    String storedUsuario = parts[0].trim();
+                    String storedContrasena = parts[1].trim();
+
+                    System.out.println("Stored: " + storedUsuario + " " + storedContrasena);
+                    System.out.println("Provided: " + usuario + " " + contrasena);
+
+                    //Verificar si las credenciales coinciden
+                    if (storedUsuario.equals(usuario) && storedContrasena.equals(contrasena)) {
+                        return true;
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    
+    /*@GetMapping("/all")
+    public ResponseEntity<List<Usuario>> getAllUsers() {
+        return ResponseEntity.ok(listaUsuarios);
+    }
+
+    // Método de ejemplo para obtener un usuario por ID
+    private Usuario obtenerUsuarioPorId(Long userId) {
+        return listaUsuarios.stream()
+                .filter(usuario -> usuario.getId().equals(userId))
+                .findFirst()
+                .orElse(null);
+    }*/
+
+    
+    
+    /*@PutMapping("/cambiarContraseña")
+    public ResponseEntity<String> changePassword(@RequestBody Usuario usuario, @RequestBody String nuevaContrasena) {
+        Usuario usuarioExistente = obtenerUsuarioPorCredenciales(usuario.getNombre(), usuario.getContrasena());
+
+        if (usuarioExistente != null) {
+            usuarioExistente.setContrasena(nuevaContrasena);
+            updateFile();
+
+            return ResponseEntity.ok("Contraseña cambiada exitosamente");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado");
+        }
+    }*/
+
+    
+    /*private Usuario obtenerUsuarioPorCredenciales(String nombre, String contrasena) {
+        return listaUsuarios.stream()
+                .filter(usuario ->
+                        usuario.getNombre().equals(nombre) && usuario.getContrasena().equals(contrasena))
+                .findFirst()
+                .orElse(null);
+        
+    }*/
+    
+    
+    @PutMapping("/cambiarContraseña")
+    public ResponseEntity<String> updatePassword(
+            @RequestParam String nombreUsuario,
+            @RequestParam String contrasena,
+            @RequestParam String nuevaContrasena) {
+
+        Usuario usuario = new Usuario(contadorId, nombreUsuario, contrasena);
+
+        if (updatePasswordInFile(usuario, nuevaContrasena)) {
+            return ResponseEntity.ok("Contraseña actualizada exitosamente");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado en el archivo o la contraseña actual es incorrecta");
+        }
+    }
+
+    // Función para actualizar la contraseña de un usuario en el archivo
+    private boolean updatePasswordInFile(Usuario usuario, String nuevaContrasena) {
+        List<Usuario> usuariosEnArchivo = readUsersFromFile();
+
+        // Iterar sobre la lista de usuarios del archivo
+        Iterator<Usuario> iterator = usuariosEnArchivo.iterator();
+        while (iterator.hasNext()) {
+            Usuario usuarioArchivo = iterator.next();
+            if (usuarioArchivo.getNombre().equals(usuario.getNombre()) &&
+                usuarioArchivo.getContrasena().equals(usuario.getContrasena())) {
+                // Usuario encontrado, actualizar la contraseña y escribir la lista actualizada en el archivo
+                usuarioArchivo.setContrasena(nuevaContrasena);
+                updateFileDelete(usuariosEnArchivo);
+                return true;
+            }
+        }
+        return false; // Usuario no encontrado en el archivo o la contraseña actual es incorrecta
+    }
+    
+    
+    @DeleteMapping("/delete")
+    public ResponseEntity<String> deleteUser(@RequestBody Usuario usuario) {
+        if (deleteUserFromFile(usuario)) {
+            return ResponseEntity.ok("Usuario eliminado exitosamente");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado en el archivo");
+        }
+    }
+    
+    private boolean deleteUserFromFile(Usuario usuario) {
+        List<Usuario> usuariosEnArchivo = readUsersFromFile();
+
+        // Iterar sobre la lista de usuarios del archivo
+        Iterator<Usuario> iterator = usuariosEnArchivo.iterator();
+        while (iterator.hasNext()) {
+            Usuario usuarioArchivo = iterator.next();
+            if (usuarioArchivo.getNombre().equals(usuario.getNombre()) &&
+                usuarioArchivo.getContrasena().equals(usuario.getContrasena())) {
+                // Usuario encontrado, eliminarlo de la lista y actualizar el archivo
+                iterator.remove();
+                updateFileDelete(usuariosEnArchivo);
+                return true;
+            }
+        }
+        return false; // Usuario no encontrado en el archivo
+    }
+    
+    private void updateFileDelete(List<Usuario> usuarios) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("usuarios.txt"))) {
+            for (Usuario usuario : usuarios) {
+                writer.write(usuario.getNombre() + " " + usuario.getContrasena() + "\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace(); // Manejar la excepción en caso de error al escribir en el archivo
+        }
+    }
+
+    // Función para leer la lista de usuarios desde el archivo
+    private List<Usuario> readUsersFromFile() {
+        List<Usuario> usuarios = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader("usuarios.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(" ");
+                if (parts.length == 2) {
+                    String nombre = parts[0];
+                    String contrasena = parts[1];
+                    usuarios.add(new Usuario(contadorId, nombre, contrasena));
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace(); // Manejar la excepción en caso de error de lectura
+        }
+        return usuarios;
+    }
+    
+    @PostMapping("/contador")
+    public ResponseEntity<String> decrementarContadorCierres() {
+    	if (contador>0) {
+        contador--;
+    	}else {
+    	contador = 0;
+    	}
+        return ResponseEntity.ok("Contador de cierres decrementado exitosamente.");
+    }
+
+    // Endpoint para obtener el contador de cierres de ventana
+    @GetMapping("/contador")
+    public ResponseEntity<Long> obtenerContadorCierres() {
+        return ResponseEntity.ok(contador);
+    }
+}
+

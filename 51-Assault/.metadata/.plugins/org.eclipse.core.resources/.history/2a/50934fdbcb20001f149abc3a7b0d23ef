@@ -1,0 +1,159 @@
+
+package com.example.demo;
+import java.io.IOException;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+import org.springframework.web.socket.CloseStatus;
+import org.springframework.web.socket.TextMessage;
+import org.springframework.web.socket.WebSocketSession;
+import org.springframework.web.socket.handler.TextWebSocketHandler;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
+public class WebSocketHandler extends TextWebSocketHandler {
+
+	private ConcurrentHashMap<String, WebSocketSession> sessions = new ConcurrentHashMap<>();
+	/*private ConcurrentHashMap<WebSocketSession, WebSocketSession> games = new ConcurrentHashMap<>();*/
+
+	private ObjectMapper mapper = new ObjectMapper();
+	ObjectNode host = mapper.createObjectNode();
+			
+	//Despues de que se establezca una nueva sesion, sele asigna esta sesion al hashmap sessions
+	@Override
+	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
+		System.out.println("New session: " + session.getId());
+		host.put("ishost","0");
+		if(sessions.isEmpty()) {
+            sessions.put(session.getId(), session);
+            host.put("ishost", "1");
+        }
+        else 
+        { 
+            sessions.put(session.getId(), session); 
+        }
+		
+		System.out.println(sessions.size());
+		host.put("sesionesActivas",""+sessions.size());
+		System.out.println("host:" + host);
+		//envia el mensaje al host
+		session.sendMessage(new TextMessage(host.toString()));
+		
+		//sessions.hashCode();
+		
+		// ¿Cuántas sesiones vamos a permitir?
+		// Controlar que en la partida solo haya dos
+		
+		if (sessions.size() == 2) {
+			System.out.print("Existe la cantidad de sesiones necesarias para empezar la partida");
+			//A lo mejor aqui se hace lo de que si hay dos sesiones se inicia la partida?? No me acuerdo bien si se dijo en la tutoria
+		}
+
+		
+	}
+	
+	//eliminas del hashmap la sesion que se ha desconectado concretamente
+	@Override
+	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
+		System.out.println("Session closed: " + session.getId());
+		sessions.remove(session.getId());
+	}
+	
+	//El más importante, crea un json node y lee el mensaje y llama a send info
+	@Override
+	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws IOException
+    {
+        JsonNode node = mapper.readTree(message.getPayload());
+
+        sendInfo(session, node);
+    }
+		/*if (games.contains(session))  {
+			
+			if(session.getId() == "1") {
+				
+				
+			} else if (session.getId() == "2") {
+				
+			} else {
+				System.out.print("Más de dos sesiones activas");
+			}
+			
+			
+		}*/
+		
+		// IF el mensaje es del 1 --> enviar al 2
+			// enviar 2
+		// Else enviar a 1
+			// enviar al 1
+	
+	//la informacion que tenemos en el servidor (obj object node, si el nodo esta lista y hacemos put con el nombre con el que queremos
+	//guardar y como segundo valor con el valor que queremos introducirle (un get del mensaje)
+	private void sendInfo(WebSocketSession session, JsonNode node) throws IOException {
+		
+		ObjectNode obj = mapper.createObjectNode();
+		//poner cada una de las variables que hay que enviar
+		
+	    if (node.has("ready")) {
+	        obj.put("ready", node.get("ready").asBoolean());
+	    }
+	    if (node.has("x")) {
+	        obj.put("x", node.get("x").asDouble());
+	    }
+	    if (node.has("y")) {
+	        obj.put("y", node.get("y").asDouble());
+	    }
+	    if (node.has("weaponX")) {
+	        obj.put("weaponX", node.get("weaponX").asDouble());
+	    }
+	    if (node.has("weaponY")) {
+	        obj.put("weaponY", node.get("weaponY").asDouble());
+	    }
+	    if (node.has("flipX")) {
+	        obj.put("flipX", node.get("flipX").asBoolean());
+	    }
+	    if (node.has("flipWeapon")) {
+	        obj.put("flipWeapon", node.get("flipWeapon").asBoolean());
+	    }
+	    if (node.has("CaCAnimation")) {
+	        obj.put("CaCAnimation", node.get("CaCAnimation").asText());
+	    }
+	    if (node.has("atacando1")) {
+	        obj.put("atacando1", node.get("atacando1").asBoolean());
+	    }
+	    if (node.has("atacando2")) {
+	        obj.put("atacando2", node.get("atacando2").asBoolean());
+	    }
+	    if (node.has("pausa")) {
+	        obj.put("pausa", node.get("pausa").asBoolean());
+	    }
+	    
+	    if (node.has("salirPausa")) {
+	        obj.put("salirPausa", node.get("salirPausa").asBoolean());
+	    }
+
+		
+		for(WebSocketSession participant : sessions.values()) {
+			
+            if(!participant.getId().equals(session.getId())) {
+                participant.sendMessage(new TextMessage(obj.toString()));
+            }
+        }
+		
+	}
+	
+	
+/*	
+ * NO SE SI HACE FALTA PONER ESTO TAMBIEN
+ * 	@Override
+	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
+		sendOtherParticipants(session, message.getPayload());
+	} 
+ * private void sendOtherParticipants(WebSocketSession session, String payload) throws IOException {
+	for(WebSocketSession participant : sessions.values()) {
+		if(!participant.getId().equals(session.getId())) {
+			participant.sendMessage(new TextMessage(payload));
+		}
+		*/
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="C:\Users\sergi\Desktop\final jer\Servidor\Servidor"/>
+			<item value="C:\Users\Odezm\Desktop\SONIA\UNI\PRACTICAS\3.1.JER\DEF-pract\51-Assault\51Assault\Servidor"/>
+			<item value="C:\Users\Odezm\Desktop\SONIA\UNI\PRACTICAS\3.1.JER\DEF-pract\51-Assault\51Assault"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+</section>

@@ -1,0 +1,644 @@
+var atacando1;
+var atacando2;
+var player1;
+var player2;
+
+class SceneGame extends Phaser.Scene{
+    constructor(){
+        super("SceneGame");
+        this.lastSpawnTime = 0;
+        this.pausa = false;
+
+    }
+    
+    /*
+    #region APUNTES Y DEMAS
+    	Si mal no recuerdo, recibir, solo se recibe una vez, 
+    	pero enviar se envian un JSON por cada cosa que se necesite (pos, vida, etc)
+    #endregion
+    
+     */
+    
+    
+    
+    preload(){
+        // detecta tecla F11
+        this.input.keyboard.on('keydown-F11', () => {
+        this.setFullScreen();
+        });
+    }
+
+    create(){
+        
+
+    	window.addEventListener('beforeunload', function(event) {
+
+            connection.close();
+
+        });
+        
+        // #region VARIABLES GLOBALES Y BASE
+        this.scene.launch("HUDScene");
+        //
+        this.cursorKeys= this.input.keyboard.createCursorKeys();
+        this.keys = this.input.keyboard.addKeys("W,A,S,D,E,Q,SHIFT,J,I,K,L,U,O");
+        //
+        this.background =this.add.tileSprite(0,0,this.game.config.width,this.game.config.height,"background");
+        this.background.setOrigin(0,0);
+        //
+        //#endregion
+
+        //#region JUGADOR 1
+
+        player1 = new Player1 (this, this.game.config.width/2 -64, this.game.config.height/2, "player1");
+
+        weapon1 = this.physics.add.sprite(this.game.config.width/2 -32, this.game.config.height/2, "armacac1");
+        weapon1.setScale(2.5);
+        weapon1.setCollideWorldBounds(true);
+        
+        //#endregion
+
+        //#region JUGADOR 2
+
+        player2 = new Player2 (this, this.game.config.width/2 +64, this.game.config.height/2, "player2");
+
+        weapon2 = this.physics.add.sprite(this.game.config.width/2 +96, this.game.config.height/2, "armacac2");
+        weapon2.setScale(2.5);
+        weapon2.setCollideWorldBounds(true);
+        //#endregion
+          
+        //grupo de jugadores
+        this.players= this.physics.add.group();
+        this.players.add(player1);
+        this.players.add(player2);
+
+        // #region INICIALIZACIÓN SPAWNEO (OLEADA 0)
+
+        //#region funciones aleatorias
+        function getRandomNumber(min, max) {
+            // Genera un número aleatorio entre 0 (inclusive) y 1 (exclusivo)
+            const randomDecimal = Math.random();
+
+            // Ajusta el valor al rango deseado
+            const randomInRange = randomDecimal * (max - min) + min;
+
+            // Redondea al entero más cercano
+            const randomNumber = Math.round(randomInRange);
+
+            return randomNumber;
+        }
+
+        function getRandomNumberWithMargin(min, max, margin) {
+            const side = Phaser.Math.Between(0, 3); // 0: arriba, 1: derecha, 2: abajo, 3: izquierda
+
+            let randomValue;
+
+            switch (side) {
+                case 0:
+                    // Arriba
+                    randomValue = Phaser.Math.Between(min + margin, max - margin);
+                    return { x: randomValue, y: min - margin };
+                case 1:
+                    // Derecha
+                    randomValue = Phaser.Math.Between(min + margin, max - margin);
+                    return { x: max + margin, y: randomValue };
+                case 2:
+                    // Abajo
+                    randomValue = Phaser.Math.Between(min + margin, max - margin);
+                    return { x: randomValue, y: max + margin };
+                case 3:
+                    // Izquierda
+                    randomValue = Phaser.Math.Between(min + margin, max - margin);
+                    return { x: min - margin, y: randomValue };
+                default:
+                    return { x: 0, y: 0 }; // Valor predeterminado en caso de algún problema
+            }
+        }
+        
+        
+
+        //#endregion
+        
+        //Inicializacion de los enemigos
+
+        this.cuatroDedos = new Enemy(this, -10, -10, "cuatroDedos"); 
+        this.cuatroDedos.setEnemyType("cuatroDedos");
+        this.cuatroDedos.setScale(2);
+        this.cuatroDedos.setInteractive();
+
+        this.carroniero = new Enemy(this, 500, -20, "carroniero");
+        this.carroniero.setEnemyType("carroniero");
+        this.carroniero.setScale(2);
+        this.carroniero.setInteractive();
+
+        this.pezLava = new Enemy(this, 300, -30, "pezLava"); 
+        this.pezLava.setEnemyType("pezLava");
+        this.pezLava.setScale(2);
+        this.pezLava.setInteractive();
+        // #endregion
+
+        //grupo de enemigos
+        this.enemies= this.physics.add.group();
+        this.enemies.add(this.cuatroDedos);
+        this.enemies.add(this.carroniero);
+        this.enemies.add(this.pezLava);
+        
+        // Llamada para obtener coordenadas en el borde con un margen de 30 unidades
+        const randomPosition = getRandomNumberWithMargin(0, 790, 30);
+        //Inicializacion de los enemigos
+        /*
+        this.cuatroDedos = new Enemy(this, randomPosition.x, randomPosition.y, "cuatroDedos"); 
+        this.cuatroDedos.setEnemyType("cuatroDedos");
+        this.cuatroDedos.setScale(2);
+        this.cuatroDedos.setInteractive();
+
+        // #endregion
+
+        //grupo de enemigos
+        this.enemies= this.physics.add.group();
+        this.enemies.add(this.cuatroDedos);
+		*/
+        //colisiones
+        this.physics.add.overlap (this.players, this.enemies, this.DeathManager, null, this); 
+    }
+    
+    liberarTeclas() {
+        if (this.keys) {
+            // Eliminar los eventos de las teclas
+            Object.values(this.keys).forEach(tecla => {
+                this.input.keyboard.removeKey(tecla);
+            });
+
+            // Establecer las teclas en null
+            this.keys = null;
+        }
+    }
+
+    //#region daño a los jugadores
+    damagePlayers(player, enemy){ 
+        player.hp = player.hp-enemy.attack; 
+    }
+    //#endregion
+
+    //#region FUNCIONES DE MUERTE Y GAMEOVER
+    GameOverManager(){
+		console.log ("Entrando a GameOverManager...")
+		this.scene.stop("SceneGame");
+		console.log ("Salimos de SceneGame")
+		this.liberarTeclas();
+		this.input.keyboard.enabled = true;
+		player1HaSeleccionado = false;
+        player2HaSeleccionado = false;
+		connection.close();
+        this.scene.start("SceneLose");
+        const hudScene = this.scene.get('HUDScene');
+        hudScene.tiempo = 10000;
+        hudScene.auxiliar = 1.25*60;
+        hudScene.reloj = 10000000;
+        this.scene.stop("HUDScene");
+    }
+    //funciones de prueba
+    DeathManager(player, enemy){
+ 
+        this.PlayerDeath(player, enemy);
+        this.EnemyDeath(player, enemy);
+    }
+    //funciones de prueba
+    EnemyDeath(player, enemy){
+
+        if(enemy.isAlive())
+        {
+        enemy.takeDamage(player.attack);
+        }
+        else{
+            enemy.die();
+        }
+
+    }
+    PlayerDeath(player, enemy){
+
+        if(player.isAlive() == true)
+        {
+        player.takeDamage(enemy.attack);
+        }
+        if(player.isAlive()== false){
+            this.GameOverManager();
+        
+        }
+    }
+    //#endregion
+
+    //#region RESETPOS
+    resetPosX(){
+
+        const sectionWidth = this.game.config.width / 3; // Dividir en 3 secciones
+        const centerX = this.game.config.width / 2;
+        let x;
+
+        do {
+            x = Phaser.Math.RND.between(0, this.game.config.width);
+
+        } while (
+            (x >= centerX - sectionWidth - 100 && x <= centerX + sectionWidth + 100) 
+        );
+        return x;
+    }
+    resetPosY(){
+        const sectionHeight = this.game.config.height / 3;
+        const centerY = this.game.config.height / 2;
+        let y;
+    
+        do {
+            y = Phaser.Math.RND.between(0, this.game.config.height);
+        } while (
+            (y >= centerY - sectionHeight - 100 && y <= centerY + sectionHeight + 100)
+        );
+        return y;
+
+    }
+    //#endregion
+
+    update(){
+        //this.cuatroDedos.trackClosestPlayer(player1,player2);//tracking del cuatroDedos
+		if(atacando1){
+			this.player1Attack();
+			atacando1 = false;
+		}else if (atacando2){
+			this.player2Attack();
+			atacando2 = false;
+		}else{
+			atacando1 = false;
+			atacando2 = false;
+		}
+        //#region function getRandomNumberWithMargin
+        function getRandomNumberWithMargin(min, max, margin) {
+            const side = Phaser.Math.Between(0, 3); // 0: arriba, 1: derecha, 2: abajo, 3: izquierda
+        
+            let randomValue;
+        
+            switch (side) {
+                case 0:
+                    // Arriba
+                    randomValue = Phaser.Math.Between(min + margin, max - margin);
+                    return { x: randomValue, y: min - margin };
+                case 1:
+                    // Derecha
+                    randomValue = Phaser.Math.Between(min + margin, max - margin);
+                    return { x: max + margin, y: randomValue };
+                case 2:
+                    // Abajo
+                    randomValue = Phaser.Math.Between(min + margin, max - margin);
+                    return { x: randomValue, y: max + margin };
+                case 3:
+                    // Izquierda
+                    randomValue = Phaser.Math.Between(min + margin, max - margin);
+                    return { x: min - margin, y: randomValue };
+                default:
+                    return { x: 0, y: 0 }; // Valor predeterminado en caso de algún problema
+            }
+        } 
+        //#endregion
+
+        //#region Control del movimiento del personaje (si está vivo)
+        if (player1.isAlive() && player2.isAlive()){
+            if(this.pausa == false){ //esto es para cuando metamos el menu de pausa. Jugar con esta variable para cuando sea true
+                //los pjs y los enemigos se paren
+            if(host == 1){
+            this.movePlayer1Manager();
+            this.moveWeapon1Manager();
+            connection.send(   
+			//se envia el JSON con la info del jugador 1
+			JSON.stringify({
+				ready: player1HaSeleccionado,
+				x: player1.x ,
+				y: player1.y,
+				flipX: player1.flipX,
+				weaponX: weapon1.x,
+				weaponY: weapon1.y,
+				flipWeapon: weapon1.flipX,
+				CaCAnimation: "Acac1",
+				atacando1: atacando1,
+				pausa: pausa,
+				salirPausa:salirPausa
+				
+				
+			})
+			
+			
+		    );
+		    }
+            
+            if (host == 0){
+            
+            this.movePlayer2Manager();
+            this.moveWeapon2Manager();
+		connection.send(   
+			//se envia el JSON con la info del jugador 2
+			JSON.stringify({
+				ready: player2HaSeleccionado,
+				x: player2.x ,
+				y: player2.y,
+				flipX: player2.flipX,
+				weaponX: weapon2.x,
+				weaponY: weapon2.y,
+				flipWeapon: weapon2.flipX,
+				CaCAnimation: "Acac2",
+				atacando2: atacando2,
+				pausa: pausa,
+				salirPausa:salirPausa
+				
+				
+			})
+			
+			
+		    );
+		}
+            }
+        }
+        //#endregion
+
+/*
+        // #region OLEADA 1
+        const randomPosition = getRandomNumberWithMargin(0, 790, 30);
+        
+        //Spawn carroniero
+        if (this.time.now > 10000 && this.time.now > this.lastSpawnTime + 2000) {
+            this.lastSpawnTime = this.time.now; // Actualiza el tiempo del último spawn
+            // Resto del código de spawn...
+            const randomPosition = getRandomNumberWithMargin(0, 790, 30);
+            this.carroniero = new Enemy(this, randomPosition.x, randomPosition.y, "carroniero");
+            this.enemies.add(this.carroniero);
+            this.carroniero.setEnemyType("carroniero");
+            this.carroniero.setScale(2);
+            this.carroniero.setInteractive();
+            this.carroniero.trackClosestPlayer(player1, player2);
+        }
+        //#endregion
+            */
+		   
+		
+        //#endregion
+
+		this.crearEnemigos();
+        this.updateScoreInHUD(player1.hp,player1.xp,player2.hp,player2.xp);
+
+    }
+    
+
+
+    //#region funciones del personaje 1
+    player1Attack() {
+		weapon1.play("Acac1", true);
+        const attackArea = new Phaser.Geom.Circle(weapon1.x, weapon1.y, 50);
+     
+        this.enemies.getChildren().forEach(enemy => {
+          if (Phaser.Geom.Circle.ContainsPoint(attackArea, enemy)) {
+            enemy.takeDamage(1);
+    
+            if (!enemy.isAlive()) {
+              enemy.die();
+            }
+          }
+        });
+    }
+
+
+    movePlayer1Manager(speed){
+        speed = 140;
+    
+    
+        if (this.keys.A.isDown && player1.x > player1.width / 2) {
+            player1.flipX = true;
+            player1.play("walk1", true);
+            //player1.setVelocityX(-speed);
+            player1.x-=2
+            
+        } else if (this.keys.D.isDown && player1.x < this.game.config.width - player1.width / 2) {
+			
+            player1.flipX = false;
+            player1.play("walk1", true);
+            //player1.setVelocityX(speed);
+            player1.x+=2
+            
+        } else {
+            player1.setVelocityX(0);
+        }
+    
+        if (this.keys.W.isDown && player1.y > player1.height / 1) {
+            player1.play("walk1", true);
+            //player1.setVelocityY(-speed);
+            player1.y-=2
+            
+        } else if (this.keys.S.isDown && player1.y < this.game.config.height - player1.height / 2) {
+            player1.play("walk1", true);
+            //player1.setVelocityY(speed);
+            console.log("Se esta moviendo para abajo")
+            player1.y+=2
+            
+        } else {
+            player1.setVelocityY(0);
+        }
+
+        if (this.keys.E.isDown || this.keys.Q.isDown){
+			atacando1 = true;
+            
+        }
+    
+        // Ajustar la posición si el jugador está a punto de salir
+        player1.x = Phaser.Math.Clamp(player1.x, player1.width*1.2, this.game.config.width - player1.width*1.2);
+        player1.y = Phaser.Math.Clamp(player1.y, player1.height*(78/16), this.game.config.height - player1.height*1.6);
+    }
+
+    moveWeapon1Manager(speed, offset){
+        speed = 140;
+        offset = 32;
+        if (this.keys.A.isDown && weapon1.x > weapon1.width / 2) {
+            weapon1.flipX = true;
+            weapon1.x = (player1.x - offset);
+            //weapon1.setVelocityX(-speed);
+        } else if (this.keys.D.isDown && weapon1.x < this.game.config.width - weapon1.width / 2) {
+            weapon1.flipX = false;
+            weapon1.x = (player1.x + offset);
+            //weapon1.setVelocityX(speed);
+            
+        } else {
+            weapon1.setVelocityX(0);
+        }
+    
+        if (this.keys.W.isDown && weapon1.y > weapon1.height / 1) {
+            //weapon1.setVelocityY(-speed);
+            weapon1.y-=2;
+        } else if (this.keys.S.isDown && weapon1.y < this.game.config.height - weapon1.height / 2) {
+            //weapon1.setVelocityY(speed);
+            weapon1.y+=2;
+        } else {
+            weapon1.setVelocityY(0);
+        }
+
+    
+        // Ajustar la posición del arma si el jugador está a punto de salir
+        weapon1.x = Phaser.Math.Clamp(weapon1.x, weapon1.width*1.2, this.game.config.width - weapon1.width*1.2);
+        weapon1.y = Phaser.Math.Clamp(weapon1.y, weapon1.height*(78/16), this.game.config.height - weapon1.height*1.6);
+    }
+
+    //#endregion
+
+    //#region funciones del personaje 2
+    player2Attack() {
+        const attackArea = new Phaser.Geom.Circle(weapon2.x, weapon2.y, 50);
+     	weapon2.play("Acac2", true);
+        this.enemies.getChildren().forEach(enemy => {
+          if (Phaser.Geom.Circle.ContainsPoint(attackArea, enemy)) {
+            enemy.takeDamage(1);
+    
+            if (!enemy.isAlive()) {
+              enemy.die();
+            }
+          }
+        });
+    }
+
+    movePlayer2Manager(speed) {
+        speed = 140;
+    
+        if (this.keys.A.isDown && player2.x > player2.width / 2) {
+            player2.flipX = true;
+            player2.play("walk2", true);
+            //player2.setVelocityX(-speed);
+            player2.x-=2
+            
+        } else if (this.keys.D.isDown && player2.x < this.game.config.width - player2.width / 2) {
+            player2.flipX = false;
+            player2.play("walk2", true);
+            //player2.setVelocityX(speed);
+            player2.x+=2
+           
+        } else {
+            player2.setVelocityX(0);
+        }
+    
+        if (this.keys.W.isDown && player2.y > player2.height / 2) {
+            player2.play("walk2", true);
+            //player2.setVelocityY(-speed);
+            player2.y-=2
+            
+        } else if (this.keys.S.isDown && player2.y < this.game.config.height - player2.height / 2) {
+            player2.play("walk2", true);
+            //player2.setVelocityY(speed);
+            player2.y+=2
+            
+        } else {
+            player2.setVelocityY(0);
+        }
+    
+        if (this.keys.Q.isDown||this.keys.E.isDown){
+            atacando2 = true;
+        }
+
+        // Ajustar la posición si el jugador está a punto de salir
+        player2.x = Phaser.Math.Clamp(player2.x, player2.width*1.2, this.game.config.width - player2.width*1.2);
+        player2.y = Phaser.Math.Clamp(player2.y, player2.height*(78/16), this.game.config.height - player2.height*1.6);
+    }
+
+    moveWeapon2Manager(speed, offset){
+        speed = 140;
+        offset = 32;
+        if (this.keys.A.isDown && weapon2.x > weapon2.width / 2) {
+            weapon2.flipX = true;
+            weapon2.x = (player2.x - offset);
+            //weapon2.setVelocityX(-speed);
+            
+        } else if (this.keys.D.isDown && weapon2.x < this.game.config.width - weapon2.width / 2) {
+            weapon2.flipX = false;
+            weapon2.x = (player2.x + offset);
+            //weapon2.setVelocityX(speed);
+            
+        } else {
+            weapon2.setVelocityX(0);
+        }
+    
+        if (this.keys.W.isDown && weapon2.y > weapon2.height / 2) {
+            weapon2.y-=2;
+
+        } else if (this.keys.S.isDown && weapon2.y < this.game.config.height - weapon2.height / 2) {
+            weapon2.y+=2;
+
+        } else {
+            weapon2.setVelocityY(0);
+        }
+    
+        // Ajustar la posición del arma si el jugador está a punto de salir
+        weapon2.x = Phaser.Math.Clamp(weapon2.x, weapon2.width*1.2, this.game.config.width - weapon2.width*1.2);
+        weapon2.y = Phaser.Math.Clamp(weapon2.y, weapon2.height*(78/16), this.game.config.height - weapon2.height*1.6);
+    }
+    //Si detecta la tecla F11, pone/quita la pantalla completa
+    setFullScreen() {
+        const gameCanvas = this.sys.canvas;
+    
+        if (gameCanvas.requestFullscreen) {
+            try {
+                gameCanvas.requestFullscreen();
+            } catch (error) {
+            }
+        }
+    }
+
+    //#endregion
+
+
+    //actualizacion del HUD...
+    updateScoreInHUD(health1, exp1, health2, exp2) {
+        // Obtén la escena del HUD y llama a su método para actualizar el puntaje
+        const hudScene = this.scene.get('HUDScene');
+        if (hudScene) {
+            hudScene.updateScore(health1, exp1, health2, exp2);
+        }
+        if (hudScene.tiempo == 0){
+            this.scene.start('SceneWin');
+            hudScene.tiempo = 10000;
+            hudScene.auxiliar = 1.25*60;
+            hudScene.reloj = 10000000;
+            this.scene.stop("HUDScene");
+            player1HaSeleccionado = false;
+            player2HaSeleccionado = false;
+            connection.close()
+        }
+
+
+    }
+    
+
+	
+    shutdown() {
+    // Eliminar las teclas cuando la escena se apague
+    this.liberarTeclas();
+}
+
+	crearEnemigos(){
+		const hudScene = this.scene.get('HUDScene');
+			if (hudScene) {
+            	console.log(hudScene.tiempo)
+            	this.cuatroDedos.setVelocityX(100);
+        		this.cuatroDedos.setVelocityY(100);
+		
+        		if (hudScene.tiempo%5) {
+            		console.log("spawneo bicho")
+            		// Resto del código de spawn...
+            		this.carroniero.setVelocityX(-100);
+            		this.carroniero.setVelocityY(100);
+        		}
+        		if (this.time.now > 8050 && this.time.now > this.lastSpawnTime + 15050) {
+        		// Resto del código de spawn...
+        		    this.pezLava.setVelocityY(-100);
+
+        		}
+	}
+	
+}
+    
+    
+}
+
+
+
+

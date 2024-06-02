@@ -1,0 +1,16 @@
+//ESTO ES UN TXT CON LA ESTRUCTURA DE LOS JSON QUE SE ENVIAN LOS JUGADORES POR MEDIO DEL SERVIDOR
+
+JSON.stringify(
+{
+	ready: BOOL,
+	x: DOUBLE,
+	y: DOUBLE,
+	flipX: BOOL,
+	weaponX: DOUBLE,
+	weaponY: DOUBLE,
+	flipWeapon: BOOL,
+	CaCAnimation: TEXT,
+	atacando1: BOOL,
+	pausa: BOOL,
+	salirPausa:BOOL
+}
