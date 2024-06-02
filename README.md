@@ -56,12 +56,12 @@ Algunos de los videojuegos roguelike de los que se ha tomado inspiración son:
 <p align="center">
   <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/cdbdb680-08d8-4269-97fb-9995b2ab409a" width= '300' height='400'/>
 </p>
-<p align=center>Figura 1.4.6 Carátula del juego “Enter the Gungeon”</p>
+<p align=center>Figura 1.4.5 Carátula del juego “Enter the Gungeon”</p>
 
 <p align="center">
   <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/1a27afa5-2db3-4af6-bd6f-2e6ebd06550f" width= '400' height='300'/>
 </p>
-<p align=center>Figura 1.4.5 Espacio jugable “Enter the Gungeon”</p>
+<p align=center>Figura 1.4.6 Espacio jugable “Enter the Gungeon”</p>
 
 <p align= "center"> <strong>The Binding of Isaac</strong> </p>
 <p align="center">
@@ -124,10 +124,6 @@ Para el escenario se ha decidido implementar una paleta de colores grisáceos-in
 <p align="center">
   <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/1ab06611-854c-4da1-87ef-c45f635c62b6" width= '400' height='300'/>
 </p>
-
-<p align="center">
-  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/1c962f02-f7d0-4fe1-9222-9a0c29d8c44a" width= '500' height='300'/>
-</p>
  <p align=center> Figuras 2.3 Referencia de escenario de Looper</p>
 
 ## 3. Mecánicas de juego
@@ -158,25 +154,25 @@ Algunos de los tipos de recursos obtenibles son:
   Referencia:
 <p align="center">
   <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/2303afdb-0dd6-4c73-b098-f5f2f738f4f0" width= '200' height='200'/>
-
+<p align=center>Figuras 3.5.1 Referencia de escenario de recursos</p>
 - Neko cascos: Por 15 segundos, aumenta la velocidad del movimiento del jugador en un 50% y su velocidad de ataque en un 30%. Durante ese periodo de tiempo se escuchará una canción de una serie anime. Tasa de spawneo: Media
   <p align="center">
   <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/0f407cec-dcf6-4567-80ba-7a9d9afd1b54" width= '200' height='200'/>
 </p>
-
+<p align=center>Figuras 3.5.2 Referencia de escenario de recursos</p>
 #### 3.1.6. Derrota	
 Los jugadores pierden la partida cuando uno de los dos muere; es decir, su vida se reduce a cero puntos de vida.
 <p align="center">
 <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/9362e0b6-f0d6-4ce6-8b16-c1e1aada4fe7"
 </p>
-  
+  <p align=center>Figuras 3.1.6.3 Referencia de escenario de recursos</p>
 #### 3.1.7. Victoria
 Para conseguir superar el nivel, los jugadores precisarán de eliminar a cierta cantidad de enemigos antes de poder finalizar o sobrevivir el tiempo que se indique.
   
 <p align="center">
 <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/0d22f604-6b9a-4843-9d0e-4ad6ece85276"
 </p>
-
+<p align=center>Figuras 3.1.7.1 Referencia de escenario de recursos</p>
 ## 4. Interfaz y flujo de juego
 ### 4.1. Estilo
 Las interfaces del juego están diseñadas para reflejar el apartado artístico del mismo, caracterizado por un estilo moderno e industrial. Los elementos visuales se conformarán con una estética contemporánea, para crear una experiencia visualmente atractiva y coherente con el contexto del juego.
@@ -187,14 +183,14 @@ Los botones se presentarán con un tamaño generoso y una claridad visual notabl
   <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/97834b41-18b7-4ca8-92b7-c0eb375970c8" width= '500' height='300'/>
 </p>
 
-<p align=center>Figuras 4.1 Menú principal del juego</p>
+<p align=center>Figuras 4.1.1 Menú principal del juego</p>
 
 En contraste, la interfaz durante el juego adoptará un enfoque minimalista. Se eliminarán las distracciones visuales innecesarias, permitiendo así que el jugador se sumerja completamente en la experiencia del juego. La información esencial, como el tiempo restante o cualquier otro indicador relevante para la partida en curso, se presentará de forma clara y concisa, garantizando que la atención del jugador esté plenamente centrada en la acción del juego.
 
 <p align="center">
   <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/845a4b6a-d728-4543-800f-e5142bfbb403" width= '400' height='300'/>
 </p>
-<p align=center>Figuras 4.2 UI en partida</p>
+<p align=center>Figuras 4.1.2 UI en partida</p>
 
 ### 4.2 Flujo de pantalla
 Este enfoque meticuloso en el diseño de la interfaz no sólo respetará el estilo artístico del juego, sino que también contribuirá significativamente a la inmersión del jugador, creando una experiencia de juego envolvente y estéticamente coherente.
@@ -215,7 +211,7 @@ Estos estados de las pantallas están reflejados en la siguiente imagen:
 <p align="center">
   <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/da982b24-6d08-4b90-83f0-c14fc2c82777" width= '800' height='600'/>
 </p>
-<p align=center>Figura 4.1 Estados del videojuego</p>
+<p align=center>Figura 4.2 Estados del videojuego</p>
 
 
 ## 5. Niveles de dificultad
@@ -232,6 +228,7 @@ Actualmente la música de 51-Assault no es original si no que es la siguiente ca
 <p align="center">
   <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/2c8e14c0-33b7-4c53-908c-2df73d5f7c64" width= '500' height='100'/>
 </p>
+<p align=center>Figura 7.1 Música del juego</p>
 
 ## 8. Personajes, armas y habilidades
 ### 8.1 Personajes
@@ -241,21 +238,24 @@ La paleta de colores de los 2 personajes jugables serán complementarios, como e
 <p align="center">
   <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/ba9175f1-223b-4f29-a2cd-f6570f55afbc" width= '500' height='150'/>
 </p>
-<p align=center>Figura 7.1 Spritesheet del Jugador 1</p>
+<p align=center>Figura 8.1.1 Spritesheet del Jugador 1</p>
 
 
 <p align="center">
   <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/a2966417-4a82-488a-80eb-6285b374c4bb" width= '500' height='150'/>
 </p>
-<p align=center>Figura 7.3 Spritesheet del Jugador 2</p>
+<p align=center>Figura 8.1.2 Spritesheet del Jugador 2</p>
 
 <p align="center">
   <img src="https://github.com/PoceroJunior/51-Assault/assets/100692877/5f3778aa-a374-45fd-b36a-99d86d38c57a" width= '300' height='300'/>
 </p>
+
+<p align=center>Figura 8.1.3 Personajes principales</p>
+
 <p align="center">
   <img src="https://github.com/PoceroJunior/51-Assault/assets/100692877/435c3b02-c5c4-4164-b9da-b1293a892643" width= '300' height='300'/>
 </p>
-<p align=center>Figura 7.4 Personajes principales</p>
+<p align=center>Figura 8.1.4 Personajes principales</p>
 
 
 ### 8.2 Armas y habilidades
@@ -268,7 +268,7 @@ De cara a futuras implementaciones y dependiendo de con qué tipo de arma juegue
 <p align="center">
   <img src="https://github.com/PoceroJunior/51-Assault/assets/100692877/3ec45934-e790-4c04-9bcd-356748ccf8dd" width= '300' height='300'/>
 </p>
-<p align=center>Figura 8.1 Hacha</p>
+<p align=center>Figura 8.2.1 Hacha</p>
 
 
 - Espada: Arma base a elegir con la que empiezas la partida.
@@ -276,7 +276,7 @@ De cara a futuras implementaciones y dependiendo de con qué tipo de arma juegue
 <p align="center">
   <img src="https://github.com/PoceroJunior/51-Assault/assets/100692877/f012b5f6-c351-419a-81ff-148468594364" width= '300' height='300'/>
 </p>
-<p align=center>Figura 8.2 Espada</p>
+<p align=center>Figura 8.2.2 Espada</p>
 
 ##### A distancia
 - Pistola: Tiene mucha cadencia de tiro pero bajo daño.
@@ -284,7 +284,7 @@ De cara a futuras implementaciones y dependiendo de con qué tipo de arma juegue
   <p align="center">
   <img src="https://github.com/PoceroJunior/51-Assault/assets/100692877/842858db-7e73-45b7-a194-8bbaf938182b" width= '300' height='300'/>
 </p>
-<p align=center>Figura 8.3 Pistola</p>
+<p align=center>Figura 8.3.1 Pistola</p>
 
 
 - Ray Gun: Puede no tener tanta cadencia como la Machine Gun, pero sus proyectiles son muchísimo más letales.
@@ -292,7 +292,7 @@ De cara a futuras implementaciones y dependiendo de con qué tipo de arma juegue
   <p align="center">
   <img src="https://github.com/PoceroJunior/51-Assault/assets/100692877/d57f17d0-b231-428d-845f-2210094b1c91" width= '300' height='300'/>
 </p>
-<p align=center>Figura 8.4 RayGun</p>
+<p align=center>Figura 8.3.2 RayGun</p>
 
 
 ## 9. Enemigos
@@ -309,6 +309,7 @@ El ataque y vida de los enemigos están ligados a su tipo, así como su forma de
   <p align="center">
   <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/4d461806-4afd-4440-9ddf-ebf8cef93902" width= '300' height='300'/>
   </p>
+  <p align=center>Figura 9.1 Cuatro dedos</p>
 
 - Peces de Lava (PV: 6  PD: 2)
   Descripción: Criaturas de lava que están cubiertas por una esfera de vidrio. Por unos orificios que rodean su cápsula, disparan bolas de magma.
@@ -320,7 +321,8 @@ El ataque y vida de los enemigos están ligados a su tipo, así como su forma de
 <p align="center">
   <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/a6d4bb6a-79d7-494c-8757-b1b5dbba81d7" width= '300' height='300'/>
 </p>
-
+  <p align=center>Figura 9.2 Peces de lava</p>
+  
 - Estrellado (PV: 7  PD: 1)
   Descripción: Dispara rayos dorados en cinco direcciones distintas equidistantes. A la vez, lanza proyectiles en forma de estrella hacia el jugador. 
   Trasfondo: Cobran vida de los restos de estrellas fugaces a las que se les ha pedido un deseo. Cada vez que un Estrellado muere, se cumple el deseo con el que fueron creados. 
@@ -331,7 +333,7 @@ El ataque y vida de los enemigos están ligados a su tipo, así como su forma de
 <p align="center">
   <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/89eb0efc-9cfa-472f-874b-212b1bdf4874" width= '300' height='300'/>
 </p>
-
+  <p align=center>Figura 9.3 Estrellado</p>
 - Carroñero (PV: 10  PD: 5)
   Descripción: Alienígena alto y alargado con mandíbulas enormes. Una resistente coraza lo protege de ataques mientras muerde a diestro y siniestro.
   Trasfondo: Los Carroñeros son hambrientas criaturas que habitan en agujeros negros y solo han conocido la materia muerta. Cuando fueron traídos a la Tierra, su voracidad aumentó y sus gustos cambiaron. Ahora solo se conforman con lo que está vivo.
@@ -342,13 +344,15 @@ El ataque y vida de los enemigos están ligados a su tipo, así como su forma de
 <p align="center">
   <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/a15c330d-3d65-414d-8807-da1aeedb4953" width= '300' height='300'/>
 </p>
-
+  <p align=center>Figura 9.4 Carroñero</p>
+  
 ## 10. Diagrama de clases y API REST
 A continuación se muestra el diagrama de clases de la aplicación
 <p align="center">
   <img src="https://github.com/PoceroJunior/51-Assault/assets/100695225/0bbbbba8-61a6-46d2-9057-35387a506658" width= '500' height='300'/>
 </p>
-
+  <p align=center>Figura 10.1 Diagrama de clases</p>
+  
 ## 11. Instrucciones precisas para ejecutar la aplicación
 
 ~~~
@@ -376,7 +380,7 @@ Se ha implementado la conexión online mediante websockets. El servidor ha sido 
 
 He aquí la lista con las mecánicas transmitidas mediante los websockets:
   <p align="center">
-    
+<p align=center>Figura 12.1 Websockets</p>
 - Las posiciones de los jugadores.
     
 - Las posiciones de las armas.
@@ -395,10 +399,6 @@ He aquí la lista con las mecánicas transmitidas mediante los websockets:
 
 
 ## 13. Equipo de desarrollo
-<p align="center">
-  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/7b877746-218d-4715-8c01-6705d83c5e59" width= '300' height='300'/>
-</p>
-
 El estudio Zepol Game Studios está conformado por:
 - Sergio López Llorente
 - Iván Jiménez Blas
