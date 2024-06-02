@@ -349,14 +349,99 @@ El ataque y vida de los enemigos están ligados a su tipo, así como su forma de
 </p>
   <p align=center>Figura 9.4 Carroñero</p>
   
-## 10. Diagrama de clases y API REST
+## 10. Diagrama de clases
 A continuación se muestra el diagrama de clases de la aplicación
 <p align="center">
   <img src="https://github.com/PoceroJunior/51-Assault/assets/100695225/0bbbbba8-61a6-46d2-9057-35387a506658" width= '500' height='300'/>
 </p>
   <p align=center>Figura 10.1 Diagrama de clases</p>
-  
-## 11. Instrucciones precisas para ejecutar la aplicación
+
+## 11. API REST 
+Funcionalidades implementadas
+
+El servidor puede saber en todo momento los clientes que se conectan y desconectan. Los clientes por su lado pueden saber el estado de la conexión del resto de clientes y del servidor en todo momento (P.Ej. visualizar los usuarios conectados). 
+
+La funcionalidad que se ha implementado es un sistema de inicio y registro de sesión, en la que existe una persistencia de datos. La información se almacena en un txt para poder recuperarse en un futuro. De esta manera se demuestra la persistencia de la aplicación. 
+Además, se ha agregado un contador de jugadores conectados para tener un registro de los jugadores que se encuentran en línea en ese momento.
+Controladores
+
+Para empezar, hemos creado dos elementos: un array lista para guardar todos los usuarios que se registren y al que accederemos para ver si pueden loguearse, y una variable tipo “long” para llevar el conteo de jugadores.
+
+· GetMapping
+La opción @GetMapping se usó con la única finalidad de recibir del servidor la variable contador, la cual va aumentando según los jugadores se conectan o, en su defecto, decrementa cuando se desconectan. La función que lo llama es obtenerContadorCierres que devuelve el contador almacenado en el controlador.
+
+· PostMapping
+El @PostMapping se usa varias veces en nuestro controlador para diferentes cosas:
+
+La función LoginUser se encarga de explorar un archivo de tipo .txt en el cual se han almacenado previamente combinaciones de usuario y contraseña. Este procedimiento compara la información de usuario y contraseña proporcionada con los registros existentes. Si se encuentra una correspondencia entre los datos suministrados y los almacenados en el registro, la función emite un mensaje en la consola del sistema indicando "Inicio de sesión exitoso".
+En cambio, si no se encuentra una coincidencia, se muestra el mensaje "Credenciales incorrectas" para notificar que el inicio de sesión no fue exitoso. La función RegisterUser registra un nuevo usuario a la lista existente, asignándole una id única para distinguirlo de los demás registros. Esta adición se realiza mediante el uso de la función saveInFile, la cual añade al nuevo usuario a la lista y almacena esta información en un archivo .txt. En este archivo se guardan tanto el usuario como su correspondiente contraseña, facilitando así su posterior uso en el proceso de inicio de sesión. 
+
+La función DecrementarContadorCierres hace que los jugadores cada vez que cierren su navegador decrementa en 1 el valor de la variable “contador” para llevar la cuenta. En caso de que sea inferior a 0 por algún error, se quedará en 0. Devuelve un mensaje por consola que dice “Contador de cierres decrementado exitosamente”.
+
+· PutMapping
+
+El PutMapping solo tiene un uso en nuestro juego y es analizar el documento donde está la información de los usuarios y cambiar la contraseña de los que quieran hacerlo por otra nueva. 
+Funciona gracias a la función updatePassword que usa de auxiliar otra función llamada updatePasswordInFile, encargada de comparar todos los usuarios y contraseñas del documento con el usuario y contraseña dados.
+En caso de encontrarlo, mantiene el usuario y cambia la contraseña antigua por la nueva proporcionada por el propio usuario.
+
+· DeleteMapping
+
+Al igual que en el anterior, el DeleteMapping funciona gracias a una función llamada deleteUser que usa de auxiliar otra llamada deleteUserFromFile, encargada de comparar el usuario y la contraseña que recibe con todos los usuarios y contraseñas del documento.
+En caso de encontrarlo, elimina ambos del documento y actualiza este con la nueva lista que se crea.
+
+## 12. Websockets
+
+Información Importante de las Funcionalidades:
+
+Funcionalidades que se han llevado a cabo mediante WebSockets:
+
+- Selección de personaje
+- Posición jugadores de jugadores y sus armas, y sus animaciones y “flips”
+- Evento de atacar y animaciones
+- Pulsar el botón de pausa
+- Pulsar el botón de salir
+
+#### Selección de Personaje
+
+Cuando los jugadores han dado a iniciar en la ventana de juego, se establece que se ha seleccionado el personaje correspondiente y se avisa al siguiente jugador que le de a iniciar para que este sea el jugador del otro color.
+
+#### Posición de Jugadores y Armas, y sus Animaciones y “Flips”
+
+Se actualiza la posición de los jugadores y sus armas, así como sus animaciones y “flips” (inversiones horizontales), para asegurar que la información de estado de cada jugador esté sincronizada en los dos clientes conectados.
+
+#### Evento de Atacar y Animaciones
+
+La funcionalidad de ataque permite que los jugadores realicen acciones de ataque, las cuales incluyen animaciones correspondientes. Estas acciones se sincronizan entre los clientes y el servidor.
+
+#### Pulsar el Botón de Pausa
+
+La acción de pausar el juego en la pantalla de uno de los clientes se comunica a través de WebSockets para también se pause en la pantalla del otro cliente. Sería equivalente a darle al botón de play dentro del menú de pausa ya que sería cambiar el valor booleano pasado anteriormente por este websocket de nuevo a “activado” para seguir jugando.
+
+#### Pulsar el Botón de Salir
+
+Similar al botón de pausa. Cuando un jugador decide salir del juego fuerza al otro cliente a también salirse ya que habrá terminado la partida.
+
+## 13. Mejoras fase 5
+
+Botón de guía con los controles del juego
+
+Después de la fase 2 se añadió un botón en el menú que indica los controles del juego y que hacer para ganar y para perder (Explicación breve del juego).
+
+Correcciones en el cronómetro de la Fase 2
+
+Presentando la Fase 2 nos percatamos de que, por cada nueva partida iniciada en la misma sesión, el contador de la partida siempre era más rápido que el de la anterior.
+
+Este problema al solucionarlo nos evitó muchos más problemas para la adaptación de nuestro juego a websockets.
+
+Spawn de enemigos corregido  y mejorado
+
+Al hacer los cambios pertinentes implementando websockets se optó por cambiar y mejorar el spawn de enemigos.
+
+Publicación del juego en itch.io:
+
+
+
+## 14. Instrucciones precisas para ejecutar la aplicación
 
 ~~~
 Instrucciones para la ejecución:
@@ -368,40 +453,17 @@ Para abrir el servidor desde spring tenemos que seleccionar esta carpeta como di
 Luego debemos desplegar la carpeta "51-Assault" > "src/main/java" > "com.example.demo"
 
 Aquí encontraremos el archivo "ServidorApplication.java", la cual debemos seleccionar con el click derecho del ratón, y seleccionar entre el menú de opciones que se despliega
-"Run As..." > "Spring Boot Application".
+"Run As..." > "Spring Boot App".
 
 Para poder entrar al juego, necesitamos saber la ip del ordenador que lanza el servidor. Para esto seleccionamos la ipv4 haciendo la instrucción “ipconfig” en la consola del sistema.
 
 Introduciremos esta misma ip en el espacio “ip” del siguiente enlace y accederemos a dicha página desde nuestro navegador: http://“ip”:8080
 
 También se puede abrir el juego accediendo a esta dirección en el navegador:  http://localhost:8080
+
 ~~~
 
-## 12. Websockets
-
-Se ha implementado la conexión online mediante websockets. El servidor ha sido creado en el lenguaje Java, y la parte del cliente se ha programado en Javascript, especificando las funcionalidades que serán visiblemente compartidas entre clientes.
-
-He aquí la lista con las mecánicas transmitidas mediante los websockets:
-  <p align="center">
-<p align=center>Figura 12.1 Websockets</p>
-- Las posiciones de los jugadores.
-    
-- Las posiciones de las armas.
-  
-- El ataque y animación de las armas.
-  
-- La animación de movimiento de los personajes.
-  
-- Posición de los enemigos.
-  
-- Si los enemigos están vivos o muertos.
-  
-- La vida de cada uno de los jugadores.
-  
-  </p>
-
-
-## 13. Equipo de desarrollo
+## 15. Equipo de desarrollo
 El estudio Zepol Game Studios está conformado por:
 - Sergio López Llorente
 - Iván Jiménez Blas
@@ -409,7 +471,7 @@ El estudio Zepol Game Studios está conformado por:
 - Sonia Montero Nogales
 - Elena Milara Mencía
 
-## 14. Anexo y referencias
+## 16. Anexo y referencias
 - (s.f.). GitHub: Let’s build from here · GitHub. https://github.com/dsaltares/sion-tower/blob/master/doc/gdd/gdd.pdf
 
 - poncle. (2022). Vampire Survivors [Videojuego]. https://store.steampowered.com/app/1794680/Vampire_Survivors/
