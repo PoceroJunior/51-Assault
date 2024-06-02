@@ -124,7 +124,11 @@ Para el escenario se ha decidido implementar una paleta de colores grisáceos-in
 <p align="center">
   <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/1ab06611-854c-4da1-87ef-c45f635c62b6" width= '400' height='300'/>
 </p>
-<p align=center>Figuras 2.3 Referencia de escenario de Looper</p>
+
+<p align="center">
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/1c962f02-f7d0-4fe1-9222-9a0c29d8c44a" width= '500' height='300'/>
+</p>
+ <p align=center> Figuras 2.3 Referencia de escenario de Looper</p>
 
 ## 3. Mecánicas de juego
 En esta sección se entrará en detalle con las mecánicas que se implementaran en el juego *51-Assault*. Se hará hincapié en todos los aspectos jugables de este, como también en las bases fundamentales para cualquier partida típica que se llegue a jugar como la cooperación, la intensidad de nivel, los focos de aparición… Junto a esto, se explicará una lista de enemigos y de personajes jugables con sus respectivas armas, habilidades, objetos, características etc. 
@@ -207,8 +211,9 @@ En lo que respecta a la pantalla del juego, se mostrará el tiempo restante para
 Es importante mencionar que las pantallas de victoria y derrota constituirán dos pantallas diferentes a las cuales el jugador será redirigido según el resultado alcanzado durante el juego. Estas escenas proporcionarán una distinción entre la victoria y la derrota, ofreciendo una experiencia inmersiva para el jugador.
 
 Estos estados de las pantallas están reflejados en la siguiente imagen:
+
 <p align="center">
-  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/d05a81c6-152a-4b46-add1-53fe6b6e5b85" width= '800' height='600'/>
+  <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/da982b24-6d08-4b90-83f0-c14fc2c82777" width= '800' height='600'/>
 </p>
 <p align=center>Figura 4.1 Estados del videojuego</p>
 
