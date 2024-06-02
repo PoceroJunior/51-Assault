@@ -160,12 +160,14 @@ Algunos de los tipos de recursos obtenibles son:
   <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/0f407cec-dcf6-4567-80ba-7a9d9afd1b54" width= '200' height='200'/>
 </p>
 <p align=center>Figuras 3.5.2 Referencia de escenario de recursos</p>
+
 #### 3.1.6. Derrota	
 Los jugadores pierden la partida cuando uno de los dos muere; es decir, su vida se reduce a cero puntos de vida.
 <p align="center">
 <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/9362e0b6-f0d6-4ce6-8b16-c1e1aada4fe7"
 </p>
   <p align=center>Figuras 3.1.6.3 Referencia de escenario de recursos</p>
+  
 #### 3.1.7. Victoria
 Para conseguir superar el nivel, los jugadores precisarán de eliminar a cierta cantidad de enemigos antes de poder finalizar o sobrevivir el tiempo que se indique.
   
@@ -173,7 +175,8 @@ Para conseguir superar el nivel, los jugadores precisarán de eliminar a cierta 
 <img src="https://github.com/PoceroJunior/51-Assault/assets/92980019/0d22f604-6b9a-4843-9d0e-4ad6ece85276"
 </p>
 <p align=center>Figuras 3.1.7.1 Referencia de escenario de recursos</p>
-## 4. Interfaz y flujo de juego
+
+##  4. Interfaz y flujo de juego
 ### 4.1. Estilo
 Las interfaces del juego están diseñadas para reflejar el apartado artístico del mismo, caracterizado por un estilo moderno e industrial. Los elementos visuales se conformarán con una estética contemporánea, para crear una experiencia visualmente atractiva y coherente con el contexto del juego.
 
