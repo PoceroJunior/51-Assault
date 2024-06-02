@@ -347,16 +347,22 @@ A continuación se muestra el diagrama de clases de la aplicación
 ## 11. Instrucciones precisas para ejecutar la aplicación
 
 ~~~
+Instrucciones para la ejecución:
+
 Se creó un proyecto "Spring Starter Web" Tipo Maven y con la función "Spring Web", por ejemplo la llamaremos 51-Assault.
 
 Para abrir el servidor desde spring tenemos que seleccionar esta carpeta como directorio de trabajo y lanzar la aplicación.
 
 Luego debemos desplegar la carpeta "51-Assault" > "src/main/java" > "com.example.demo"
 
-Aquí encontraremos el archivo "ServidorApplication.java", la cual debemos seleccionar con el click derecho del ratón, y seleccionar entre el menu de opciones que se despliega
+Aquí encontraremos el archivo "ServidorApplication.java", la cual debemos seleccionar con el click derecho del ratón, y seleccionar entre el menú de opciones que se despliega
 "Run As..." > "Spring Boot Application".
 
-Por último, debemos abrir nuestro navegador y copiar el siguiente enlace: http://localhost:8080/index.html
+Para poder entrar al juego, necesitamos saber la ip del ordenador que lanza el servidor. Para esto seleccionamos la ipv4 haciendo la instrucción “ipconfig” en la consola del sistema.
+
+Introduciremos esta misma ip en el espacio “ip” del siguiente enlace y accederemos a dicha página desde nuestro navegador: http://“ip”:8080
+
+También se puede abrir el juego accediendo a esta dirección en el navegador:  http://localhost:8080
 ~~~
 
 ## 12. Websockets
