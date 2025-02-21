@@ -1,16 +1,16 @@
 ~~~
-enlace del video de Youtube: https://www.youtube.com/watch?v=Gs-S08Klm6w&ab_channel=ZepolStudios
+Enlace del video de Youtube: https://www.youtube.com/watch?v=Gs-S08Klm6w&ab_channel=ZepolStudios
 ~~~
 # 51 Assault
 *51 Assault es un juego de acción cooperativa en pixel art inspirado en los más recientes éxitos de los juegos roguelike y los hack and slash. Este documento presenta una visión general del proyecto, destacando sus aspectos clave. Combina la acción intensa y la estrategia cooperativa en un entorno pixel art que captura la esencia de la lucha desesperada de la humanidad contra una amenaza alienígena apocalíptica.*
 
 ~~~
 Integrantes:
-- Sergio López Llorente: s.lopezl.2021@alumnos.urjc.es | Usuario Github: ZepolTtv
-- Iván Jiménez Blas: i.jimenezb.2021@alumnos.urjc.es | Usuario Github: StrubleI
-- Alejandro Serrejón Beltrán: a.serrejon.2021@alumnos.urjc.es | Usuario Github: SerreGod
-- Elena Milara Mencía: e.milara.2021@alumnos.urjc.es | Usuario Github: PoceroJunior
-- Sonia Montero Nogales: s.montero.2019@alumnos.urjc.es | Usuario Github: Sonia6u
+- Sergio López Llorente: s.lopezl.2021@alumnos.urjc.es | Usuario Github: SergioZepol (Anteriormente ZepolTtv) | https://github.com/SergioZepol
+- Iván Jiménez Blas: i.jimenezb.2021@alumnos.urjc.es | Usuario Github: StrubleI | https://github.com/StrubleI
+- Alejandro Serrejón Beltrán: a.serrejon.2021@alumnos.urjc.es | Usuario Github: SerreGod | https://github.com/SerreGod
+- Elena Milara Mencía: e.milara.2021@alumnos.urjc.es | Usuario Github: PoceroJunior | https://github.com/PoceroJunior
+- Sonia Montero Nogales: s.montero.2019@alumnos.urjc.es | Usuario Github: Sonia6u | https://github.com/Sonia6u
 ~~~
 
 # 51 Assault: Documento de diseño de videojuego
@@ -442,8 +442,6 @@ Al hacer los cambios pertinentes implementando websockets se optó por cambiar y
 
 Publicación del juego en itch.io: https://aaaaa123456789.itch.io/51-assault
 
-
-
 ## 14. Instrucciones precisas para ejecutar la aplicación
 
 ~~~
@@ -492,15 +490,19 @@ https://www.instagram.com/p/CIx8WFBH2kR/?igshid=1dzog3rit911a
 - penusbmic | pixel artist on Instagram: "Working on some new doods" (sci-fi pack 11). (s.f.). Instagram. https://www.instagram.com/p/CLRjdUJnnJb/?igshid=mxvk1apchjtb&amp;epik=dj0yJnU9VjFnLTlPU2JkNU9yb01oUm9nOUtaWm9qMHViaU11UTQmcD0wJm49S1BNQngyUG9rVi1EUU9mbTdGRGxFdyZ0PUFBQUFBR1Vyd3Rr
 
 - Weiterleitungshinweis. (s.f.). Google. https://www.google.com/url?sa=i&amp;url=https://www.freepik.es/vector-premium/lindo-gato-oreja-auriculares-auriculares-bluetooth-diseno-ilustracion-vectorial_17451473.htm&amp;psig=AOvVaw32QCDTUl0NCQvdBbWpc43a&amp;ust=1697639123808000&amp;source=images&amp;cd=vfe&amp;opi=89978449&amp;ved=0CBEQjRxqFwoTCPj3tNek_YEDFQAAAAAdAAAAABAE
+  
 - Ilustración de la dulzura japonesa dango street food | Vector Premium. (2022, 20 de junio). Freepik. https://www.freepik.es/vector-premium/ilustracion-dulzura-japonesa-dango-street-food_28498398.htm
+  
 - vecteezy. (s.f.). https://es.vecteezy.com/png-gratis/estrella-fugaz.
+  
 - Google-Ergebnis für https://cdn.pixabay.com/photo/2022/02/15/07/46/insect-7014450_1280.png. (s.f.). Google. https://www.google.com/imgres?imgurl=https://cdn.pixabay.com/photo/2022/02/15/07/46/insect-7014450_1280.png&amp;tbnid=qA8X5qg8vKaqcM&amp;vet=12ahUKEwjBxp6Gqf2BAxXTnycCHSCgDIwQMygWegUIARCqAQ..i&amp;imgrefurl=https://pixabay.com/es/vectors/insecto-escarabajo-dibujo-7014450/&amp;docid=D93FZEjTkHwTFM&amp;w=1280&amp;h=711&amp;q=insecto%20dibujo&amp;ved=2ahUKEwjBxp6Gqf2BAxXTnycCHSCgDIwQMygWegUIARCqAQ
+  
 - Equipo Editorial de ExpertoAnimal. (2016, 25 de febrero). Pez dorado - Características, cuidados y salud (con fotos). expertoanimal.com. https://www.expertoanimal.com/carpas/pez-dorado.html
+  
 - Qué es una galaxia y cómo se forman estas “colonias espaciales” - National Geographic en Español. (s.f.). National Geographic en Español. https://www.ngenespanol.com/el-espacio/que-es-una-galaxia-y-como-se-forman-estas-colonias-espaciales/
 
 - Pokemon Rojo Fuego Gameboy Advance Laboratorio Pokémon
 https://pokemon.fandom.com/es/wiki/Laboratorio_del_profesor_Oak
-
 
 - Looper - The Last Mission by Coding4rtist. (s.f.). itch.io. https://coding4rtist.itch.io/looper-the-last-mission
 Sci-fi User Interface by buch415.deviantart.com on @DeviantArt | Pixel art design, Pixel art tutorial, Pixel art games. (s.f.). Pinterest. https://ar.pinterest.com/pin/560276009878561744/
