@@ -6,11 +6,11 @@ Enlace del video de Youtube: https://www.youtube.com/watch?v=Gs-S08Klm6w&ab_chan
 
 ~~~
 Integrantes:
-- Sergio López Llorente: s.lopezl.2021@alumnos.urjc.es | Usuario Github: SergioZepol (Anteriormente ZepolTtv) | https://github.com/SergioZepol
-- Iván Jiménez Blas: i.jimenezb.2021@alumnos.urjc.es | Usuario Github: StrubleI | https://github.com/StrubleI
-- Alejandro Serrejón Beltrán: a.serrejon.2021@alumnos.urjc.es | Usuario Github: SerreGod | https://github.com/SerreGod
-- Elena Milara Mencía: e.milara.2021@alumnos.urjc.es | Usuario Github: PoceroJunior | https://github.com/PoceroJunior
-- Sonia Montero Nogales: s.montero.2019@alumnos.urjc.es | Usuario Github: Sonia6u | https://github.com/Sonia6u
+- Sergio López Llorente: https://github.com/SergioZepol | Usuario Github: SergioZepol (Anteriormente ZepolTtv) | s.lopezl.2021@alumnos.urjc.es
+- Iván Jiménez Blas: Usuario Github: StrubleI | https://github.com/StrubleI | i.jimenezb.2021@alumnos.urjc.es
+- Alejandro Serrejón Beltrán: Usuario Github: SerreGod | https://github.com/SerreGod | a.serrejon.2021@alumnos.urjc.es
+- Elena Milara Mencía: Usuario Github: PoceroJunior | https://github.com/PoceroJunior | e.milara.2021@alumnos.urjc.es
+- Sonia Montero Nogales: Usuario Github: Sonia6u | https://github.com/Sonia6u | s.montero.2019@alumnos.urjc.es
 ~~~
 
 # 51 Assault: Documento de diseño de videojuego
